@@ -59,88 +59,92 @@ PRESENTACIÓN". No se le agregan capas que el profesor no puso.
 
 ```
 Proyecto1DAW/
-├── README.md                  integrantes del grupo
-├── docs/                      esta documentación (no es parte de la app)
-├── app.js                     Express + montaje de los 9 routers
-├── package.json               express, pg, mongodb, dotenv
-├── .env                       puerto y credenciales
-├── .gitignore
-│
-├── db/                        ── PARTE 2 (semana 4)
-│   └── database.js              Pool de pg. Capa de datos.
-│
-├── config/                    ── PARTE 3 (semana 5)
-│   └── mongodb.js               MongoClient + conectarMongoDB()
-│
-├── data/                      ── PARTE 1 (semana 2)
-│   ├── usuarios.txt             usuario;password
-│   ├── lugares.txt              repositorio de la vista 1.1
-│   ├── tours.txt                repositorio de la vista 1.2
-│   └── log.txt                  bitácora exigida por el enunciado
-│
-├── models/                    ── PARTE 1 (semana 2)   ⛔ PENDIENTE 10-sep
-│   ├── usuario.js
-│   ├── lugar.js
-│   └── tour.js
-│
-├── dao/
-│   ├── usuarioDAO.js            s2
-│   ├── lugarDAO.js              s2
-│   ├── tourDAO.js               s2
-│   ├── logDAO.js                s2  (append al .txt)
-│   ├── SitioDAO.js              s5  (clase, MongoDB)
-│   └── ItinerarioDAO.js         s5  (clase, MongoDB)
-│
-├── services/
-│   ├── authService.js           s2
-│   ├── lugarService.js          s2
-│   ├── tourService.js           s2
-│   ├── logService.js            s2
-│   ├── SitioService.js          s5  (clase)
-│   └── ItinerarioService.js     s5  (clase)
-│
-├── controllers/
-│   ├── authController.js        s2
-│   ├── lugarController.js       s2
-│   ├── tourController.js        s2
-│   ├── regionController.js      s4  (pool.query)
-│   ├── destinoController.js     s4  (pool.query + JOIN eager)
-│   ├── operadorController.js    s4
-│   ├── excursionController.js   s4  (pool.query + JOIN eager)
-│   ├── SitioController.js       s5  (clase, static async)
-│   └── ItinerarioController.js  s5  (clase, static async)
-│
-├── routes/
-│   ├── authRoutes.js            s2
-│   ├── lugarRoutes.js           s2
-│   ├── tourRoutes.js            s2
-│   ├── regionRoutes.js          s4
-│   ├── destinoRoutes.js         s4
-│   ├── operadorRoutes.js        s4
-│   ├── excursionRoutes.js       s4
-│   ├── sitioRoutes.js           s5
-│   └── itinerarioRoutes.js      s5
-│
-├── views/
-│   ├── login.html               s2  ⛔ PENDIENTE 10-sep
-│   ├── lugares.html             s2  ⛔ PENDIENTE 10-sep
-│   ├── tours.html               s2  ⛔ PENDIENTE 10-sep
-│   ├── destinos.html            s4
-│   ├── excursiones.html         s4
-│   ├── sitios.html              s5
-│   └── itinerarios.html         s5
-│
-└── public/
-    ├── css/estilos.css          base de s2 + estilos del menú lateral
-    └── js/
-        ├── login.js             s2
-        ├── menu.js              menú lateral + botón de deslogueo
-        ├── lugares.js           s2
-        ├── tours.js             s2
-        ├── destinos.js          s4
-        ├── excursiones.js       s4
-        ├── sitios.js            s5
-        └── itinerarios.js       s5
+├── docs/                           esta documentación
+├── ProyectoP4-PostgreSQL-Grupo-2/  los 2 .sql (Etapa D)
+├── ProyectoP4-MongoDB-Grupo-2/     los 2 .JSON (Etapa F)
+└── ProyectoP4-App-Grupo-2/         LA APLICACIÓN
+    │
+    ├── README.md                  integrantes, arranque, bases de datos
+    ├── app.js                     Express + montaje de los 9 routers
+    ├── package.json               express, pg, mongodb, dotenv
+    ├── .env                       puerto y credenciales
+    ├── .gitignore
+    │
+    ├── db/                        ── PARTE 2 (semana 4)
+    │   └── database.js              Pool de pg. Capa de datos.
+    │
+    ├── config/                    ── PARTE 3 (semana 5)
+    │   └── mongodb.js               MongoClient + conectarMongoDB()
+    │
+    ├── data/                      ── PARTE 1 (semana 2)
+    │   ├── usuarios.txt             usuario;password
+    │   ├── lugares.txt              repositorio de la vista 1.1
+    │   ├── tours.txt                repositorio de la vista 1.2
+    │   └── log.txt                  bitácora exigida por el enunciado
+    │
+    ├── models/                    ── PARTE 1 (semana 2)   ⛔ PENDIENTE 10-sep
+    │   ├── usuario.js
+    │   ├── lugar.js
+    │   └── tour.js
+    │
+    ├── dao/
+    │   ├── usuarioDAO.js            s2
+    │   ├── lugarDAO.js              s2
+    │   ├── tourDAO.js               s2
+    │   ├── logDAO.js                s2  (append al .txt)
+    │   ├── SitioDAO.js              s5  (clase, MongoDB)
+    │   └── ItinerarioDAO.js         s5  (clase, MongoDB)
+    │
+    ├── services/
+    │   ├── authService.js           s2
+    │   ├── lugarService.js          s2
+    │   ├── tourService.js           s2
+    │   ├── logService.js            s2
+    │   ├── SitioService.js          s5  (clase)
+    │   └── ItinerarioService.js     s5  (clase)
+    │
+    ├── controllers/
+    │   ├── authController.js        s2
+    │   ├── lugarController.js       s2
+    │   ├── tourController.js        s2
+    │   ├── regionController.js      s4  (pool.query)
+    │   ├── destinoController.js     s4  (pool.query + JOIN eager)
+    │   ├── operadorController.js    s4
+    │   ├── excursionController.js   s4  (pool.query + JOIN eager)
+    │   ├── SitioController.js       s5  (clase, static async)
+    │   └── ItinerarioController.js  s5  (clase, static async)
+    │
+    ├── routes/
+    │   ├── authRoutes.js            s2
+    │   ├── lugarRoutes.js           s2
+    │   ├── tourRoutes.js            s2
+    │   ├── regionRoutes.js          s4
+    │   ├── destinoRoutes.js         s4
+    │   ├── operadorRoutes.js        s4
+    │   ├── excursionRoutes.js       s4
+    │   ├── sitioRoutes.js           s5
+    │   └── itinerarioRoutes.js      s5
+    │
+    ├── views/
+    │   ├── login.html               s2  ⛔ PENDIENTE 10-sep
+    │   ├── lugares.html             s2  ⛔ PENDIENTE 10-sep
+    │   ├── tours.html               s2  ⛔ PENDIENTE 10-sep
+    │   ├── destinos.html            s4
+    │   ├── excursiones.html         s4
+    │   ├── sitios.html              s5
+    │   └── itinerarios.html         s5
+    │
+    └── public/
+        ├── css/estilos.css          base de s2 + estilos del menú lateral
+        └── js/
+            ├── login.js             s2
+            ├── menu.js              menú lateral + botón de deslogueo
+            ├── lugares.js           s2
+            ├── tours.js             s2
+            ├── destinos.js          s4
+            ├── excursiones.js       s4
+            ├── sitios.js            s5
+            └── itinerarios.js       s5
 ```
 
 **Convención de nombres.** Se respeta la que el profesor explicó en pizarra: archivos que
@@ -148,9 +152,11 @@ representan **una entidad del modelo** van en **singular** (`lugarController.js`
 de colecciones en **plural** (`controllers`, `services`, `routes`). Los archivos de la
 Parte 3 van en `PascalCase` porque así vienen en `Semana6` (`ProductoController.js`).
 
-**Los `.zip` de scripts NO van dentro de `Proyecto1DAW/`.** El enunciado dice que el zip de
-la app lleva *"únicamente las carpetas y archivos respectivos del proyecto de VS Code"*.
-Los scripts se preparan en una carpeta hermana `entregables/`.
+**Cada entregable tiene su propia carpeta dentro de `Proyecto1DAW/`**, con el nombre exacto
+de su `.zip`. La aplicación vive completa dentro de `ProyectoP4-App-Grupo-2/`, así que ese
+zip sale de comprimir esa carpeta y nada más — cumpliendo el *"únicamente las carpetas y
+archivos respectivos del proyecto de VS Code"* del enunciado. `README.md` y `docs/` quedan
+afuera de las tres y no entran en ningún zip.
 
 ---
 
@@ -161,8 +167,8 @@ Los scripts se preparan en una carpeta hermana `entregables/`.
 | 0 | Autenticación | 1 (s2) | `usuarios.txt` | `views/login.html` |
 | 1 | CRUD de Lugares | 1 (s2) | `lugares.txt` | `views/lugares.html` |
 | 2 | CRUD de Tours | 1 (s2) | `tours.txt` | `views/tours.html` |
-| 3 | CRUD Regiones + Destinos | 2 (s4) | PostgreSQL `BDPostgreSQL` | `views/destinos.html` |
-| 4 | CRUD Operadores + Excursiones | 2 (s4) | PostgreSQL `BDPostgreSQL` | `views/excursiones.html` |
+| 3 | CRUD Regiones + Destinos | 2 (s4) | PostgreSQL `proyecto1grupo2` | `views/destinos.html` |
+| 4 | CRUD Operadores + Excursiones | 2 (s4) | PostgreSQL `proyecto1grupo2` | `views/excursiones.html` |
 | 5 | CRUD de Sitios (60 docs, 15 campos) | 3 (s5) | MongoDB `CollMongoDB` | `views/sitios.html` |
 | 6 | CRUD de Itinerarios (120 docs, 25 campos) | 3 (s5) | MongoDB `CollMongoDB` | `views/itinerarios.html` |
 

@@ -80,7 +80,7 @@ Formato exigido por el enunciado: `Fecha – Hora / "Acción Realizada" / Usuari
 
 ---
 
-## PARTE 2 — PostgreSQL `BDPostgreSQL` (semana 4)
+## PARTE 2 — PostgreSQL `proyecto1grupo2` (semana 4)
 
 Cuatro tablas, dos por vista, relacionadas con llave foránea y consultadas con `JOIN`.
 

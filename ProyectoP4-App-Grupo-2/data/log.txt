@@ -1,0 +1,4 @@
+05/09/2026 – 17:50:24 / "Autenticacion correcta" / admin
+05/09/2026 – 17:50:24 / "Autenticacion fallida" / admin
+05/09/2026 – 17:57:22 / "Autenticacion correcta" / guia
+05/09/2026 – 19:07:29 / "Autenticacion correcta" / admin

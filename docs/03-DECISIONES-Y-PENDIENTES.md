@@ -60,15 +60,38 @@ log tiene que acumular. `knowledge/sesion7.md` menciona explícitamente los modo
 `"r"`, `"w"`, `"a"`, `"x"`, `"r+"` y la codificación UTF8 como materia de la clase. Se usa
 `fs.appendFileSync(archivo, linea, "utf8")` — modo `"a"`, mismo módulo `fs`, misma capa DAO.
 
-### A8. Los scripts entregables van fuera de `Proyecto1DAW/`
-El zip de la app lleva "únicamente las carpetas y archivos respectivos del proyecto de VS
-Code". Los `.sql` y los `.JSON` se preparan en `entregables/`, carpeta hermana.
+### A8. Una carpeta por entregable, dentro de `Proyecto1DAW/`
+Tres carpetas, cada una con el nombre exacto de su `.zip`:
 
-### A9. `docs/` vive dentro de `Proyecto1DAW/` pero no es parte de la app
-Es documentación de trabajo del grupo, no código de la aplicación. Por el mismo criterio
-de A8, al armar `ProyectoP4-App-Grupo-2.zip` hay que decidir si se incluye. El contenido
-de `docs/` alimenta el `Grupo-2-Explicacion.pdf`, así que la información no se pierde si
-se excluye. → **Pregunta P7.**
+| Carpeta | Contenido |
+|---|---|
+| `ProyectoP4-App-Grupo-2/` | la aplicación completa |
+| `ProyectoP4-PostgreSQL-Grupo-2/` | los 2 `.sql` (Etapa D) |
+| `ProyectoP4-MongoDB-Grupo-2/` | los 2 `.JSON` (Etapa F) |
+
+Cada `.zip` sale de comprimir su carpeta y nada más, que es lo que pide el enunciado
+("únicamente las carpetas y archivos respectivos"). Del zip de la app solo se excluye
+`node_modules/`.
+
+`docs/` queda fuera de las tres carpetas, así que no entra en ningún zip. El `README.md` del
+proyecto vive dentro de `ProyectoP4-App-Grupo-2/` y sí forma parte de la aplicación.
+
+El `#` del enunciado (`ProyectoP4-App-Grupo-#.zip`) es el marcador del número de grupo, no
+parte del nombre: el ejemplo que da es `ProyectoP4-App-Grupo-1.zip`. Por eso van sin `#`.
+
+**El armado de los `.zip` lo hace el grupo al final**, después de que los compañeros revisen.
+
+### A9. `docs/` es documentación del grupo, no parte de la app
+Vive en `Proyecto1DAW/docs/`, fuera de las tres carpetas de entregables, así que no entra
+en ningún `.zip`. Su contenido alimenta el `Grupo-2-Explicacion.pdf`.
+
+### A10. El usuario de la bitácora viaja desde el navegador
+El enunciado pide que el log lleve el usuario en cada acción, pero sin sesión el servidor
+no sabe quién está autenticado (ver A3). Solución: `public/js/login.js` guarda el usuario
+en `localStorage` al autenticarse, y cada `fetch` lo envía — en el cuerpo JSON para POST y
+PUT, en la cadena de consulta para GET y DELETE. Los controladores lo leen con
+`req.body.usuario` o `req.query.usuario`. Es JavaScript de navegador del mismo nivel que el
+`window.location.href` que ya usa el material.
 
 ---
 
@@ -94,9 +117,19 @@ El enunciado pide "2 archivos en formato `.JSON`, como fue visto en clase". En c
 MongoDB Compass — la herramienta que sí se instaló en clase (`knowledge/sesion5.md`, paso 8).
 → **Pregunta P4.**
 
-### S4. Nombres de la base y la colección
-El enunciado nombra `BDPostgreSQL` y `CollMongoDB`. Se usan tal cual, aunque en clase las
-bases fueron `semana4` y `semana5`.
+### S4. Nombres de las bases de datos — divergencia del enunciado
+Las dos bases se llaman **`proyecto1grupo2`**, por decisión del grupo.
+
+| | Enunciado | Se usa |
+|---|---|---|
+| Base PostgreSQL | `BDPostgreSQL` (línea 141) | `proyecto1grupo2` |
+| Base MongoDB | no la nombra | `proyecto1grupo2` |
+| Colección MongoDB | `CollMongoDB` (líneas 154, 197, 198) | `CollMongoDB` — **sin cambio** |
+
+El nombre de la colección sí se respeta porque el enunciado lo repite tres veces, incluso al
+describir los dos `.JSON` entregables. El de la base de PostgreSQL aparece una sola vez, en
+el título de la Parte 2, y es un nombre local que el profesor cambia al restaurar el script.
+Aun así es una divergencia y hay que confirmarla. → **Pregunta P7.**
 
 ### S5. La Parte 1 no fija cantidad de campos
 Para las Partes 2 y 3 el enunciado dice 8, 15 y 25 campos. Para la Parte 1 solo pide
@@ -179,7 +212,7 @@ ya usa el material → `Buffer.from(base64, "base64")` a `BYTEA` en el controlad
 ### ⛔ P-4 · Instalar y poblar las bases
 
 - **PostgreSQL** — instalado en clase (`knowledge/sesion5.md`, pasos 1 a 18). Falta crear
-  `BDPostgreSQL` y correr los dos scripts.
+  `proyecto1grupo2` y correr los dos scripts.
 - **MongoDB** — instalado en clase (`knowledge/sesion5.md`, LAB PostgreSQL-MongoDB, pasos
   1 a 11), con Compass y `mongosh`. Falta crear la colección `CollMongoDB` e importar los
   dos `.JSON`.
@@ -207,7 +240,7 @@ para la semana de entrega — el enunciado lo pide explícitamente en la indicac
 | **P4** | Los dos archivos `.JSON`, ¿como arreglo para importar desde Compass / `mongoimport`, o como script de `insertMany` para `mongosh`? | S3 |
 | **P5** | El menú lateral con botón de deslogueo no tiene código en el material. ¿Se acepta hacerlo con HTML + CSS + JS de `public/`, con las mismas técnicas de semana 2? | — |
 | **P6** | Sin sesiones en el código de semana 2, ¿se acepta que el bloqueo de acceso sea la redirección del `login.js`, o hay que agregar un mecanismo de sesión? | A3 |
-| **P7** | ¿El `.zip` de la app puede incluir una carpeta `docs/` con la documentación del grupo, o debe llevar solo los archivos de la aplicación? | A9 |
+| **P7** | La base de PostgreSQL se llamó `proyecto1grupo2` en vez de `BDPostgreSQL`. ¿Importa el nombre de la base, o basta con que el script la cree y la app se conecte? | S4 |
 
 ---
 

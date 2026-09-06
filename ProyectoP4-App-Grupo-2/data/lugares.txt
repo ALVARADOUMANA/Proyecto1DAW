@@ -1,0 +1,3 @@
+LUG001;Volcan Poas;Alajuela;Parque Nacional;95
+LUG002;Playa Manuel Antonio;Puntarenas;Playa;98
+LUG003;Monteverde;Puntarenas;Bosque Nuboso;93

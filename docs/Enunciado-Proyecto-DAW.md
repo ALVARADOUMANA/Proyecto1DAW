@@ -220,12 +220,3 @@ Entregar archivo llamado **`Grupo-#-Explicacion.pdf`** (ejemplo: `Grupo-1-Explic
 ---
 
 **¡Éxitos!**
-
-
-# Glosario 
-
-- código de la semana 2 es ProyectoEstudiantes
-
-- código de la semana 4 es S4-SW
-
-- código de la semana 5 es Semana6

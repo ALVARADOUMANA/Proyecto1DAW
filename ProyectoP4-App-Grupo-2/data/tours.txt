@@ -1,0 +1,3 @@
+TUR001;Ascenso al crater;LUG001;4 horas;45
+TUR002;Senderismo y playa;LUG002;6 horas;60
+TUR003;Puentes colgantes;LUG003;3 horas;38
