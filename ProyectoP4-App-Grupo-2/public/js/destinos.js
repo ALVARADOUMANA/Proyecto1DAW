@@ -13,6 +13,14 @@ let listaPadre = [];
 let listaHijo = [];
 
 /*=========================================
+    CARGA EAGER
+    El listado de destinos lo resuelve el servidor
+    con un INNER JOIN, asi que cada fila ya
+    trae las columnas del padre sin pedir nada
+    mas.
+=========================================*/
+
+/*=========================================
     Utilitarios
 =========================================*/
 
@@ -141,8 +149,8 @@ async function cargarRegiones() {
                 "<td>" + valorTexto(fila.descripcion) + "</td>" +
                 celdaImagen(fila.imagen) +
                 "<td>" +
-                "<button onclick=\"editarRegion(" + fila.id_region + ")\">Editar</button>" +
-                "<button onclick=\"eliminarRegion(" + fila.id_region + ")\">Eliminar</button>" +
+                "<button class=\"btn-editar\" onclick=\"editarRegion(" + fila.id_region + ")\">Editar</button>" +
+                "<button class=\"btn-eliminar\" onclick=\"eliminarRegion(" + fila.id_region + ")\">Eliminar</button>" +
                 "</td>";
 
             tabla.appendChild(tr);
@@ -400,13 +408,18 @@ async function cargarDestinos() {
                 "<td>" + (fila.requiere_guia ? "Si" : "No") + "</td>" +
                 celdaImagen(fila.imagen) +
                 "<td>" +
-                "<button onclick=\"editarDestino(" + fila.id_destino + ")\">Editar</button>" +
-                "<button onclick=\"eliminarDestino(" + fila.id_destino + ")\">Eliminar</button>" +
+                "<button class=\"btn-editar\" onclick=\"editarDestino(" + fila.id_destino + ")\">Editar</button>" +
+                "<button class=\"btn-eliminar\" onclick=\"eliminarDestino(" + fila.id_destino + ")\">Eliminar</button>" +
                 "</td>";
 
             tabla.appendChild(tr);
 
         });
+
+        mostrarMensaje(
+            listaHijo.length +
+            " destinos - carga Eager: cada fila ya trae region_nombre y region_pais"
+        );
 
     } catch (error) {
 

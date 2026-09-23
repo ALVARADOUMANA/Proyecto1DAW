@@ -16,7 +16,7 @@ const obtenerDestinos = async (req, res) => {
         /*=========================================
           CARGA EAGER
           El INNER JOIN trae el destino junto con su
-          regione en una sola consulta.
+          region en una sola consulta.
         =========================================*/
 
         const resultado = await pool.query(

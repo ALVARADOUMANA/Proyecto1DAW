@@ -16,7 +16,7 @@ const obtenerExcursiones = async (req, res) => {
         /*=========================================
           CARGA EAGER
           El INNER JOIN trae el excursione junto con su
-          operadore en una sola consulta.
+          operador en una sola consulta.
         =========================================*/
 
         const resultado = await pool.query(

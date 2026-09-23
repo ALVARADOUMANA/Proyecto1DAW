@@ -76,12 +76,23 @@ Los tres puntos que el enunciado exige *"señalar puntualmente"*:
 | Carga **Lazy** | `dao/SitioDAO.js` y `ItinerarioDAO.js` — la proyección que excluye el binario |
 | **Serialización** de imágenes | `decode`/`encode` en los controladores de la Parte 2; `FileReader` en `public/js` |
 
+**Orden para demostrar el Lazy en MongoDB.** Los 180 documentos sembrados vienen con la
+imagen vacía, así que el contraste solo se ve si primero hay una imagen guardada:
+
+1. En Sitios, llenar el formulario, escoger una imagen y darle CREAR.
+2. MOSTRAR TODOS — el mensaje dice *"sin el campo imagen: carga Lazy"*.
+3. Consultar ese documento — aparece la miniatura y el mensaje dice
+   *"documento completo, con imagen"*.
+
+Ese es el punto a señalar: el listado de 60 documentos no carga el binario; solo se trae
+cuando se pide un documento concreto.
+
 ---
 
 ## Si hay chance de preguntarle al profesor
 
 Seis dudas de interpretación del enunciado, ninguna bloquea. Están explicadas en
-`03-DECISIONES.md`, sección D. Las dos que más pesan:
+`03-DECISIONES.md`, sección C. Las dos que más pesan:
 
 - **P2** — ¿el campo de imagen `BYTEA` cuenta dentro de los 8 campos de cada tabla, o son
   8 más la imagen? Se asumió que cuenta.

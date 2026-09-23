@@ -476,8 +476,8 @@ async function mostrarTodos() {
                 "<td>" + valorTexto(itinerario.duracion_dias) + "</td>" +
                 "<td>" + valorTexto(itinerario.precio_adulto) + "</td>" +
                 "<td>" +
-                "<button onclick=\"consultar('" + itinerario._id + "')\">Consultar</button>" +
-                "<button onclick=\"eliminar('" + itinerario._id + "')\">Eliminar</button>" +
+                "<button class=\"btn-editar\" onclick=\"consultar('" + itinerario._id + "')\">Consultar</button>" +
+                "<button class=\"btn-eliminar\" onclick=\"eliminar('" + itinerario._id + "')\">Eliminar</button>" +
                 "</td>";
 
             tabla.appendChild(fila);

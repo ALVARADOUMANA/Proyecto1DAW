@@ -3,8 +3,6 @@
  * Proyecto 1 - EIF509 - Grupo 2
  * Turismo y lugares por visitar
  * ==========================================
- *
- * Patron tomado de: ProyectoEstudiantes/app.js
  */
 
 const express = require("express");

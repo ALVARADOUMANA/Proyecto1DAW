@@ -422,8 +422,8 @@ async function mostrarTodos() {
                 "<td>" + valorTexto(sitio.categoria) + "</td>" +
                 "<td>" + valorTexto(sitio.calificacion) + "</td>" +
                 "<td>" +
-                "<button onclick=\"consultar('" + sitio._id + "')\">Consultar</button>" +
-                "<button onclick=\"eliminar('" + sitio._id + "')\">Eliminar</button>" +
+                "<button class=\"btn-editar\" onclick=\"consultar('" + sitio._id + "')\">Consultar</button>" +
+                "<button class=\"btn-eliminar\" onclick=\"eliminar('" + sitio._id + "')\">Eliminar</button>" +
                 "</td>";
 
             tabla.appendChild(fila);

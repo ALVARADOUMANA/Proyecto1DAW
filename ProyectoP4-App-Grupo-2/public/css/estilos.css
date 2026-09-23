@@ -184,8 +184,7 @@ table tr:nth-child(even){
  
 }
 /*=========================================
-    Menu lateral izquierdo
-    (aparece solo despues de autenticarse)
+    Menu lateral
 =========================================*/
 
 .menu{
@@ -279,9 +278,7 @@ table tr:nth-child(even){
 }
 
 /*=========================================
-    La pagina con menu deja libre la franja
-    del menu y centra el contenido en el
-    resto del ancho.
+    Pagina con menu
 =========================================*/
 
 body.con-menu{
@@ -291,7 +288,7 @@ body.con-menu{
 }
 
 /*=========================================
-    Parte 2 y 3 - controles adicionales
+    Listas, casillas e imagenes
 =========================================*/
 
 select{
@@ -324,34 +321,9 @@ input[type="checkbox"]{
 
 }
 
-.descripcion{
-
-    text-align:center;
-
-    color:#555555;
-
-    margin-bottom:15px;
-
-}
-
-table td button{
-
-    padding:5px 10px;
-
-    font-size:13px;
-
-    margin-right:3px;
-
-}
 
 /*=========================================
-    Vistas con tablas anchas
-    El contenedor de clase mide 700px, que es
-    lo que necesita la tabla de 5 columnas de
-    la semana 2. Las tablas de las partes 2 y 3
-    tienen mas columnas, asi que esas vistas
-    usan "contenedor ancho" y su tabla se
-    desplaza en lugar de salirse.
+    Contenedor ancho
 =========================================*/
 
 .contenedor.ancho{
@@ -368,4 +340,38 @@ table td button{
 
     overflow-x:auto;
 
+}
+
+/*=========================================
+    Botones de las tablas
+=========================================*/
+
+.btn-editar {
+ 
+    background-color: #079cff;
+ 
+    color: black;
+ 
+    margin-right: 5px;
+}
+
+.btn-eliminar {
+ 
+    background-color: #f4a3ab;
+ 
+    color: white;
+}
+
+/*=========================================
+    Subtitulo de la vista
+=========================================*/
+
+.descripcion {
+ 
+    text-align:
+        center;
+ 
+    color:
+        #666;
+ 
 }

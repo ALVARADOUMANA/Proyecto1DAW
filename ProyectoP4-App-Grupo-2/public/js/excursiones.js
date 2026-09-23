@@ -13,6 +13,14 @@ let listaPadre = [];
 let listaHijo = [];
 
 /*=========================================
+    CARGA EAGER
+    El listado de excursiones lo resuelve el servidor
+    con un INNER JOIN, asi que cada fila ya
+    trae las columnas del padre sin pedir nada
+    mas.
+=========================================*/
+
+/*=========================================
     Utilitarios
 =========================================*/
 
@@ -141,8 +149,8 @@ async function cargarOperadores() {
                 "<td>" + valorTexto(fila.calificacion_promedio) + "</td>" +
                 celdaImagen(fila.logo) +
                 "<td>" +
-                "<button onclick=\"editarOperador(" + fila.id_operador + ")\">Editar</button>" +
-                "<button onclick=\"eliminarOperador(" + fila.id_operador + ")\">Eliminar</button>" +
+                "<button class=\"btn-editar\" onclick=\"editarOperador(" + fila.id_operador + ")\">Editar</button>" +
+                "<button class=\"btn-eliminar\" onclick=\"eliminarOperador(" + fila.id_operador + ")\">Eliminar</button>" +
                 "</td>";
 
             tabla.appendChild(tr);
@@ -400,13 +408,18 @@ async function cargarExcursiones() {
                 "<td>" + valorTexto(fila.fecha_salida) + "</td>" +
                 celdaImagen(fila.afiche) +
                 "<td>" +
-                "<button onclick=\"editarExcursion(" + fila.id_excursion + ")\">Editar</button>" +
-                "<button onclick=\"eliminarExcursion(" + fila.id_excursion + ")\">Eliminar</button>" +
+                "<button class=\"btn-editar\" onclick=\"editarExcursion(" + fila.id_excursion + ")\">Editar</button>" +
+                "<button class=\"btn-eliminar\" onclick=\"eliminarExcursion(" + fila.id_excursion + ")\">Eliminar</button>" +
                 "</td>";
 
             tabla.appendChild(tr);
 
         });
+
+        mostrarMensaje(
+            listaHijo.length +
+            " excursiones - carga Eager: cada fila ya trae operador_razon_social y operador_telefono"
+        );
 
     } catch (error) {
 
