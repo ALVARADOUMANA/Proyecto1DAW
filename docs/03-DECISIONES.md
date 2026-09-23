@@ -1,11 +1,11 @@
-# 03 — Decisiones, supuestos y pendientes
+# 03 — Decisiones y supuestos
 
-Tres categorías, y conviene no confundirlas:
+Dos categorías:
 
-- **Decisión** — se resolvió con el material que hay. No bloquea nada.
+- **Decisión** — se resolvió con el material de clase. Cerrada.
 - **Supuesto** — el enunciado admite más de una lectura; se escogió una y se documenta.
-  Vale la pena confirmarlo con el profesor, pero el trabajo avanza.
-- **Pendiente** — falta material o falta clase. **Bloquea.**
+
+Lo que falta por hacer está en `PENDIENTE.md`.
 
 ---
 
@@ -98,6 +98,14 @@ PUT, en la cadena de consulta para GET y DELETE. Los controladores lo leen con
 `req.body.usuario` o `req.query.usuario`. Es JavaScript de navegador del mismo nivel que el
 `window.location.href` que ya usa el material.
 
+### A11. Dos controles de salida, no uno
+El enunciado pide dos cosas distintas: que las vistas de la Parte 1 conserven los botones
+de la semana 2, entre ellos **Salir**, y que el menú tenga su propio **botón de deslogueo**.
+Por eso las vistas de lugares y tours llevan `btnSalir` en la fila de botones y todas las
+vistas llevan `btnSalirMenu` en el menú. Los dos van a `/logout`. Se llaman distinto
+porque conviven en la misma página: `btnSalir` es el de la interfaz de la semana 2 y
+`btnSalirMenu` el del menú que pide el enunciado.
+
 ---
 
 ## B. Supuestos (conviene confirmarlos, pero no bloquean)
@@ -144,75 +152,7 @@ forma que `estudiantes.txt` (una llave, tres de texto, uno numérico validado po
 
 ---
 
-## C. Pendientes — bloquean trabajo
-
-### ✅ P-1 · Modelos y vistas de la semana 2 — entregados
-
-`knowledge/sesion8.md`, pasos 18 a 21: el profesor entregó `models/estudiante.js`,
-`models/usuario.js`, `views/estudiantes.html` y `views/login.html`. `ProyectoEstudiantes`
-quedó completo y con la carpeta `controllers/` ya en plural, que era el defecto 1 de A1.
-
-De ahí salieron los 3 modelos (`Usuario`, `Lugar`, `Tour`, clases con constructor que asigna
-los campos) y las 3 vistas de la Parte 1, cambiando solo los nombres de los campos.
-
-### ✅ P-2 · Carga Eager y Lazy — resuelto con la semana 8
-
-`knowledge/sesion8.md` da la definición del profesor:
-
-> Lazy loading (carga perezosa) · Eager loading (carga ambi. - inmediata)
-> Aparecen o implementan con: **ORM / ODM** — Ejemplos: Sequelize, TypeORM, Mongoose...
-
-Cómo se mapea a lo que pide el enunciado:
-
-| Parte | Tecnología de esa semana | Cómo queda |
-|---|---|---|
-| 2 (semana 4) | driver `pg` crudo, **sin ORM** | **Eager = `INNER JOIN` en la misma consulta.** Padre e hijo en una sola ida a la base, en vez de una consulta por fila (problema N+1). Es el equivalente directo del `include` de un ORM. |
-| 3 (semana 5) | driver `mongodb` con DAO | **Lazy = proyección que excluye el campo binario al listar.** El binario se trae solo en `obtenerPorId`, cuando de verdad se necesita. |
-
-La semana 4 no tiene ORM, así que el JOIN es la única forma de hacer carga anticipada con
-el código de esa semana. Queda señalado en el código con `// ===== CARGA EAGER =====` y
-explicado en la cabecera de `destinoController.js` y `excursionController.js`.
-
-### ✅ P-3 · Serialización de imágenes — confirmado como investigación
-
-`knowledge/sesion8.md`, punto 2: **"Serializar imágenes - investigar"**. El profesor lo dejó
-explícitamente como trabajo de investigación, igual que el enunciado. No hay código de clase
-que copiar y no se esperaba que lo hubiera.
-
-Cómo quedó implementado en la Parte 2:
-
-| Paso | Dónde | Cómo |
-|---|---|---|
-| Leer el archivo | `public/js/destinos.js` → `leerImagen()` | `FileReader.readAsDataURL()` y se toma la parte base64 |
-| Enviar | el mismo `fetch` que ya usaba el material | el base64 viaja como texto dentro del JSON |
-| Guardar | `controllers/*Controller.js` | `decode($n, 'base64')` hacia la columna `BYTEA` |
-| Leer de vuelta | el mismo controlador | `replace(encode(col,'base64'), chr(10), '')` |
-| Mostrar | la vista | `<img src="data:image/*;base64,...">` |
-
-**Detalle que costó encontrar:** `encode()` de PostgreSQL corta el base64 en líneas de 76
-caracteres siguiendo el RFC 2045. Ese salto de línea rompe el `data:` URI, así que hay que
-quitarlo con `replace(..., chr(10), '')`. Sin eso la imagen se guarda bien pero no se
-despliega. Probado: un PNG vuelve de la base con el base64 idéntico al enviado.
-
-### ⛔ P-4 · Instalar y poblar las bases
-
-- **PostgreSQL** — instalado en clase (`knowledge/sesion5.md`, pasos 1 a 18). Falta crear
-  `proyecto1grupo2` y correr los dos scripts.
-- **MongoDB** — instalado en clase (`knowledge/sesion5.md`, LAB PostgreSQL-MongoDB, pasos
-  1 a 11), con Compass y `mongosh`. Falta crear la colección `CollMongoDB` e importar los
-  dos `.JSON`.
-
-Hasta que estén levantadas, las Partes 2 y 3 no se pueden probar de punta a punta.
-
-### ⛔ P-5 · Contenido de los 180 documentos y de las 4 tablas
-
-60 sitios × 15 campos y 120 itinerarios × 25 campos, todos con "datos coherentes y lógicos"
-y con `sitios_incluidos` apuntando a códigos que existan de verdad. Es volumen de datos, no
-código, pero es un bloque de trabajo aparte y hay que reservarle tiempo.
-
----
-
-## D. Preguntas para el profesor
+## C. Preguntas para el profesor
 
 Conviene llevarlas a la hora de consulta (jueves, una hora antes de clase) y no dejarlas
 para la semana de entrega — el enunciado lo pide explícitamente en la indicación 4.
@@ -226,22 +166,4 @@ para la semana de entrega — el enunciado lo pide explícitamente en la indicac
 | **P5** | El menú lateral con botón de deslogueo no tiene código en el material. ¿Se acepta hacerlo con HTML + CSS + JS de `public/`, con las mismas técnicas de semana 2? | — |
 | **P6** | Sin sesiones en el código de semana 2, ¿se acepta que el bloqueo de acceso sea la redirección del `login.js`, o hay que agregar un mecanismo de sesión? | A3 |
 
-### A11. Dos controles de salida, no uno
-El enunciado pide dos cosas distintas: que las vistas de la Parte 1 conserven los botones
-de la semana 2, entre ellos **Salir**, y que el menú tenga su propio **botón de deslogueo**.
-Por eso las vistas de lugares y tours llevan `btnSalir` en la fila de botones y todas las
-vistas llevan `btnSalirMenu` en el menú. Los dos van a `/logout`. Se llaman distinto
-porque conviven en la misma página: `btnSalir` es el de la interfaz de la semana 2 y
-`btnSalirMenu` el del menú que pide el enunciado.
-
 ---
-
-## E. Riesgos de calendario
-
-| Riesgo | Impacto | Cómo se maneja |
-|---|---|---|
-| El código de modelos y vistas llega el 10 de sept | Parte 1 (20 pts) | Todo lo demás de la Parte 1 ya está hecho; solo queda copiar y adaptar nombres de campo |
-| Eager / Lazy / serialización se ven el 10 de sept | 80 pts | Implementación estándar hecha por adelantado; el 10 se contrasta y se ajusta la redacción |
-| 180 documentos de MongoDB | Entregable 3 | Se genera con script y se revisa a mano la coherencia de `sitios_incluidos` |
-| `Grupo-2-Explicacion.pdf` con screenshots de todas las opciones | 15 pts | Se hace **al final**, cuando las 7 vistas corran |
-| Presentación de 10 minutos | 35 pts | Ensayar el recorrido; tener claro dónde señalar Eager, Lazy y la serialización |

@@ -36,7 +36,7 @@ Enunciado: **Parte 1**, 20 pts. Glosario del enunciado: *"código de la semana 2
 | `data/usuarios.txt` | Formato: `usuario;password` |
 | `package.json` | Dependencia única: `express ^5.2.1` |
 
-### Lo que FALTA (bloqueante)
+### Lo que faltaba, entregado el 10 de septiembre
 
 | Archivo | Estado | Consecuencia |
 |---|---|---|
@@ -45,12 +45,8 @@ Enunciado: **Parte 1**, 20 pts. Glosario del enunciado: *"código de la semana 2
 | `views/login.html` | **0 bytes** | `authController.mostrarLogin` lo sirve con `sendFile`. |
 | `views/estudiantes.html` | **0 bytes** | `estudianteRoutes` lo sirve en `GET /estudiantes/pagina`. |
 
-**Confirmación de la fuente** — `knowledge/sesion7.md`, cierre del punto 5:
-
-> `-queda poco: pendiente modelos y vistas, para ser vistos el 10 de septiembre`
-
-La entrega es el **17 de septiembre**. Quedan 7 días de margen entre que el profesor
-entrega ese código y la fecha límite.
+`knowledge/sesion7.md` los anunció y `knowledge/sesion8.md` (pasos 18 a 21) los entregó.
+Hoy `ProyectoEstudiantes` está completo y la carpeta es `controllers/` en plural.
 
 ### Defectos detectados en el material de semana 2
 
@@ -90,7 +86,7 @@ Enunciado: **Parte 2**, 40 pts. Glosario: *"código de la semana 4 es S4-SW"*.
 - Validar `resultado.rows.length === 0` cuando la instrucción no da error pero tampoco hace el CRUD.
 
 **Lo que NO trae semana 4:** joins, tablas relacionadas, ORM, imágenes, carga Eager.
-El enunciado los exige de todas formas (ver `03-DECISIONES-Y-PENDIENTES.md`).
+El enunciado los exige de todas formas (ver `03-DECISIONES.md`).
 
 ⚠️ `db/database.js` trae credenciales de un servidor remoto escritas en duro. En
 `Proyecto1DAW` se usa una conexión local propia.
@@ -153,5 +149,6 @@ y en el bloque tentativo para la semana siguiente:
 |---|---|---|
 | Binario | `BLOB` | **`BYTEA`** |
 
-Consecuencia: **Eager (Parte 2), Lazy (Parte 3) y serialización de imágenes (Partes 2 y 3)
-no tienen código de clase todavía.** Ver `03-DECISIONES-Y-PENDIENTES.md`.
+`knowledge/sesion8.md` cerró los tres: Lazy y Eager *"aparecen o implementan con ORM/ODM"*,
+y sobre las imágenes, *"Serializar imágenes - investigar"*. Cómo quedó resuelto cada uno
+está en `03-DECISIONES.md`.

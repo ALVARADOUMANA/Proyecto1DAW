@@ -5,7 +5,8 @@
 Documentos relacionados:
 - `01-INVENTARIO-MATERIAL.md` — qué código de clase existe y qué falta.
 - `02-MODELO-DE-DATOS.md` — entidades, campos y datos del tema 7.
-- `03-DECISIONES-Y-PENDIENTES.md` — decisiones tomadas, supuestos y preguntas al profesor.
+- `03-DECISIONES.md` — decisiones tomadas, supuestos y preguntas al profesor.
+- `PENDIENTE.md` — lo que falta por hacer antes de entregar.
 - `CHANGELOG.md` — lista de control con `[ ]` de todo lo que hay que hacer.
 
 ---
@@ -26,7 +27,7 @@ Por eso el plan se construye así:
    sueltas y `module.exports = { ... }`; semana 5 con **clases** y métodos `static async`.
    Así el profesor puede ver de un vistazo a qué parte pertenece cada archivo.
 3. Lo que el material no cubre **no se improvisa**: se marca con un comentario
-   `// PENDIENTE:` y queda listado en `03-DECISIONES-Y-PENDIENTES.md`.
+   `// PENDIENTE:` y queda listado en `03-DECISIONES.md`.
 
 ---
 
@@ -283,4 +284,4 @@ desde **los controladores de las tres partes**, no solo de la Parte 1.
 | **J** | Pruebas de las 7 vistas, `Grupo-2-Explicacion.pdf` con screenshots, armado de los 3 `.zip` | todo |
 
 Las etapas **H** e **I** dependen de material que todavía no existe. Todo lo demás puede
-avanzarse desde ya. El detalle está en `03-DECISIONES-Y-PENDIENTES.md`.
+avanzarse desde ya. El detalle está en `03-DECISIONES.md`.

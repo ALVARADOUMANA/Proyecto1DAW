@@ -87,7 +87,7 @@ Cuatro tablas, dos por vista, relacionadas con llave foránea y consultadas con 
 **Conteo de campos.** El enunciado pide *"8 campos (sin contar campos de llaves/relaciones)"*
 y además que **cada tabla** tenga un campo de imagen binaria. Se interpreta que el campo de
 imagen es **uno de los 8**: 7 campos de datos + 1 campo binario. Las llaves (`id_*`) no se
-cuentan. Ver el supuesto en `03-DECISIONES-Y-PENDIENTES.md`.
+cuentan. Ver el supuesto en `03-DECISIONES.md`.
 
 Los 32 nombres de campo de la vista 3 y la vista 4 son **todos distintos entre sí**, como
 exige el enunciado.
@@ -169,7 +169,8 @@ alternativa perezosa sería consultar los destinos y después, por cada fila, un
 extra a `regiones` — el problema N+1. La tabla de la vista muestra la columna del padre sin
 disparar ningún `fetch` adicional, que es la prueba visible de que la carga fue anticipada.
 
-⚠️ Eager todavía no se ha visto en clase. Ver `03-DECISIONES-Y-PENDIENTES.md`.
+La definición del profesor está en `knowledge/sesion8.md`; cómo se mapea a este
+código, en `03-DECISIONES.md`.
 
 ### Imágenes binarias serializadas
 
@@ -192,7 +193,7 @@ enunciado (los dos scripts `.JSON` poblan esa colección).
 Se distinguen **sin agregar campos extra**, por un campo que solo existe en cada forma de
 documento: los sitios tienen `latitud`, los itinerarios tienen `duracion_dias`. El filtro es
 `{ latitud: { $exists: true } }` y `{ duracion_dias: { $exists: true } }`. Así se respeta
-el conteo exacto de 15 y 25 campos. Ver el supuesto en `03-DECISIONES-Y-PENDIENTES.md`.
+el conteo exacto de 15 y 25 campos. Ver el supuesto en `03-DECISIONES.md`.
 
 `_id` lo genera MongoDB y **no se cuenta** como campo, igual que en `Semana6/dao/ProductoDAO.js`.
 
@@ -259,4 +260,5 @@ cuando el usuario consulta un documento concreto, es decir, en el momento en que
 se necesita. Con 120 documentos la diferencia es visible en el tamaño de la respuesta, y esa
 es la demostración que se enseña en la presentación.
 
-⚠️ Lazy todavía no se ha visto en clase. Ver `03-DECISIONES-Y-PENDIENTES.md`.
+La definición del profesor está en `knowledge/sesion8.md`; cómo se mapea a este
+código, en `03-DECISIONES.md`.

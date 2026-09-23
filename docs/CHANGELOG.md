@@ -3,7 +3,8 @@
 **Tema 7: Turismo y lugares por visitar** · Entrega: **17 de septiembre de 2026, antes de las 6 pm**
 
 Documentación del plan, en esta misma carpeta:
-`00-PLAN.md` · `01-INVENTARIO-MATERIAL.md` · `02-MODELO-DE-DATOS.md` · `03-DECISIONES-Y-PENDIENTES.md`
+**`PENDIENTE.md`** — lo que falta ·
+`00-PLAN.md` · `01-INVENTARIO-MATERIAL.md` · `02-MODELO-DE-DATOS.md` · `03-DECISIONES.md`
 
 Leyenda: `[ ]` pendiente · `[x]` hecho · `[⛔]` bloqueado, esperando material o clase
 
@@ -22,7 +23,7 @@ Leyenda: `[ ]` pendiente · `[x]` hecho · `[⛔]` bloqueado, esperando material
 - [x] Escribir `00-PLAN.md`
 - [x] Escribir `01-INVENTARIO-MATERIAL.md`
 - [x] Escribir `02-MODELO-DE-DATOS.md`
-- [x] Escribir `03-DECISIONES-Y-PENDIENTES.md`
+- [x] Escribir `03-DECISIONES.md`
 - [x] Escribir este `CHANGELOG.md`
 - [x] Mover la documentación y el enunciado a `Proyecto1DAW/docs/`
 - [x] Crear dentro de `Proyecto1DAW/` una carpeta por entregable, con el nombre de su `.zip`
@@ -35,8 +36,6 @@ Leyenda: `[ ]` pendiente · `[x]` hecho · `[⛔]` bloqueado, esperando material
       **10 de septiembre** (modelos y vistas de semana 2) y la explicación de
       **Eager / Lazy / serialización**, para no escribir nada sin referencia de clase.
       El plan y el modelo de datos quedan listos para ejecutarse ese día.
-- [ ] Llevar las preguntas abiertas de `03-DECISIONES-Y-PENDIENTES.md` a la hora de consulta
-      (jueves, 1 hora antes de clase) — es lo único que se puede adelantar sin material
 
 ---
 
@@ -64,7 +63,7 @@ Además: *"quién sube todos los entregables: **el primer miembro** de los grupo
 visitar"*. Y sobre los temas que faltaban:
 - *"Serializar imágenes - **investigar**"* — queda confirmado que es investigación propia.
 - Lazy y Eager: *"Aparecen o implementan con: **ORM / ODM** — Ejemplos: Sequelize, TypeORM,
-  Mongoose"*. Ver cómo se mapea a nuestro código en `03-DECISIONES-Y-PENDIENTES.md`.
+  Mongoose"*. Ver cómo se mapea a nuestro código en `03-DECISIONES.md`.
 - Pasos 18 a 21: el profesor entregó `models/estudiante.js`, `models/usuario.js`,
   `views/estudiantes.html` y `views/login.html`, que era el bloqueo P-1.
 
@@ -231,12 +230,10 @@ lleva JavaScript incrustado (requerimiento E) y la bitácora registra las tres p
 
 ## ETAPA J — Entrega
 
-- [ ] Llevar las preguntas abiertas de `03-DECISIONES-Y-PENDIENTES.md` a la hora de consulta
-- [ ] Probar las 7 vistas de punta a punta, sin errores en consola
-- [ ] Screenshots de cada opción de cada vista
-- [ ] `Grupo-2-Explicacion.pdf` — nombres completos, cédulas, información, funcionamiento, screenshots
-**Los arma el grupo al final, después de la revisión de los compañeros:**
-- [ ] `ProyectoP4-App-Grupo-2.zip` — comprimir esa carpeta, **sin** `node_modules`
-- [ ] `ProyectoP4-PostgreSQL-Grupo-2.zip` — solo los 2 `.sql`
-- [ ] `ProyectoP4-MongoDB-Grupo-2.zip` — solo los 2 `.JSON`
-- [ ] Ensayar la presentación de 10 minutos
+Lo que falta está detallado en **`PENDIENTE.md`**, en orden:
+
+- [ ] 1. Probar la aplicación en el navegador
+- [ ] 2. Screenshots de cada opción
+- [ ] 3. `Grupo-2-Explicacion.pdf`
+- [ ] 4. Los 3 `.zip`
+- [ ] 5. Ensayar la presentación de 10 minutos

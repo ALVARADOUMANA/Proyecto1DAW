@@ -7,7 +7,7 @@ Tema 7: Turismo y lugares por visitar
 - Kristel Duarte
 - Jordi Rivas
 
-## Antes de arrancar
+## Comandos para generar data 
 
 PostgreSQL y MongoDB tienen que estar corriendo.
 
@@ -19,7 +19,7 @@ psql -U postgres -d proyecto1grupo2 -f ScriptCrearBaseDatos.sql
 psql -U postgres -d proyecto1grupo2 -f ScriptPopularBaseDatos.sql
 ```
 
-En pgAdmin 4 es lo mismo: correr primero la línea del `CREATE DATABASE` conectado a
+En pgAdmin es lo mismo: correr primero la línea del `CREATE DATABASE` conectado a
 `postgres`, reconectar el Query Tool a `proyecto1grupo2` y correr el resto.
 
 **MongoDB** — desde `ProyectoP4-MongoDB-Grupo-2/`:
@@ -34,6 +34,7 @@ Con Compass es **ADD DATA → Import JSON** con cada archivo.
 ## Comandos
 
 ```
+cd ProyectoP4-App-Grupo-2
 npm install
 npm start
 ```
@@ -53,4 +54,4 @@ Abrir **http://localhost:3000**
 - PostgreSQL: `proyecto1grupo2`
 - MongoDB: base `proyecto1grupo2`, colección `CollMongoDB`
 
-Se configuran en el archivo `.env`.
+Se configuran en el archivo `.env`, basado en el `.env.example`.
