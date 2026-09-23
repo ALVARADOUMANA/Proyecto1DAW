@@ -32,10 +32,6 @@ function iniciar() {
         .getElementById("btnSalir")
         .addEventListener("click", salir);
 
-    document
-        .getElementById("btnSalirMenu")
-        .addEventListener("click", salir);
-
     listar();
 }
 

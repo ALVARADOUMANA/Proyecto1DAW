@@ -517,12 +517,4 @@ document.getElementById("btnMostrar")
 document.getElementById("btnLimpiar")
     .addEventListener("click", limpiar);
 
-document.getElementById("btnSalirMenu")
-    .addEventListener("click", function () {
-
-        window.location.href =
-            "/logout?usuario=" + obtenerUsuario();
-
-    });
-
 mostrarTodos();

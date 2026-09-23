@@ -624,12 +624,4 @@ async function iniciar() {
 
 }
 
-document.getElementById("btnSalirMenu")
-    .addEventListener("click", function () {
-
-        window.location.href =
-            "/logout?usuario=" + obtenerUsuario();
-
-    });
-
 iniciar();

@@ -213,6 +213,10 @@ body {
     text-align: center;
 }
 
+.vista-postgres td:last-child {
+    white-space: nowrap;
+}
+
 .vista-postgres tr:nth-child(even) {
     background-color: #f8f8f8;
 }
@@ -232,11 +236,6 @@ body {
 
 .vista-mongo h1 {
     text-align: center;
-}
-
-.vista-mongo .descripcion {
-    text-align: center;
-    color: #666;
 }
 
 .vista-mongo .formulario {
@@ -380,7 +379,8 @@ body.con-menu {
 .vista-txt input[type="checkbox"],
 .vista-postgres input[type="checkbox"],
 .vista-mongo .formulario input[type="checkbox"] {
-    width: auto;
+    width: 18px;
+    height: 18px;
     padding: 0;
     margin-top: 10px;
     justify-self: start;

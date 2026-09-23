@@ -291,3 +291,15 @@
 22/09/2026 – 23:24:02 / "MongoDB: consultar sitios" / admin
 22/09/2026 – 23:24:03 / "Consultar regiones" / admin
 22/09/2026 – 23:24:03 / "Consultar destinos" / admin
+22/09/2026 – 23:24:49 / "Consultar regiones" / admin
+22/09/2026 – 23:24:49 / "Consultar destinos" / admin
+22/09/2026 – 23:25:45 / "MongoDB: consultar sitios" / admin
+22/09/2026 – 23:25:46 / "MongoDB: consultar itinerarios" / admin
+23/09/2026 – 07:10:37 / "Consultar destinos" / admin
+23/09/2026 – 07:13:13 / "Autenticacion correcta" / admin
+23/09/2026 – 07:13:14 / "Consultar lugares" / admin
+23/09/2026 – 07:13:18 / "Consultar tours" / admin
+23/09/2026 – 07:13:20 / "Consultar regiones" / admin
+23/09/2026 – 07:13:20 / "Consultar destinos" / admin
+23/09/2026 – 07:13:26 / "Consultar operadores" / admin
+23/09/2026 – 07:13:26 / "Consultar excursiones" / admin
