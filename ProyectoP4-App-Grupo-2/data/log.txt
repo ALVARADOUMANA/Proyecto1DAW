@@ -98,3 +98,5 @@
 22/09/2026 – 21:35:05 / "Consultar destinos" / admin
 22/09/2026 – 21:35:06 / "Consultar operadores" / admin
 22/09/2026 – 21:35:06 / "Consultar excursiones" / admin
+22/09/2026 – 21:44:20 / "Consultar operadores" / admin
+22/09/2026 – 21:44:20 / "Consultar excursiones" / admin
