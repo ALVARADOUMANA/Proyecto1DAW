@@ -134,7 +134,8 @@ Las dos bases se llaman **`proyecto1grupo2`**, por decisión del grupo.
 El nombre de la colección sí se respeta porque el enunciado lo repite tres veces, incluso al
 describir los dos `.JSON` entregables. El de la base de PostgreSQL aparece una sola vez, en
 el título de la Parte 2, y es un nombre local que el profesor cambia al restaurar el script.
-Aun así es una divergencia y hay que confirmarla. → **Pregunta P7.**
+Es una divergencia del enunciado, decidida y confirmada por el grupo. Las dos bases usan
+el mismo nombre a propósito, para que la configuración sea una sola.
 
 ### S5. La Parte 1 no fija cantidad de campos
 Para las Partes 2 y 3 el enunciado dice 8, 15 y 25 campos. Para la Parte 1 solo pide
@@ -224,7 +225,6 @@ para la semana de entrega — el enunciado lo pide explícitamente en la indicac
 | **P4** | Los dos archivos `.JSON`, ¿como arreglo para importar desde Compass / `mongoimport`, o como script de `insertMany` para `mongosh`? | S3 |
 | **P5** | El menú lateral con botón de deslogueo no tiene código en el material. ¿Se acepta hacerlo con HTML + CSS + JS de `public/`, con las mismas técnicas de semana 2? | — |
 | **P6** | Sin sesiones en el código de semana 2, ¿se acepta que el bloqueo de acceso sea la redirección del `login.js`, o hay que agregar un mecanismo de sesión? | A3 |
-| **P7** | La base de PostgreSQL se llamó `proyecto1grupo2` en vez de `BDPostgreSQL`. ¿Importa el nombre de la base, o basta con que el script la cree y la app se conecte? | S4 |
 
 ### A11. Dos controles de salida, no uno
 El enunciado pide dos cosas distintas: que las vistas de la Parte 1 conserven los botones

@@ -35,7 +35,7 @@ Leyenda: `[ ]` pendiente · `[x]` hecho · `[⛔]` bloqueado, esperando material
       **10 de septiembre** (modelos y vistas de semana 2) y la explicación de
       **Eager / Lazy / serialización**, para no escribir nada sin referencia de clase.
       El plan y el modelo de datos quedan listos para ejecutarse ese día.
-- [ ] Llevar las 6 preguntas de `03-DECISIONES-Y-PENDIENTES.md` a la hora de consulta
+- [ ] Llevar las preguntas abiertas de `03-DECISIONES-Y-PENDIENTES.md` a la hora de consulta
       (jueves, 1 hora antes de clase) — es lo único que se puede adelantar sin material
 
 ---
@@ -231,7 +231,7 @@ lleva JavaScript incrustado (requerimiento E) y la bitácora registra las tres p
 
 ## ETAPA J — Entrega
 
-- [ ] Llevar las 6 preguntas de `03-DECISIONES-Y-PENDIENTES.md` a la hora de consulta
+- [ ] Llevar las preguntas abiertas de `03-DECISIONES-Y-PENDIENTES.md` a la hora de consulta
 - [ ] Probar las 7 vistas de punta a punta, sin errores en consola
 - [ ] Screenshots de cada opción de cada vista
 - [ ] `Grupo-2-Explicacion.pdf` — nombres completos, cédulas, información, funcionamiento, screenshots
