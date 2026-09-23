@@ -10,7 +10,7 @@
 --   1. Abrir el Query Tool conectado a la base "postgres".
 --   2. Ejecutar unicamente la linea del CREATE DATABASE.
 --   3. Volver a abrir el Query Tool, ahora conectado a
---      "proyecto1grupo2", y ejecutar el resto del script.
+--      "BDPostgreSQL", y ejecutar el resto del script.
 --
 -- ============================================================
 
@@ -19,11 +19,11 @@
 -- 1. BASE DE DATOS
 -- ============================================================
 
-CREATE DATABASE proyecto1grupo2;
+CREATE DATABASE "BDPostgreSQL";
 
 
 -- ============================================================
--- A partir de aqui hay que estar conectado a "proyecto1grupo2"
+-- A partir de aqui hay que estar conectado a "BDPostgreSQL"
 -- ============================================================
 
 DROP TABLE IF EXISTS excursiones;

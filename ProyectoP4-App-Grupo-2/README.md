@@ -14,9 +14,9 @@ PostgreSQL y MongoDB tienen que estar corriendo.
 **PostgreSQL** — desde `ProyectoP4-PostgreSQL-Grupo-2/`:
 
 ```
-psql -U postgres -c "CREATE DATABASE proyecto1grupo2;"
-psql -U postgres -d proyecto1grupo2 -f ScriptCrearBaseDatos.sql
-psql -U postgres -d proyecto1grupo2 -f ScriptPopularBaseDatos.sql
+psql -U postgres -c "CREATE DATABASE \"BDPostgreSQL\";"
+psql -U postgres -d BDPostgreSQL -f ScriptCrearBaseDatos.sql
+psql -U postgres -d BDPostgreSQL -f ScriptPopularBaseDatos.sql
 ```
 
 En pgAdmin es lo mismo: correr primero la línea del `CREATE DATABASE` conectado a
@@ -51,7 +51,7 @@ Abrir **http://localhost:3000**
 
 ## Bases de datos
 
-- PostgreSQL: `proyecto1grupo2`
+- PostgreSQL: `BDPostgreSQL`
 - MongoDB: base `proyecto1grupo2`, colección `CollMongoDB`
 
 Se configuran en el archivo `.env`, basado en el `.env.example`.

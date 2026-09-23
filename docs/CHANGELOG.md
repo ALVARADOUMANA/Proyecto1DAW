@@ -166,7 +166,7 @@ lleva JavaScript incrustado (requerimiento E) y la bitácora registra las tres p
 - [x] `views/lugares.html` — construido del código del profesor
 - [x] `views/tours.html` — construido del código del profesor
 
-## ETAPA C — Parte 2 · semana 4 · PostgreSQL `proyecto1grupo2` (40 pts)
+## ETAPA C — Parte 2 · semana 4 · PostgreSQL `BDPostgreSQL` (40 pts)
 
 - [x] `db/database.js` — `new Pool(...)` leyendo del `.env`
 - [x] `controllers/regionController.js` — CRUD con `pool.query` y `$1, $2`

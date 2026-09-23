@@ -170,3 +170,10 @@
 22/09/2026 – 21:55:18 / "MongoDB: consultar itinerarios" / admin
 22/09/2026 – 21:55:19 / "MongoDB: consultar itinerarios" / admin
 22/09/2026 – 21:55:19 / "MongoDB: consultar itinerarios" / admin
+22/09/2026 – 22:26:29 / "Autenticacion correcta" / admin
+22/09/2026 – 22:26:29 / "Consultar lugares" / admin
+22/09/2026 – 22:26:36 / "Consultar tours" / admin
+22/09/2026 – 22:26:42 / "Error consultando regiones" / admin
+22/09/2026 – 22:26:42 / "Error consultando destinos" / admin
+22/09/2026 – 22:26:48 / "Error consultando operadores" / admin
+22/09/2026 – 22:26:48 / "Error consultando excursiones" / admin

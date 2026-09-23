@@ -5,7 +5,7 @@
 --
 -- PARTE 2 - Popular la base de datos
 --
--- Correr con el Query Tool conectado a "proyecto1grupo2",
+-- Correr con el Query Tool conectado a "BDPostgreSQL",
 -- despues de ScriptCrearBaseDatos.sql
 -- ============================================================
 --

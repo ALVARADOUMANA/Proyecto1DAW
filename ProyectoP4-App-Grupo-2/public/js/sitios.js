@@ -464,6 +464,9 @@ document.getElementById("btnEliminar")
 document.getElementById("btnMostrar")
     .addEventListener("click", mostrarTodos);
 
+document.getElementById("btnLimpiar")
+    .addEventListener("click", limpiar);
+
 document.getElementById("btnSalirMenu")
     .addEventListener("click", function () {
 

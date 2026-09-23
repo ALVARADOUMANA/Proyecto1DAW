@@ -135,7 +135,7 @@ Las dos bases se llaman **`proyecto1grupo2`**, por decisión del grupo.
 
 | | Enunciado | Se usa |
 |---|---|---|
-| Base PostgreSQL | `BDPostgreSQL` (línea 141) | `proyecto1grupo2` |
+| Base PostgreSQL | `BDPostgreSQL` (línea 141) | `BDPostgreSQL` |
 | Base MongoDB | no la nombra | `proyecto1grupo2` |
 | Colección MongoDB | `CollMongoDB` (líneas 154, 197, 198) | `CollMongoDB` — **sin cambio** |
 

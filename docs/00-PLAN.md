@@ -168,8 +168,8 @@ afuera de las tres y no entran en ningún zip.
 | 0 | Autenticación | 1 (s2) | `usuarios.txt` | `views/login.html` |
 | 1 | CRUD de Lugares | 1 (s2) | `lugares.txt` | `views/lugares.html` |
 | 2 | CRUD de Tours | 1 (s2) | `tours.txt` | `views/tours.html` |
-| 3 | CRUD Regiones + Destinos | 2 (s4) | PostgreSQL `proyecto1grupo2` | `views/destinos.html` |
-| 4 | CRUD Operadores + Excursiones | 2 (s4) | PostgreSQL `proyecto1grupo2` | `views/excursiones.html` |
+| 3 | CRUD Regiones + Destinos | 2 (s4) | PostgreSQL `BDPostgreSQL` | `views/destinos.html` |
+| 4 | CRUD Operadores + Excursiones | 2 (s4) | PostgreSQL `BDPostgreSQL` | `views/excursiones.html` |
 | 5 | CRUD de Sitios (60 docs, 15 campos) | 3 (s5) | MongoDB `CollMongoDB` | `views/sitios.html` |
 | 6 | CRUD de Itinerarios (120 docs, 25 campos) | 3 (s5) | MongoDB `CollMongoDB` | `views/itinerarios.html` |
 
