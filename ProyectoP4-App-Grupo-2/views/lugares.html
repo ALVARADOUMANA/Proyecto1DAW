@@ -1,25 +1,162 @@
-<!--
-==========================================
-PENDIENTE
-==========================================
+<!DOCTYPE html>
 
-Esta vista queda vacia a proposito.
+<html lang="es">
 
-Las vistas de la semana 2 todavia no se han visto en clase:
-en "ProyectoEstudiantes" los archivos "views/login.html" y
-"views/estudiantes.html" estan en 0 bytes, y segun la sesion 7
-el profesor los entrega el 10 de setiembre de 2026.
+<head>
 
-Cuando llegue ese codigo se copia tal cual y se le cambian
-unicamente los nombres de los campos.
+    <meta charset="UTF-8">
 
-El JavaScript de esta vista ya esta listo en "public/js/lugares.js"
-y espera estos identificadores:
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-codigo, nombre, provincia, categoria, calificacion,
-btnGuardar, btnModificar, btnEliminar, btnConsultar,
-btnLimpiar, btnSalir, tablaLugares, mensaje
+    <title>CRUD de Lugares</title>
 
-Mientras tanto no se escribe nada, para no usar codigo que no
-fue visto en clase.
--->
+    <link rel="stylesheet"
+          href="/css/estilos.css">
+
+</head>
+
+<body>
+
+    <div class="menu">
+
+        <h3>Grupo 2</h3>
+
+        <p class="menu-parte">Parte 1 - Archivos .txt</p>
+
+        <a href="/lugares/pagina" class="activo">Lugares</a>
+
+        <a href="/tours/pagina">Tours</a>
+
+        <p class="menu-parte">Parte 2 - PostgreSQL</p>
+
+        <a href="/destinos/pagina">Destinos</a>
+
+        <a href="/excursiones/pagina">Excursiones</a>
+
+        <p class="menu-parte">Parte 3 - MongoDB</p>
+
+        <a href="/sitios/pagina">Sitios</a>
+
+        <a href="/itinerarios/pagina">Itinerarios</a>
+
+        <button id="btnSalir">
+
+            Cerrar sesión
+
+        </button>
+
+    </div>
+
+    <div class="contenedor">
+
+        <h1>CRUD DE LUGARES</h1>
+        <h2>Grupo 2 - Turismo y lugares por visitar</h2>
+        <hr>
+
+        <label>Código</label>
+
+        <input
+            type="text"
+            id="codigo">
+
+        <label>Nombre</label>
+
+        <input
+            type="text"
+            id="nombre">
+
+        <label>Provincia</label>
+
+        <input
+            type="text"
+            id="provincia">
+
+        <label>Categoría</label>
+
+        <input
+            type="text"
+            id="categoria">
+
+        <label>Calificación</label>
+
+        <input
+            type="number"
+            id="calificacion">
+
+        <br><br>
+
+        <button id="btnGuardar">
+
+            Guardar
+
+        </button>
+
+        <button id="btnModificar">
+
+            Modificar
+
+        </button>
+
+        <button id="btnEliminar">
+
+            Eliminar
+
+        </button>
+
+        <button id="btnConsultar">
+
+            Consultar
+
+        </button>
+
+        <button id="btnLimpiar">
+
+            Limpiar
+
+        </button>
+
+        <hr>
+
+        <h2>Lista de lugares</h2>
+
+        <table
+            border="1"
+            width="100%"
+            id="tablaLugares">
+
+            <thead>
+
+                <tr>
+
+                    <th>Código</th>
+
+                    <th>Nombre</th>
+
+                    <th>Provincia</th>
+
+                    <th>Categoría</th>
+
+                    <th>Calificación</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+            </tbody>
+
+        </table>
+
+        <br>
+
+        <div id="mensaje"></div>
+
+    </div>
+
+    <script src="/js/lugares.js"></script>
+
+</body>
+
+</html>

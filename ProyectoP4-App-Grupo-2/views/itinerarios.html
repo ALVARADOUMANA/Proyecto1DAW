@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>CRUD de Itinerarios</title>
+
+    <link rel="stylesheet"
+          href="/css/estilos.css">
+
+</head>
+
+<body>
+
+    <div class="menu">
+
+        <h3>Grupo 2</h3>
+
+        <p class="menu-parte">Parte 1 - Archivos .txt</p>
+
+        <a href="/lugares/pagina">Lugares</a>
+
+        <a href="/tours/pagina">Tours</a>
+
+        <p class="menu-parte">Parte 2 - PostgreSQL</p>
+
+        <a href="/destinos/pagina">Destinos</a>
+
+        <a href="/excursiones/pagina">Excursiones</a>
+
+        <p class="menu-parte">Parte 3 - MongoDB</p>
+
+        <a href="/sitios/pagina">Sitios</a>
+
+        <a href="/itinerarios/pagina" class="activo">Itinerarios</a>
+
+        <button id="btnSalir">
+
+            Cerrar sesión
+
+        </button>
+
+    </div>
+
+    <div class="contenedor">
+
+        <h1>CRUD DE ITINERARIOS</h1>
+        <h2>Grupo 2 - Turismo y lugares por visitar</h2>
+        <p class="descripcion">
+            Parte 3 - MongoDB - coleccion CollMongoDB - 120 documentos de 25 campos - Carga Lazy
+        </p>
+        <hr>
+
+        <label>ID (ObjectId de MongoDB)</label>
+
+        <input
+            type="text"
+            id="id"
+            placeholder="Se llena al dar Consultar en la tabla">
+
+        <label>Codigo</label>
+
+        <input
+            type="text"
+            id="codigo">
+
+        <label>Nombre</label>
+
+        <input
+            type="text"
+            id="nombre">
+
+        <label>Descripcion</label>
+
+        <input
+            type="text"
+            id="descripcion">
+
+        <label>Pais</label>
+
+        <input
+            type="text"
+            id="pais">
+
+        <label>Region</label>
+
+        <input
+            type="text"
+            id="region">
+
+        <label>Duracion (dias)</label>
+
+        <input
+            type="number"
+            step="any"
+            id="duracion_dias">
+
+        <label>Duracion (noches)</label>
+
+        <input
+            type="number"
+            step="any"
+            id="duracion_noches">
+
+        <label>Cupo minimo</label>
+
+        <input
+            type="number"
+            step="any"
+            id="cupo_minimo">
+
+        <label>Cupo maximo</label>
+
+        <input
+            type="number"
+            step="any"
+            id="cupo_maximo">
+
+        <label>Precio adulto</label>
+
+        <input
+            type="number"
+            step="any"
+            id="precio_adulto">
+
+        <label>Precio nino</label>
+
+        <input
+            type="number"
+            step="any"
+            id="precio_nino">
+
+        <label>Moneda</label>
+
+        <input
+            type="text"
+            id="moneda">
+
+        <label>Incluye transporte</label>
+
+        <input
+            type="checkbox"
+            id="incluye_transporte">
+
+        <label>Incluye alimentacion</label>
+
+        <input
+            type="checkbox"
+            id="incluye_alimentacion">
+
+        <label>Incluye hospedaje</label>
+
+        <input
+            type="checkbox"
+            id="incluye_hospedaje">
+
+        <label>Nivel de dificultad</label>
+
+        <input
+            type="text"
+            id="nivel_dificultad">
+
+        <label>Edad minima</label>
+
+        <input
+            type="number"
+            step="any"
+            id="edad_minima">
+
+        <label>Idioma del guia</label>
+
+        <input
+            type="text"
+            id="idioma_guia">
+
+        <label>Punto de encuentro</label>
+
+        <input
+            type="text"
+            id="punto_encuentro">
+
+        <label>Hora de salida</label>
+
+        <input
+            type="text"
+            id="hora_salida">
+
+        <label>Hora de regreso</label>
+
+        <input
+            type="text"
+            id="hora_regreso">
+
+        <label>Temporada</label>
+
+        <input
+            type="text"
+            id="temporada">
+
+        <label>Politica de cancelacion</label>
+
+        <input
+            type="text"
+            id="politica_cancelacion">
+
+        <label>Sitios incluidos (codigos separados por coma)</label>
+
+        <input
+            type="text"
+            id="sitios_incluidos">
+
+        <label>Afiche</label>
+
+        <input
+            type="file"
+            accept="image/*"
+            id="afiche">
+
+        <img id="afiche_vista" class="miniatura">
+
+        <br>
+
+        <button id="btnCrear">CREAR</button>
+
+        <button id="btnConsultar">CONSULTAR</button>
+
+        <button id="btnActualizar">ACTUALIZAR</button>
+
+        <button id="btnEliminar">ELIMINAR</button>
+
+        <button id="btnMostrar">MOSTRAR TODOS</button>
+
+        <button id="btnLimpiar">LIMPIAR</button>
+
+        <hr>
+
+        <h2>Itinerarios registrados</h2>
+
+        <table
+            border="1"
+            width="100%"
+            id="tablaItinerarios">
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+
+                    <th>Codigo</th>
+
+                    <th>Nombre</th>
+
+                    <th>Region</th>
+
+                    <th>Duracion (dias)</th>
+
+                    <th>Precio adulto</th>
+
+                    <th>Acciones</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+            </tbody>
+
+        </table>
+
+        <br>
+
+        <div id="mensaje"></div>
+
+    </div>
+
+    <script src="/js/itinerarios.js"></script>
+
+</body>
+
+</html>

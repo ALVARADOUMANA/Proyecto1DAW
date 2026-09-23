@@ -54,6 +54,67 @@ esté vacío. Los 17 archivos `.js` pasan `node --check`.
 
 ---
 
+## 2026-09-22 — Llegó el material de semanas 8 y 9
+
+**Cambio de fecha de entrega.** `knowledge/sesion9.md`: *"se aclaran dudas del proyecto
+sobre la fecha de entrega (**24 de septiembre 2026, antes de las 11am**)"*. Antes era el 17.
+Además: *"quién sube todos los entregables: **el primer miembro** de los grupos establecidos"*.
+
+**`knowledge/sesion8.md` confirma el tema:** *"Grupo 2 - Tema: 7. Turismo y lugares por
+visitar"*. Y sobre los temas que faltaban:
+- *"Serializar imágenes - **investigar**"* — queda confirmado que es investigación propia.
+- Lazy y Eager: *"Aparecen o implementan con: **ORM / ODM** — Ejemplos: Sequelize, TypeORM,
+  Mongoose"*. Ver cómo se mapea a nuestro código en `03-DECISIONES-Y-PENDIENTES.md`.
+- Pasos 18 a 21: el profesor entregó `models/estudiante.js`, `models/usuario.js`,
+  `views/estudiantes.html` y `views/login.html`, que era el bloqueo P-1.
+
+**`ProyectoEstudiantes` quedó completo** y con la carpeta `controllers/` ya en plural.
+
+**Semana 9 (`s9-sw`)** trae Mongoose + EJS + plantillas. **No aplica al proyecto**: el
+enunciado limita cada parte a las semanas 2, 4 y 5. Queda como material de clase aparte.
+
+---
+
+## 2026-09-22 — Etapas H, C y D
+
+**Etapa H — Parte 1 cerrada.** Modelos y vistas construidos a partir del código que entregó
+el profesor. Probado: CRUD completo de lugares y tours, validaciones de campo obligatorio,
+rango, código duplicado y lugar inexistente, y la bitácora registrando todo.
+
+**Etapas C y D — Parte 2 cerrada.** 4 tablas, 4 controladores, 4 routers, 2 vistas, 2 JS y
+los 2 scripts `.sql`. Probado contra PostgreSQL 18 real: base creada y poblada, los dos
+`INNER JOIN` de la carga Eager devolviendo las columnas del padre, CRUD completo, 404 en
+registro inexistente, y una imagen PNG guardada como `BYTEA` que vuelve en base64 idéntica
+al original.
+
+---
+
+## 2026-09-22 — Etapas E, F y G: aplicación completa
+
+**Parte 3 cerrada.** `config/mongodb.js`, 2 DAO, 2 services, 2 controladores, 2 routers,
+2 vistas y 2 JS, todo con el patrón de clases de `Semana6`. Los 180 documentos generados
+e importados en `CollMongoDB`.
+
+**Probado contra MongoDB 8.3.8 real:**
+
+```
+CollMongoDB                                    180 documentos
+  sitios      { latitud: {$exists:true} }       60
+  itinerarios { duracion_dias:{$exists:true} } 120
+
+GET /api/sitios        -> 60 docs, SIN el campo "imagen"   <- CARGA LAZY
+GET /api/sitios/:id    -> 16 campos, CON "imagen"          <- la otra mitad
+GET /api/itinerarios   -> 120 docs, SIN el campo "afiche"  <- CARGA LAZY
+POST + imagen base64   -> vuelve idéntica al consultarla
+PUT / DELETE           -> correctos
+GET /api/sitios/0000…  -> HTTP 404
+```
+
+**Verificación final de la aplicación:** las 7 vistas responden 200 con su título, ninguna
+lleva JavaScript incrustado (requerimiento E) y la bitácora registra las tres partes.
+
+---
+
 ## ETAPA A — Esqueleto de la aplicación
 
 - [x] `ProyectoP4-App-Grupo-2/package.json` — `express`, `pg`, `mongodb`, `dotenv`
@@ -72,9 +133,9 @@ esté vacío. Los 17 archivos `.js` pasan `node --check`.
 - [x] `data/log.txt` — vacío, lo crea el DAO si no existe
 
 **Modelos** *(patrón: `ProyectoEstudiantes/models/estudiante.js`)*
-- [⛔] `models/usuario.js` — archivo de clase vacío, lo da el profesor el 10-sep
-- [⛔] `models/lugar.js` — depende del anterior
-- [⛔] `models/tour.js` — depende del anterior
+- [x] `models/usuario.js` — construido del código del profesor
+- [x] `models/lugar.js` — construido del código del profesor
+- [x] `models/tour.js` — construido del código del profesor
 
 **DAO** *(patrón: `dao/estudianteDAO.js`, `dao/usuarioDAO.js`)*
 - [x] `dao/usuarioDAO.js` — `validarCredenciales`
@@ -102,71 +163,71 @@ esté vacío. Los 17 archivos `.js` pasan `node --check`.
 - [x] `public/js/login.js` — `preventDefault`, `fetch /login`, redirección
 - [x] `public/js/lugares.js` — 6 botones, `fetch`, pintado de tabla
 - [x] `public/js/tours.js` — igual
-- [⛔] `views/login.html` — la da el profesor el 10-sep
-- [⛔] `views/lugares.html` — depende del anterior
-- [⛔] `views/tours.html` — depende del anterior
+- [x] `views/login.html` — construido del código del profesor
+- [x] `views/lugares.html` — construido del código del profesor
+- [x] `views/tours.html` — construido del código del profesor
 
 ## ETAPA C — Parte 2 · semana 4 · PostgreSQL `proyecto1grupo2` (40 pts)
 
-- [ ] `db/database.js` — `new Pool(...)` leyendo del `.env`
-- [ ] `controllers/regionController.js` — CRUD con `pool.query` y `$1, $2`
-- [ ] `controllers/destinoController.js` — CRUD + `// ===== CARGA EAGER =====` con `INNER JOIN regiones`
-- [ ] `controllers/operadorController.js` — CRUD
-- [ ] `controllers/excursionController.js` — CRUD + `// ===== CARGA EAGER =====` con `INNER JOIN operadores`
-- [ ] Los 4 controladores: `resultado.rows.length === 0` → `404`
-- [ ] Los 4 controladores: guardar/leer `BYTEA` con `Buffer.from(base64,"base64")` y `.toString("base64")`
-- [ ] `routes/regionRoutes.js` · `destinoRoutes.js` · `operadorRoutes.js` · `excursionRoutes.js`
-- [ ] `views/destinos.html` — 2 formularios, 2 tablas, `<input type="file">`, menú lateral
-- [ ] `views/excursiones.html` — igual
-- [ ] `public/js/destinos.js` — `fetch`, `FileReader.readAsDataURL`, pintado con `createElement("tr")`
-- [ ] `public/js/excursiones.js` — igual
+- [x] `db/database.js` — `new Pool(...)` leyendo del `.env`
+- [x] `controllers/regionController.js` — CRUD con `pool.query` y `$1, $2`
+- [x] `controllers/destinoController.js` — CRUD + `// ===== CARGA EAGER =====` con `INNER JOIN regiones`
+- [x] `controllers/operadorController.js` — CRUD
+- [x] `controllers/excursionController.js` — CRUD + `// ===== CARGA EAGER =====` con `INNER JOIN operadores`
+- [x] Los 4 controladores: `resultado.rows.length === 0` → `404`
+- [x] Los 4 controladores: guardar/leer `BYTEA` con `Buffer.from(base64,"base64")` y `.toString("base64")`
+- [x] `routes/regionRoutes.js` · `destinoRoutes.js` · `operadorRoutes.js` · `excursionRoutes.js`
+- [x] `views/destinos.html` — 2 formularios, 2 tablas, `<input type="file">`, menú lateral
+- [x] `views/excursiones.html` — igual
+- [x] `public/js/destinos.js` — `fetch`, `FileReader.readAsDataURL`, pintado con `createElement("tr")`
+- [x] `public/js/excursiones.js` — igual
 
 ## ETAPA D — Scripts de PostgreSQL (entregable 2)
 
-- [ ] `ProyectoP4-PostgreSQL-Grupo-2/ScriptCrearBaseDatos.sql` — `proyecto1grupo2` + 4 tablas + FKs + `BYTEA`
-- [ ] `ProyectoP4-PostgreSQL-Grupo-2/ScriptPopularBaseDatos.sql` — datos coherentes del tema 7
-- [ ] Correr los dos scripts en pgAdmin 4 y verificar los `JOIN`
+- [x] `ProyectoP4-PostgreSQL-Grupo-2/ScriptCrearBaseDatos.sql` — `proyecto1grupo2` + 4 tablas + FKs + `BYTEA`
+- [x] `ProyectoP4-PostgreSQL-Grupo-2/ScriptPopularBaseDatos.sql` — datos coherentes del tema 7
+- [x] Correr los dos scripts en pgAdmin 4 y verificar los `JOIN`
 
 ## ETAPA E — Parte 3 · semana 5 · MongoDB `CollMongoDB` (40 pts)
 
-- [ ] `config/mongodb.js` — `MongoClient` + `conectarMongoDB()` con caché
-- [ ] `dao/SitioDAO.js` — clase; `obtenerTodos` con `// ===== CARGA LAZY =====` (projection `imagen:0`)
-- [ ] `dao/ItinerarioDAO.js` — clase; `obtenerTodos` con `// ===== CARGA LAZY =====` (projection `afiche:0`)
-- [ ] `services/SitioService.js` · `services/ItinerarioService.js` — clases
-- [ ] `controllers/SitioController.js` · `controllers/ItinerarioController.js` — clases, `static async`
-- [ ] `routes/sitioRoutes.js` · `routes/itinerarioRoutes.js` — rutas literales antes de `/:id`
-- [ ] `views/sitios.html` — 15 campos, `<input type="file">`, tabla, menú lateral
-- [ ] `views/itinerarios.html` — 25 campos, igual
-- [ ] `public/js/sitios.js` · `public/js/itinerarios.js`
+- [x] `config/mongodb.js` — `MongoClient` + `conectarMongoDB()` con caché
+- [x] `dao/SitioDAO.js` — clase; `obtenerTodos` con `// ===== CARGA LAZY =====` (projection `imagen:0`)
+- [x] `dao/ItinerarioDAO.js` — clase; `obtenerTodos` con `// ===== CARGA LAZY =====` (projection `afiche:0`)
+- [x] `services/SitioService.js` · `services/ItinerarioService.js` — clases
+- [x] `controllers/SitioController.js` · `controllers/ItinerarioController.js` — clases, `static async`
+- [x] `routes/sitioRoutes.js` · `routes/itinerarioRoutes.js` — rutas literales antes de `/:id`
+- [x] `views/sitios.html` — 15 campos, `<input type="file">`, tabla, menú lateral
+- [x] `views/itinerarios.html` — 25 campos, igual
+- [x] `public/js/sitios.js` · `public/js/itinerarios.js`
 
 ## ETAPA F — Scripts de MongoDB (entregable 3)
 
-- [ ] `ProyectoP4-MongoDB-Grupo-2/Script-60-MONGO.JSON` — 60 documentos × 15 campos
-- [ ] `ProyectoP4-MongoDB-Grupo-2/Script-120-MONGO.JSON` — 120 documentos × 25 campos
-- [ ] Verificar que todo `sitios_incluidos` apunte a un `codigo` que exista entre los 60
-- [ ] Importar los dos archivos en `CollMongoDB` desde Compass y verificar el conteo
+- [x] `ProyectoP4-MongoDB-Grupo-2/Script-60-MONGO.JSON` — 60 documentos × 15 campos
+- [x] `ProyectoP4-MongoDB-Grupo-2/Script-120-MONGO.JSON` — 120 documentos × 25 campos
+- [x] Verificar que todo `sitios_incluidos` apunte a un `codigo` que exista entre los 60
+- [x] Importar los dos archivos en `CollMongoDB` desde Compass y verificar el conteo
 
 ## ETAPA G — Integración
 
-- [ ] `public/js/menu.js` + `<nav>` en las 6 vistas CRUD — enlaces y botón de deslogueo
-- [ ] Llamar a `logService.registrar()` desde **todos** los controladores de las 3 partes
-- [ ] Verificar el formato exacto de `data/log.txt`: `Fecha – Hora / "Acción" / Usuario`
-- [ ] Verificar que ninguna vista tenga JavaScript incrustado (requerimiento E del enunciado)
+- [x] `public/js/menu.js` + `<nav>` en las 6 vistas CRUD — enlaces y botón de deslogueo
+- [x] Llamar a `logService.registrar()` desde **todos** los controladores de las 3 partes
+- [x] Verificar el formato exacto de `data/log.txt`: `Fecha – Hora / "Acción" / Usuario`
+- [x] Verificar que ninguna vista tenga JavaScript incrustado (requerimiento E del enunciado)
 
 ## ETAPA H — ⛔ Cierre de la Parte 1 *(después del 10 de septiembre)*
 
-- [⛔] Recibir de Teams `models/estudiante.js`, `models/usuario.js`, `views/login.html`, `views/estudiantes.html`
-- [⛔] Adaptar a `models/usuario.js`, `models/lugar.js`, `models/tour.js`
-- [⛔] Adaptar a `views/login.html`, `views/lugares.html`, `views/tours.html`
-- [⛔] Insertar el menú lateral en `lugares.html` y `tours.html`
-- [⛔] Probar el flujo completo: login → menú → CRUD de lugares → CRUD de tours
+- [x] Recibir de Teams `models/estudiante.js`, `models/usuario.js`, `views/login.html`, `views/estudiantes.html`
+- [x] Adaptar a `models/usuario.js`, `models/lugar.js`, `models/tour.js`
+- [x] Adaptar a `views/login.html`, `views/lugares.html`, `views/tours.html`
+- [x] Insertar el menú lateral en `lugares.html` y `tours.html`
+- [x] Probar el flujo completo: login → menú → CRUD de lugares → CRUD de tours
 
 ## ETAPA I — ⛔ Ajuste de Eager / Lazy / serialización *(después del 10 de septiembre)*
 
-- [⛔] Contrastar la implementación de Eager con la definición del profesor
-- [⛔] Contrastar la implementación de Lazy con la definición del profesor
-- [⛔] Contrastar la serialización de imágenes con lo que explique
-- [⛔] Redactar los comentarios que "señalan puntualmente dónde y cómo se usó"
+- [x] Contrastar la implementación de Eager con la definición del profesor
+- [x] Contrastar la implementación de Lazy con la definición del profesor
+- [x] Contrastar la serialización de imágenes con lo que explique
+- [x] Redactar los comentarios que "señalan puntualmente dónde y cómo se usó"
 
 ## ETAPA J — Entrega
 

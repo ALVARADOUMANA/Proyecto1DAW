@@ -45,7 +45,7 @@ function guardar(lugar) {
 
     if (isNaN(lugar.calificacion)) {
 
-        throw new Error("El calificacion debe ser numerico.");
+        throw new Error("La calificacion debe ser numerico.");
 
     }
 
@@ -53,7 +53,7 @@ function guardar(lugar) {
         lugar.calificacion > 100) {
 
         throw new Error(
-            "El calificacion debe estar entre 0 y 100."
+            "La calificacion debe estar entre 0 y 100."
         );
 
     }
@@ -93,7 +93,7 @@ function modificar(lugar) {
     if (isNaN(lugar.calificacion)) {
 
         throw new Error(
-            "El calificacion debe ser numerico."
+            "La calificacion debe ser numerico."
         );
 
     }
@@ -102,7 +102,7 @@ function modificar(lugar) {
         lugar.calificacion > 100) {
 
         throw new Error(
-            "El calificacion debe estar entre 0 y 100."
+            "La calificacion debe estar entre 0 y 100."
         );
 
     }

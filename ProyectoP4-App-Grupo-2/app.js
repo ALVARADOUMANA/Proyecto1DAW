@@ -65,17 +65,79 @@ app.use("/", tourRoutes);
 =================================
 Rutas - PARTE 2 (semana 4)
 =================================
-
-PENDIENTE: regiones, destinos, operadores y excursiones.
 */
+
+const regionRoutes =
+    require("./routes/regionRoutes");
+
+const destinoRoutes =
+    require("./routes/destinoRoutes");
+
+const operadorRoutes =
+    require("./routes/operadorRoutes");
+
+const excursionRoutes =
+    require("./routes/excursionRoutes");
+
+app.use("/api/regiones", regionRoutes);
+
+app.use("/api/destinos", destinoRoutes);
+
+app.use("/api/operadores", operadorRoutes);
+
+app.use("/api/excursiones", excursionRoutes);
+
+// Paginas de la Parte 2
+
+app.get("/destinos/pagina", (req, res) => {
+
+    res.sendFile(
+        path.join(__dirname, "views", "destinos.html")
+    );
+
+});
+
+app.get("/excursiones/pagina", (req, res) => {
+
+    res.sendFile(
+        path.join(__dirname, "views", "excursiones.html")
+    );
+
+});
 
 /*
 =================================
 Rutas - PARTE 3 (semana 5)
 =================================
-
-PENDIENTE: sitios e itinerarios.
 */
+
+const sitioRoutes =
+    require("./routes/sitioRoutes");
+
+const itinerarioRoutes =
+    require("./routes/itinerarioRoutes");
+
+app.use("/api/sitios", sitioRoutes);
+
+app.use("/api/itinerarios", itinerarioRoutes);
+
+// Paginas de la Parte 3
+
+app.get("/sitios/pagina", (req, res) => {
+
+    res.sendFile(
+        path.join(__dirname, "views", "sitios.html")
+    );
+
+});
+
+app.get("/itinerarios/pagina", (req, res) => {
+
+    res.sendFile(
+        path.join(__dirname, "views", "itinerarios.html")
+    );
+
+});
 
 /*
 =================================

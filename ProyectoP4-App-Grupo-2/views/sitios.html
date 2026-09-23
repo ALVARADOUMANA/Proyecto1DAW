@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>CRUD de Sitios</title>
+
+    <link rel="stylesheet"
+          href="/css/estilos.css">
+
+</head>
+
+<body>
+
+    <div class="menu">
+
+        <h3>Grupo 2</h3>
+
+        <p class="menu-parte">Parte 1 - Archivos .txt</p>
+
+        <a href="/lugares/pagina">Lugares</a>
+
+        <a href="/tours/pagina">Tours</a>
+
+        <p class="menu-parte">Parte 2 - PostgreSQL</p>
+
+        <a href="/destinos/pagina">Destinos</a>
+
+        <a href="/excursiones/pagina">Excursiones</a>
+
+        <p class="menu-parte">Parte 3 - MongoDB</p>
+
+        <a href="/sitios/pagina" class="activo">Sitios</a>
+
+        <a href="/itinerarios/pagina">Itinerarios</a>
+
+        <button id="btnSalir">
+
+            Cerrar sesión
+
+        </button>
+
+    </div>
+
+    <div class="contenedor">
+
+        <h1>CRUD DE SITIOS</h1>
+        <h2>Grupo 2 - Turismo y lugares por visitar</h2>
+        <p class="descripcion">
+            Parte 3 - MongoDB - coleccion CollMongoDB - 60 documentos de 15 campos - Carga Lazy
+        </p>
+        <hr>
+
+        <label>ID (ObjectId de MongoDB)</label>
+
+        <input
+            type="text"
+            id="id"
+            placeholder="Se llena al dar Consultar en la tabla">
+
+        <label>Codigo</label>
+
+        <input
+            type="text"
+            id="codigo">
+
+        <label>Nombre</label>
+
+        <input
+            type="text"
+            id="nombre">
+
+        <label>Pais</label>
+
+        <input
+            type="text"
+            id="pais">
+
+        <label>Provincia</label>
+
+        <input
+            type="text"
+            id="provincia">
+
+        <label>Canton</label>
+
+        <input
+            type="text"
+            id="canton">
+
+        <label>Categoria</label>
+
+        <input
+            type="text"
+            id="categoria">
+
+        <label>Descripcion</label>
+
+        <input
+            type="text"
+            id="descripcion">
+
+        <label>Latitud</label>
+
+        <input
+            type="number"
+            step="any"
+            id="latitud">
+
+        <label>Longitud</label>
+
+        <input
+            type="number"
+            step="any"
+            id="longitud">
+
+        <label>Altitud (msnm)</label>
+
+        <input
+            type="number"
+            step="any"
+            id="altitud_msnm">
+
+        <label>Costo de entrada</label>
+
+        <input
+            type="number"
+            step="any"
+            id="costo_entrada">
+
+        <label>Moneda</label>
+
+        <input
+            type="text"
+            id="moneda">
+
+        <label>Horario</label>
+
+        <input
+            type="text"
+            id="horario">
+
+        <label>Calificacion</label>
+
+        <input
+            type="number"
+            step="any"
+            id="calificacion">
+
+        <label>Imagen</label>
+
+        <input
+            type="file"
+            accept="image/*"
+            id="imagen">
+
+        <img id="imagen_vista" class="miniatura">
+
+        <br>
+
+        <button id="btnCrear">CREAR</button>
+
+        <button id="btnConsultar">CONSULTAR</button>
+
+        <button id="btnActualizar">ACTUALIZAR</button>
+
+        <button id="btnEliminar">ELIMINAR</button>
+
+        <button id="btnMostrar">MOSTRAR TODOS</button>
+
+        <button id="btnLimpiar">LIMPIAR</button>
+
+        <hr>
+
+        <h2>Sitios registrados</h2>
+
+        <table
+            border="1"
+            width="100%"
+            id="tablaSitios">
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+
+                    <th>Codigo</th>
+
+                    <th>Nombre</th>
+
+                    <th>Provincia</th>
+
+                    <th>Categoria</th>
+
+                    <th>Calificacion</th>
+
+                    <th>Acciones</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+            </tbody>
+
+        </table>
+
+        <br>
+
+        <div id="mensaje"></div>
+
+    </div>
+
+    <script src="/js/sitios.js"></script>
+
+</body>
+
+</html>

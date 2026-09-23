@@ -1,23 +1,63 @@
-<!--
-==========================================
-PENDIENTE
-==========================================
+<!DOCTYPE html>
 
-Esta vista queda vacia a proposito.
+<html lang="es">
 
-Las vistas de la semana 2 todavia no se han visto en clase:
-en "ProyectoEstudiantes" los archivos "views/login.html" y
-"views/estudiantes.html" estan en 0 bytes, y segun la sesion 7
-el profesor los entrega el 10 de setiembre de 2026.
+<head>
 
-Cuando llegue ese codigo se copia tal cual y se le cambian
-unicamente los nombres de los campos.
+    <meta charset="UTF-8">
 
-El JavaScript de esta vista ya esta listo en "public/js/login.js"
-y espera estos identificadores:
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-formLogin, usuario, password, mensaje
+    <title>Autenticación</title>
 
-Mientras tanto no se escribe nada, para no usar codigo que no
-fue visto en clase.
--->
+    <link rel="stylesheet"
+          href="/css/estilos.css">
+
+</head>
+
+<body>
+
+    <div class="contenedor-login">
+
+        <h1>Autenticación</h1>
+
+        <h2>Grupo 2 - Turismo y lugares por visitar</h2>
+
+        <form id="formLogin">
+
+            <label>Usuario</label>
+
+            <input
+                type="text"
+                id="usuario"
+                required>
+
+            <label>Contraseña</label>
+
+            <input
+                type="password"
+                id="password"
+                required>
+
+            <br><br>
+
+            <button type="submit">
+
+                Ingresar
+
+            </button>
+
+        </form>
+
+        <br>
+
+        <div id="mensaje"></div>
+
+    </div>
+
+    <script src="/js/login.js"></script>
+
+</body>
+
+</html>

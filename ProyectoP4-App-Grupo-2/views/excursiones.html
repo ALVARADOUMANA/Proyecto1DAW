@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>CRUD de Excursiones</title>
+
+    <link rel="stylesheet"
+          href="/css/estilos.css">
+
+</head>
+
+<body>
+
+    <div class="menu">
+
+        <h3>Grupo 2</h3>
+
+        <p class="menu-parte">Parte 1 - Archivos .txt</p>
+
+        <a href="/lugares/pagina">Lugares</a>
+
+        <a href="/tours/pagina">Tours</a>
+
+        <p class="menu-parte">Parte 2 - PostgreSQL</p>
+
+        <a href="/destinos/pagina">Destinos</a>
+
+        <a href="/excursiones/pagina" class="activo">Excursiones</a>
+
+        <p class="menu-parte">Parte 3 - MongoDB</p>
+
+        <a href="/sitios/pagina">Sitios</a>
+
+        <a href="/itinerarios/pagina">Itinerarios</a>
+
+        <button id="btnSalir">
+
+            Cerrar sesión
+
+        </button>
+
+    </div>
+
+    <div class="contenedor">
+
+        <h1>CRUD DE EXCURSIONES</h1>
+        <h2>Grupo 2 - Turismo y lugares por visitar</h2>
+        <p class="descripcion">
+            Parte 2 - PostgreSQL - 2 tablas relacionadas con llaves y joins - Carga Eager
+        </p>
+        <hr>
+
+        <h2>Operadores</h2>
+
+        <form id="form_ope">
+
+            <input
+                type="hidden"
+                id="ope_id">
+
+        <label>Razon social</label>
+
+        <input
+            type="text"
+            id="ope_razon_social">
+
+        <label>Cedula juridica</label>
+
+        <input
+            type="text"
+            id="ope_cedula_juridica">
+
+        <label>Telefono</label>
+
+        <input
+            type="text"
+            id="ope_telefono">
+
+        <label>Correo</label>
+
+        <input
+            type="text"
+            id="ope_correo">
+
+        <label>Sitio web</label>
+
+        <input
+            type="text"
+            id="ope_sitio_web">
+
+        <label>Anios de experiencia</label>
+
+        <input
+            type="number"
+            step="0.01"
+            id="ope_anios_experiencia">
+
+        <label>Calificacion promedio</label>
+
+        <input
+            type="number"
+            step="0.01"
+            id="ope_calificacion_promedio">
+
+        <label>Logo</label>
+
+        <input
+            type="file"
+            accept="image/*"
+            id="ope_logo">
+
+        <img id="ope_logo_vista" class="miniatura">
+
+            <button type="submit">
+
+                Guardar
+
+            </button>
+
+            <button
+                type="button"
+                id="btnCancelar_ope">
+
+                Cancelar
+
+            </button>
+
+        </form>
+
+        <table
+            border="1"
+            width="100%"
+            id="tabla_ope">
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Razon social</th>
+                    <th>Cedula juridica</th>
+                    <th>Telefono</th>
+                    <th>Correo</th>
+                    <th>Sitio web</th>
+                    <th>Anios de experiencia</th>
+                    <th>Calificacion promedio</th>
+                    <th>Logo</th>
+                    <th>Acciones</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+            </tbody>
+
+        </table>
+
+        <hr>
+
+        <h2>Excursiones</h2>
+
+        <form id="form_exc">
+
+            <input
+                type="hidden"
+                id="exc_id">
+
+        <label>Operador</label>
+
+        <select id="exc_id_operador"></select>
+
+        <label>Titulo</label>
+
+        <input
+            type="text"
+            id="exc_titulo">
+
+        <label>Duracion (horas)</label>
+
+        <input
+            type="number"
+            step="0.01"
+            id="exc_duracion_horas">
+
+        <label>Dificultad</label>
+
+        <input
+            type="text"
+            id="exc_dificultad">
+
+        <label>Cupo maximo</label>
+
+        <input
+            type="number"
+            step="0.01"
+            id="exc_cupo_maximo">
+
+        <label>Precio por persona</label>
+
+        <input
+            type="number"
+            step="0.01"
+            id="exc_precio_persona">
+
+        <label>Incluye transporte</label>
+
+        <input
+            type="checkbox"
+            id="exc_incluye_transporte">
+
+        <label>Fecha de salida</label>
+
+        <input
+            type="date"
+            id="exc_fecha_salida">
+
+        <label>Afiche</label>
+
+        <input
+            type="file"
+            accept="image/*"
+            id="exc_afiche">
+
+        <img id="exc_afiche_vista" class="miniatura">
+
+            <button type="submit">
+
+                Guardar
+
+            </button>
+
+            <button
+                type="button"
+                id="btnCancelar_exc">
+
+                Cancelar
+
+            </button>
+
+        </form>
+
+        <table
+            border="1"
+            width="100%"
+            id="tabla_exc">
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Operador</th>
+                    <th>Telefono</th>
+                    <th>Titulo</th>
+                    <th>Duracion (horas)</th>
+                    <th>Dificultad</th>
+                    <th>Cupo maximo</th>
+                    <th>Precio por persona</th>
+                    <th>Incluye transporte</th>
+                    <th>Fecha de salida</th>
+                    <th>Afiche</th>
+                    <th>Acciones</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+            </tbody>
+
+        </table>
+
+        <hr>
+
+        <div id="mensaje"></div>
+
+    </div>
+
+    <script src="/js/excursiones.js"></script>
+
+</body>
+
+</html>

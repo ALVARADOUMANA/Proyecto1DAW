@@ -140,74 +140,53 @@ forma que `estudiantes.txt` (una llave, tres de texto, uno numérico validado po
 
 ## C. Pendientes — bloquean trabajo
 
-### ⛔ P-1 · Modelos y vistas de la semana 2 · *bloquea la Parte 1 (20 pts)*
+### ✅ P-1 · Modelos y vistas de la semana 2 — entregados
 
-**Qué falta:** en `ProyectoEstudiantes` los archivos `models/estudiante.js`,
-`models/usuario.js`, `views/login.html` y `views/estudiantes.html` están en **0 bytes**.
+`knowledge/sesion8.md`, pasos 18 a 21: el profesor entregó `models/estudiante.js`,
+`models/usuario.js`, `views/estudiantes.html` y `views/login.html`. `ProyectoEstudiantes`
+quedó completo y con la carpeta `controllers/` ya en plural, que era el defecto 1 de A1.
 
-**Fuente:** `knowledge/sesion7.md` → *"queda poco: pendiente modelos y vistas, para ser
-vistos el 10 de septiembre"*.
+De ahí salieron los 3 modelos (`Usuario`, `Lugar`, `Tour`, clases con constructor que asigna
+los campos) y las 3 vistas de la Parte 1, cambiando solo los nombres de los campos.
 
-**Qué se hace mientras tanto:** se construye todo el resto de la Parte 1 (routers,
-controladores, services, DAOs, `data/*.txt`, `public/js`, `public/css`) siguiendo el
-material al pie de la letra. Los tres modelos y las tres vistas quedan **creados pero
-vacíos**, con un comentario que dice qué falta y de dónde va a salir.
+### ✅ P-2 · Carga Eager y Lazy — resuelto con la semana 8
 
-**Consecuencia hoy:** las vistas 0, 1 y 2 no cargan y el `require` del modelo revienta al
-arrancar. La app se prueba con las Partes 2 y 3 hasta el 10 de septiembre.
+`knowledge/sesion8.md` da la definición del profesor:
 
-**Margen:** del 10 al 17 de septiembre, 7 días.
+> Lazy loading (carga perezosa) · Eager loading (carga ambi. - inmediata)
+> Aparecen o implementan con: **ORM / ODM** — Ejemplos: Sequelize, TypeORM, Mongoose...
 
-**Al recibir el código del profesor:**
-1. Copiar tal cual `models/estudiante.js` → adaptarlo a `models/lugar.js` y `models/tour.js`
-   cambiando únicamente los nombres de los campos.
-2. Copiar tal cual `views/login.html` → `views/login.html` con los IDs que ya exige
-   `public/js/login.js`: `formLogin`, `usuario`, `password`, `mensaje`.
-3. Copiar tal cual `views/estudiantes.html` → `lugares.html` y `tours.html` con los IDs que
-   ya exige `public/js/lugares.js`: `codigo`, `nombre`, … `btnGuardar`, `btnModificar`,
-   `btnEliminar`, `btnConsultar`, `btnLimpiar`, `btnSalir`, `tablaLugares`, `mensaje`.
-4. Insertar el `<nav>` del menú lateral en `lugares.html` y `tours.html`.
+Cómo se mapea a lo que pide el enunciado:
 
-### ⛔ P-2 · Carga Eager y Lazy · *afecta 80 pts (Partes 2 y 3)*
+| Parte | Tecnología de esa semana | Cómo queda |
+|---|---|---|
+| 2 (semana 4) | driver `pg` crudo, **sin ORM** | **Eager = `INNER JOIN` en la misma consulta.** Padre e hijo en una sola ida a la base, en vez de una consulta por fila (problema N+1). Es el equivalente directo del `include` de un ORM. |
+| 3 (semana 5) | driver `mongodb` con DAO | **Lazy = proyección que excluye el campo binario al listar.** El binario se trae solo en `obtenerPorId`, cuando de verdad se necesita. |
 
-**Qué falta:** el tema no se ha visto en clase. `knowledge/sesion7.md` lo lista en el punto
-7 como pendiente, y `knowledge/08-PIZARRA-CLASE.md` lo confirma:
+La semana 4 no tiene ORM, así que el JOIN es la única forma de hacer carga anticipada con
+el código de esa semana. Queda señalado en el código con `// ===== CARGA EAGER =====` y
+explicado en la cabecera de `destinoController.js` y `excursionController.js`.
 
-> Términos del temario que aún no se han visto en clase pero podrían aparecer:
-> **Lazy vs Eager loading**, DTO, serialización de objetos, PaaS.
+### ✅ P-3 · Serialización de imágenes — confirmado como investigación
 
-**Qué se hace mientras tanto:** se implementa la lectura estándar, que es además la única
-que el código de clase soporta sin traer nada nuevo:
-- **Eager (Parte 2, semana 4):** el `INNER JOIN` dentro del mismo `pool.query`. Padre e hijo
-  en una sola ida a la base.
-- **Lazy (Parte 3, semana 5):** proyección que excluye el binario al listar; el binario se
-  trae solo en `obtenerPorId`.
+`knowledge/sesion8.md`, punto 2: **"Serializar imágenes - investigar"**. El profesor lo dejó
+explícitamente como trabajo de investigación, igual que el enunciado. No hay código de clase
+que copiar y no se esperaba que lo hubiera.
 
-Ninguna de las dos agrega dependencias ni funciones fuera del material.
+Cómo quedó implementado en la Parte 2:
 
-**Al ver la clase del 10 de septiembre:** contrastar con la definición del profesor y ajustar
-los comentarios `// ===== CARGA EAGER =====` / `// ===== CARGA LAZY =====`. El enunciado
-exige "señalar puntualmente dónde y cómo se usó", así que la redacción de ese comentario es
-parte de la nota.
+| Paso | Dónde | Cómo |
+|---|---|---|
+| Leer el archivo | `public/js/destinos.js` → `leerImagen()` | `FileReader.readAsDataURL()` y se toma la parte base64 |
+| Enviar | el mismo `fetch` que ya usaba el material | el base64 viaja como texto dentro del JSON |
+| Guardar | `controllers/*Controller.js` | `decode($n, 'base64')` hacia la columna `BYTEA` |
+| Leer de vuelta | el mismo controlador | `replace(encode(col,'base64'), chr(10), '')` |
+| Mostrar | la vista | `<img src="data:image/*;base64,...">` |
 
-### ⛔ P-3 · Serialización de imágenes binarias · *afecta 80 pts (Partes 2 y 3)*
-
-**Qué falta:** tampoco se ha visto en clase (misma fuente que P-2). El único apoyo del
-material es `knowledge/05-MYSQL-VS-POSTGRESQL.md`: el tipo binario de PostgreSQL es `BYTEA`.
-
-**Atenuante:** el enunciado **pide investigarlo** de forma explícita:
-
-> En cada tabla investigar cómo implementar un campo en PostgreSQL para almacenar y
-> actualizar imágenes de forma binaria, manejadas de forma serializada desde la vista.
-
-Es el único punto del proyecto donde el enunciado autoriza salirse del material de clase.
-
-**Qué se hace mientras tanto:** se implementa la ruta más corta y explicable:
-`FileReader.readAsDataURL()` en la vista → base64 dentro del `JSON.stringify` del `fetch` que
-ya usa el material → `Buffer.from(base64, "base64")` a `BYTEA` en el controlador →
-`.toString("base64")` de vuelta → `<img src="data:image/…;base64,…">`.
-
-**Al ver la clase del 10 de septiembre:** ajustar a lo que explique el profesor.
+**Detalle que costó encontrar:** `encode()` de PostgreSQL corta el base64 en líneas de 76
+caracteres siguiendo el RFC 2045. Ese salto de línea rompe el `data:` URI, así que hay que
+quitarlo con `replace(..., chr(10), '')`. Sin eso la imagen se guarda bien pero no se
+despliega. Probado: un PNG vuelve de la base con el base64 idéntico al enviado.
 
 ### ⛔ P-4 · Instalar y poblar las bases
 
