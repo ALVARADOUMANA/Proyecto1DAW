@@ -2,8 +2,6 @@
  * ==========================================
  * Controlador de Autenticacion
  * ==========================================
- *
- * Patron tomado de: ProyectoEstudiantes/controller/authController.js
  */
 
 const path = require("path");

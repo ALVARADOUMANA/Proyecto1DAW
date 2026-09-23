@@ -2,8 +2,6 @@
  * ==========================================
  * Controlador de Tours
  * ==========================================
- *
- * Patron tomado de: ProyectoEstudiantes/controller/estudianteController.js
  */
 
 const Tour = require("../models/tour");

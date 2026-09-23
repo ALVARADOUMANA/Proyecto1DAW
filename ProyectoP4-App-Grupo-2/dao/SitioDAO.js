@@ -2,23 +2,6 @@
  * ==========================================
  * DAO de Sitios
  * ==========================================
- *
- * Patron tomado de: Semana6/dao/ProductoDAO.js
- *
- * COLECCION
- * Los dos tipos de documento viven en la misma coleccion
- * "CollMongoDB", como pide el enunciado. Se distinguen sin
- * agregar ningun campo extra: solo los sitios tienen el campo
- * "latitud", asi que el filtro es
- * { latitud: { $exists: true } } y el conteo de campos
- * se mantiene exacto en 15.
- *
- * CARGA LAZY
- * Ver el comentario de "obtenerTodos".
- *
- * IMAGEN SERIALIZADA
- * El campo "imagen" guarda la imagen como texto base64, que es
- * como viaja serializada desde la vista.
  */
 
 const conectarMongoDB =
@@ -26,6 +9,9 @@ const conectarMongoDB =
 
 const { ObjectId } =
     require("mongodb");
+
+// Los dos tipos de documento viven en la misma coleccion.
+// Solo este tipo tiene el campo "latitud".
 
 const COLECCION = "CollMongoDB";
 
@@ -112,14 +98,12 @@ class SitioDAO {
             await conectarMongoDB();
 
 
-        // ===== CARGA LAZY =====
-        //
-        // El campo "imagen" es el mas pesado del documento y NO se
-        // carga en el listado: la proyeccion lo excluye con 0.
-        // Solo se trae cuando el usuario consulta un documento
-        // concreto, en "obtenerPorId", que es el momento en que de
-        // verdad se necesita. Con 60 documentos la diferencia
-        // se nota en el tamano de la respuesta.
+        /*=========================================
+          CARGA LAZY
+          El listado NO trae el campo "imagen".
+          Se carga solo en "obtenerPorId".
+        =========================================*/
+
 
         return await db
             .collection(COLECCION)
@@ -143,9 +127,6 @@ class SitioDAO {
             await conectarMongoDB();
 
 
-        // Aqui SI se trae el documento completo, con la imagen.
-        // Es la otra mitad de la carga perezosa.
-
         return await db
             .collection(COLECCION)
             .findOne({
@@ -165,6 +146,15 @@ class SitioDAO {
 
         const datos =
             this.construirDocumento(sitio);
+
+
+        // Si no viene una imagen nueva se conserva la que ya tiene.
+
+        if (datos.imagen === null ||
+            datos.imagen === undefined) {
+
+            delete datos.imagen;
+        }
 
         const resultado =
             await db

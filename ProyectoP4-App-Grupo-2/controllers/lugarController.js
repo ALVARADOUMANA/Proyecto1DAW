@@ -2,8 +2,6 @@
  * ==========================================
  * Controlador de Lugares
  * ==========================================
- *
- * Patron tomado de: ProyectoEstudiantes/controller/estudianteController.js
  */
 
 const Lugar = require("../models/lugar");

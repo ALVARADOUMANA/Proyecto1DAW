@@ -2,19 +2,6 @@
 ==========================================
 CRUD DE ITINERARIOS - PARTE 3 (semana 5)
 ==========================================
-
-Patron tomado de: Semana6/public/js/app.js
-
-CARGA LAZY
-"MOSTRAR TODOS" llama a GET /api/itinerarios, que NO trae el campo
-"afiche": el DAO lo excluye con una proyeccion. La tabla muestra
-solo el resumen. El documento completo, con la imagen, se trae
-unicamente al dar CONSULTAR sobre un ObjectId concreto, que es el
-momento en que de verdad se necesita.
-
-IMAGEN SERIALIZADA
-El <input type="file"> se lee con FileReader.readAsDataURL y viaja
-como texto base64 dentro del JSON, igual que en la Parte 2.
 */
 
 const API = "/api/itinerarios";
@@ -298,8 +285,6 @@ async function crear() {
 
 /*=========================================
     CONSULTAR UNO
-    Aqui SI viene la imagen: es la otra mitad
-    de la carga perezosa.
 =========================================*/
 
 async function consultar(idExterno) {
@@ -454,9 +439,8 @@ async function eliminar(idExterno) {
 }
 
 /*=========================================
-    MOSTRAR TODOS
-    ===== CARGA LAZY =====
-    La respuesta NO trae el campo "afiche".
+    MOSTRAR TODOS - CARGA LAZY
+    La respuesta no trae el campo "afiche".
 =========================================*/
 
 async function mostrarTodos() {
@@ -534,10 +518,7 @@ document.getElementById("btnEliminar")
 document.getElementById("btnMostrar")
     .addEventListener("click", mostrarTodos);
 
-document.getElementById("btnLimpiar")
-    .addEventListener("click", limpiar);
-
-document.getElementById("btnSalir")
+document.getElementById("btnSalirMenu")
     .addEventListener("click", function () {
 
         window.location.href =

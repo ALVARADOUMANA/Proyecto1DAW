@@ -2,8 +2,6 @@
  * ==========================================
  * DAO de Usuarios
  * ==========================================
- *
- * Patron tomado de: ProyectoEstudiantes/dao/usuarioDAO.js
  */
 
 const fs = require("fs");

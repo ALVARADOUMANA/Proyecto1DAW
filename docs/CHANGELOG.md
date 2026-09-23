@@ -209,7 +209,7 @@ lleva JavaScript incrustado (requerimiento E) y la bitácora registra las tres p
 
 ## ETAPA G — Integración
 
-- [x] `public/js/menu.js` + `<nav>` en las 6 vistas CRUD — enlaces y botón de deslogueo
+- [x] Menú lateral en las 6 vistas CRUD — enlaces y botón de deslogueo (no hizo falta un `menu.js` aparte: el botón lo enlaza el JS de cada vista)
 - [x] Llamar a `logService.registrar()` desde **todos** los controladores de las 3 partes
 - [x] Verificar el formato exacto de `data/log.txt`: `Fecha – Hora / "Acción" / Usuario`
 - [x] Verificar que ninguna vista tenga JavaScript incrustado (requerimiento E del enunciado)

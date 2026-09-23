@@ -2,14 +2,6 @@
  * ==========================================
  * Rutas de Tours
  * ==========================================
- *
- * Patron tomado de: ProyectoEstudiantes/routes/estudianteRoutes.js
- *
- * ORDEN DE LAS RUTAS
- * Express recorre las rutas de arriba hacia abajo y usa la primera
- * que coincide con la URL. Por eso "/tours/pagina" va ANTES que
- * "/tours/:codigo": si fuera al reves, la ruta generica taparia
- * a la especifica y "pagina" entraria como si fuera un codigo.
  */
 
 const express = require("express");

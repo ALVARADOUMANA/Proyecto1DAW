@@ -2,8 +2,6 @@
  * ==========================================
  * Rutas de Autenticacion
  * ==========================================
- *
- * Patron tomado de: ProyectoEstudiantes/routes/authRoutes.js
  */
 
 const express = require("express");

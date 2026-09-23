@@ -2,13 +2,6 @@
  * ==========================================
  * Servicio de la Bitacora
  * ==========================================
- *
- * El enunciado pide un log en un archivo .txt con el formato:
- *
- *     Fecha - Hora / "Accion Realizada" / Usuario
- *
- * y que TODAS las acciones de la aplicacion queden registradas:
- * fallas, acciones y ejecuciones de las partes del CRUD.
  */
 
 const LogDAO = require("../dao/logDAO");

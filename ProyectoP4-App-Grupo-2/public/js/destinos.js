@@ -2,22 +2,6 @@
 ==========================================
 CRUD DE Destinos - PARTE 2 (semana 4)
 ==========================================
-
-Patron tomado de: S4-SW/public/js/app.js
-
-Esta vista maneja las 2 tablas relacionadas que pide el enunciado:
-  Regiones (padre)  ->  Destinos (hijo)
-
-CARGA EAGER
-El listado de destinos lo resuelve el servidor con un INNER JOIN,
-asi que cada fila ya trae las columnas del padre (region_nombre, region_pais).
-La tabla las pinta SIN hacer ninguna peticion adicional: esa es la
-prueba de que la carga fue anticipada y no perezosa.
-
-IMAGEN SERIALIZADA
-El <input type="file"> se lee con FileReader.readAsDataURL, se toma
-la parte base64 y viaja como texto dentro del mismo JSON del fetch.
-En PostgreSQL la columna es BYTEA.
 */
 
 const API_PADRE = "/api/regiones";
@@ -57,7 +41,7 @@ function valorTexto(dato) {
 }
 
 /*=========================================
-    Serializacion de la imagen
+    Imagen
 =========================================*/
 
 function leerImagen(idInput) {
@@ -77,8 +61,6 @@ function leerImagen(idInput) {
         const lector = new FileReader();
 
         lector.onload = function () {
-
-            // "data:image/png;base64,AAAA..."  ->  nos quedamos con AAAA...
 
             resolve(lector.result.split(",")[1]);
 
@@ -166,8 +148,6 @@ async function cargarRegiones() {
             tabla.appendChild(tr);
 
         });
-
-        // el <select> del hijo se llena con los registros del padre
 
         const selector = document.getElementById("des_id_region");
 
@@ -621,8 +601,6 @@ document.getElementById("btnCancelar_des")
 
 /* ==================================================
    CARGA AL INICIAR
-   El padre va primero: su carga llena el <select>
-   que usa el hijo.
    ================================================== */
 
 async function iniciar() {
@@ -633,7 +611,7 @@ async function iniciar() {
 
 }
 
-document.getElementById("btnSalir")
+document.getElementById("btnSalirMenu")
     .addEventListener("click", function () {
 
         window.location.href =

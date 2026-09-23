@@ -2,8 +2,6 @@
  * ==========================================
  * Servicio de Tours
  * ==========================================
- *
- * Patron tomado de: ProyectoEstudiantes/services/estudianteService.js
  */
 
 const TourDAO = require("../dao/tourDAO");

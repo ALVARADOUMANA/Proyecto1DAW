@@ -2,52 +2,22 @@
  * ==========================================
  * Controlador de Excursiones
  * ==========================================
- *
- * Patron tomado de: S4-SW/controllers/productoController.js
- *
- * PARTE 2 - semana 4 - PostgreSQL con el driver "pg".
- * Segun la sesion 5, el controlador y las rutas representan la capa
- * de presentacion y "db/database.js" representa la capa de datos.
- *
- * IMAGEN SERIALIZADA
- * La columna "afiche" es BYTEA (binario) en PostgreSQL. Para que
- * viaje hacia y desde la vista se serializa a texto base64:
- *   - al leer:     encode(afiche, 'base64')
- *     encode() corta el texto en lineas de 76 caracteres
- *     (RFC 2045), asi que se le quitan los saltos con
- *     replace(..., chr(10), '') para que el data: URI de la
- *     vista quede en una sola linea.
- *   - al escribir: decode($n, 'base64')
  */
 
 const pool = require("../db/database");
 
 const LogService = require("../services/logService");
 
-/*
- * ==========================================
- * CARGA EAGER
- * ==========================================
- *
- * Sesion 8: Lazy y Eager "aparecen o se implementan con ORM / ODM".
- * La semana 4 no usa ORM, asi que el equivalente directo en SQL es
- * resolver la relacion dentro de la MISMA consulta con un INNER JOIN.
- *
- * En "obtenerExcursiones" se traen, de una sola ida a la base, el
- * registro de "excursiones" y los datos de su padre "operadores".
- * La alternativa perezosa seria listar excursiones y despues hacer una
- * consulta por cada fila para traer su operadores (problema N+1).
- *
- * Como se comprueba: la tabla de la vista muestra la columna
- * "operador_razon_social" sin ningun fetch adicional.
- */
-
 // Obtener todos
 const obtenerExcursiones = async (req, res) => {
 
     try {
 
-        // ===== CARGA EAGER: padre e hijo en una sola consulta =====
+        /*=========================================
+          CARGA EAGER
+          El INNER JOIN trae el excursione junto con su
+          operadore en una sola consulta.
+        =========================================*/
 
         const resultado = await pool.query(
             "SELECT e.id_excursion, e.id_operador, e.titulo, e.duracion_horas, e.dificultad, e.cupo_maximo, e.precio_persona, e.incluye_transporte, e.fecha_salida, replace(encode(e.afiche, 'base64'), chr(10), '') AS afiche, o.razon_social AS operador_razon_social, o.telefono AS operador_telefono FROM excursiones e INNER JOIN operadores o ON e.id_operador = o.id_operador ORDER BY e.id_excursion"
@@ -129,7 +99,7 @@ const actualizarExcursion = async (req, res) => {
         const { id } = req.params;
 
         const resultado = await pool.query(
-            "UPDATE excursiones SET id_operador = $1, titulo = $2, duracion_horas = $3, dificultad = $4, cupo_maximo = $5, precio_persona = $6, incluye_transporte = $7, fecha_salida = $8, afiche = decode($9, 'base64') WHERE id_excursion = $10 RETURNING id_excursion, id_operador, titulo, duracion_horas, dificultad, cupo_maximo, precio_persona, incluye_transporte, fecha_salida, replace(encode(afiche, 'base64'), chr(10), '') AS afiche",
+            "UPDATE excursiones SET id_operador = $1, titulo = $2, duracion_horas = $3, dificultad = $4, cupo_maximo = $5, precio_persona = $6, incluye_transporte = $7, fecha_salida = $8, afiche = COALESCE(decode($9, 'base64'), afiche) WHERE id_excursion = $10 RETURNING id_excursion, id_operador, titulo, duracion_horas, dificultad, cupo_maximo, precio_persona, incluye_transporte, fecha_salida, replace(encode(afiche, 'base64'), chr(10), '') AS afiche",
             [
                 req.body.id_operador,
                 req.body.titulo,

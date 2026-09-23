@@ -2,22 +2,13 @@
  * ==========================================
  * DAO de la Bitacora
  * ==========================================
- *
- * Patron tomado de: ProyectoEstudiantes/dao/estudianteDAO.js
- *
- * Diferencia con los demas DAO: la bitacora se abre en modo "a"
- * (agregar) y no en modo "w" (escribir), porque el log tiene que
- * acumular y no sobreescribirse.
- *
- * Sesion 7 - actividad de escucha activa:
- *   secuencia de manejo ".txt": abrir - leer / escribir / modificar
- *   - cerrarlo; modos "r", "w", "a", "x", "r+"; codificacion UTF8.
  */
 
 const fs = require("fs");
 const path = require("path");
 
 // Ruta del archivo de la bitacora
+// Se abre en modo "a" para que acumule y no se sobreescriba.
 
 const ARCHIVO = path.join(
 

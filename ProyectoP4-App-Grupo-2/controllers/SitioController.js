@@ -2,8 +2,6 @@
  * ==========================================
  * Controlador de Sitios
  * ==========================================
- *
- * Patron tomado de: Semana6/controllers/ProductoController.js
  */
 
 const SitioService =

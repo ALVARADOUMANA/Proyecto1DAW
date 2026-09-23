@@ -2,13 +2,6 @@
  * ==========================================
  * Rutas de Sitios
  * ==========================================
- *
- * Patron tomado de: Semana6/routes/productoRoutes.js
- *
- * ORDEN DE LAS RUTAS
- * Express recorre las rutas de arriba hacia abajo y usa la primera
- * que coincide. Por eso las rutas literales van ANTES que "/:id":
- * si "/:id" fuera primero, taparia a todas las que vienen despues.
  */
 
 const express = require("express");

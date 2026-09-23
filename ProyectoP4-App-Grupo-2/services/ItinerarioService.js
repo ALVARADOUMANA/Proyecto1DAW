@@ -2,8 +2,6 @@
  * ==========================================
  * Servicio de Itinerarios
  * ==========================================
- *
- * Patron tomado de: Semana6/services/ProductoService.js
  */
 
 const ItinerarioDAO =

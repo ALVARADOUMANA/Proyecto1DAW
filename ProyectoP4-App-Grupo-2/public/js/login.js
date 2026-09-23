@@ -2,8 +2,6 @@
 ==========================================
 Login
 ==========================================
-
-Patron tomado de: ProyectoEstudiantes/public/js/login.js
 */
 
 document.addEventListener("DOMContentLoaded", iniciar);

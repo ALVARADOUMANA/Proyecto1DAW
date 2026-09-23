@@ -2,23 +2,6 @@
  * ==========================================
  * DAO de Itinerarios
  * ==========================================
- *
- * Patron tomado de: Semana6/dao/ProductoDAO.js
- *
- * COLECCION
- * Los dos tipos de documento viven en la misma coleccion
- * "CollMongoDB", como pide el enunciado. Se distinguen sin
- * agregar ningun campo extra: solo los itinerarios tienen el campo
- * "duracion_dias", asi que el filtro es
- * { duracion_dias: { $exists: true } } y el conteo de campos
- * se mantiene exacto en 25.
- *
- * CARGA LAZY
- * Ver el comentario de "obtenerTodos".
- *
- * IMAGEN SERIALIZADA
- * El campo "afiche" guarda la imagen como texto base64, que es
- * como viaja serializada desde la vista.
  */
 
 const conectarMongoDB =
@@ -26,6 +9,9 @@ const conectarMongoDB =
 
 const { ObjectId } =
     require("mongodb");
+
+// Los dos tipos de documento viven en la misma coleccion.
+// Solo este tipo tiene el campo "duracion_dias".
 
 const COLECCION = "CollMongoDB";
 
@@ -122,14 +108,12 @@ class ItinerarioDAO {
             await conectarMongoDB();
 
 
-        // ===== CARGA LAZY =====
-        //
-        // El campo "afiche" es el mas pesado del documento y NO se
-        // carga en el listado: la proyeccion lo excluye con 0.
-        // Solo se trae cuando el usuario consulta un documento
-        // concreto, en "obtenerPorId", que es el momento en que de
-        // verdad se necesita. Con 120 documentos la diferencia
-        // se nota en el tamano de la respuesta.
+        /*=========================================
+          CARGA LAZY
+          El listado NO trae el campo "afiche".
+          Se carga solo en "obtenerPorId".
+        =========================================*/
+
 
         return await db
             .collection(COLECCION)
@@ -153,9 +137,6 @@ class ItinerarioDAO {
             await conectarMongoDB();
 
 
-        // Aqui SI se trae el documento completo, con la imagen.
-        // Es la otra mitad de la carga perezosa.
-
         return await db
             .collection(COLECCION)
             .findOne({
@@ -175,6 +156,15 @@ class ItinerarioDAO {
 
         const datos =
             this.construirDocumento(itinerario);
+
+
+        // Si no viene una imagen nueva se conserva la que ya tiene.
+
+        if (datos.afiche === null ||
+            datos.afiche === undefined) {
+
+            delete datos.afiche;
+        }
 
         const resultado =
             await db

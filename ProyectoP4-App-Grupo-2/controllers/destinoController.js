@@ -2,52 +2,22 @@
  * ==========================================
  * Controlador de Destinos
  * ==========================================
- *
- * Patron tomado de: S4-SW/controllers/productoController.js
- *
- * PARTE 2 - semana 4 - PostgreSQL con el driver "pg".
- * Segun la sesion 5, el controlador y las rutas representan la capa
- * de presentacion y "db/database.js" representa la capa de datos.
- *
- * IMAGEN SERIALIZADA
- * La columna "imagen" es BYTEA (binario) en PostgreSQL. Para que
- * viaje hacia y desde la vista se serializa a texto base64:
- *   - al leer:     encode(imagen, 'base64')
- *     encode() corta el texto en lineas de 76 caracteres
- *     (RFC 2045), asi que se le quitan los saltos con
- *     replace(..., chr(10), '') para que el data: URI de la
- *     vista quede en una sola linea.
- *   - al escribir: decode($n, 'base64')
  */
 
 const pool = require("../db/database");
 
 const LogService = require("../services/logService");
 
-/*
- * ==========================================
- * CARGA EAGER
- * ==========================================
- *
- * Sesion 8: Lazy y Eager "aparecen o se implementan con ORM / ODM".
- * La semana 4 no usa ORM, asi que el equivalente directo en SQL es
- * resolver la relacion dentro de la MISMA consulta con un INNER JOIN.
- *
- * En "obtenerDestinos" se traen, de una sola ida a la base, el
- * registro de "destinos" y los datos de su padre "regiones".
- * La alternativa perezosa seria listar destinos y despues hacer una
- * consulta por cada fila para traer su regiones (problema N+1).
- *
- * Como se comprueba: la tabla de la vista muestra la columna
- * "region_nombre" sin ningun fetch adicional.
- */
-
 // Obtener todos
 const obtenerDestinos = async (req, res) => {
 
     try {
 
-        // ===== CARGA EAGER: padre e hijo en una sola consulta =====
+        /*=========================================
+          CARGA EAGER
+          El INNER JOIN trae el destino junto con su
+          regione en una sola consulta.
+        =========================================*/
 
         const resultado = await pool.query(
             "SELECT d.id_destino, d.id_region, d.nombre, d.categoria, d.altitud, d.temporada_alta, d.costo_entrada, d.horario, d.requiere_guia, replace(encode(d.imagen, 'base64'), chr(10), '') AS imagen, r.nombre AS region_nombre, r.pais AS region_pais FROM destinos d INNER JOIN regiones r ON d.id_region = r.id_region ORDER BY d.id_destino"
@@ -129,7 +99,7 @@ const actualizarDestino = async (req, res) => {
         const { id } = req.params;
 
         const resultado = await pool.query(
-            "UPDATE destinos SET id_region = $1, nombre = $2, categoria = $3, altitud = $4, temporada_alta = $5, costo_entrada = $6, horario = $7, requiere_guia = $8, imagen = decode($9, 'base64') WHERE id_destino = $10 RETURNING id_destino, id_region, nombre, categoria, altitud, temporada_alta, costo_entrada, horario, requiere_guia, replace(encode(imagen, 'base64'), chr(10), '') AS imagen",
+            "UPDATE destinos SET id_region = $1, nombre = $2, categoria = $3, altitud = $4, temporada_alta = $5, costo_entrada = $6, horario = $7, requiere_guia = $8, imagen = COALESCE(decode($9, 'base64'), imagen) WHERE id_destino = $10 RETURNING id_destino, id_region, nombre, categoria, altitud, temporada_alta, costo_entrada, horario, requiere_guia, replace(encode(imagen, 'base64'), chr(10), '') AS imagen",
             [
                 req.body.id_region,
                 req.body.nombre,

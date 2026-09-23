@@ -2,11 +2,6 @@
  * ==========================================
  * Rutas de Excursiones
  * ==========================================
- *
- * Patron tomado de: S4-SW/routes/productoRoutes.js
- *
- * ORDEN DE LAS RUTAS: Express usa la primera que coincide, por eso
- * las rutas literales van antes que las que llevan ":id".
  */
 
 const express = require("express");

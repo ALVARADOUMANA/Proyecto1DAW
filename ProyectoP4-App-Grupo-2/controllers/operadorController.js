@@ -2,22 +2,6 @@
  * ==========================================
  * Controlador de Operadores
  * ==========================================
- *
- * Patron tomado de: S4-SW/controllers/productoController.js
- *
- * PARTE 2 - semana 4 - PostgreSQL con el driver "pg".
- * Segun la sesion 5, el controlador y las rutas representan la capa
- * de presentacion y "db/database.js" representa la capa de datos.
- *
- * IMAGEN SERIALIZADA
- * La columna "logo" es BYTEA (binario) en PostgreSQL. Para que
- * viaje hacia y desde la vista se serializa a texto base64:
- *   - al leer:     encode(logo, 'base64')
- *     encode() corta el texto en lineas de 76 caracteres
- *     (RFC 2045), asi que se le quitan los saltos con
- *     replace(..., chr(10), '') para que el data: URI de la
- *     vista quede en una sola linea.
- *   - al escribir: decode($n, 'base64')
  */
 
 const pool = require("../db/database");
@@ -108,7 +92,7 @@ const actualizarOperador = async (req, res) => {
         const { id } = req.params;
 
         const resultado = await pool.query(
-            "UPDATE operadores SET razon_social = $1, cedula_juridica = $2, telefono = $3, correo = $4, sitio_web = $5, anios_experiencia = $6, calificacion_promedio = $7, logo = decode($8, 'base64') WHERE id_operador = $9 RETURNING id_operador, razon_social, cedula_juridica, telefono, correo, sitio_web, anios_experiencia, calificacion_promedio, replace(encode(logo, 'base64'), chr(10), '') AS logo",
+            "UPDATE operadores SET razon_social = $1, cedula_juridica = $2, telefono = $3, correo = $4, sitio_web = $5, anios_experiencia = $6, calificacion_promedio = $7, logo = COALESCE(decode($8, 'base64'), logo) WHERE id_operador = $9 RETURNING id_operador, razon_social, cedula_juridica, telefono, correo, sitio_web, anios_experiencia, calificacion_promedio, replace(encode(logo, 'base64'), chr(10), '') AS logo",
             [
                 req.body.razon_social,
                 req.body.cedula_juridica,

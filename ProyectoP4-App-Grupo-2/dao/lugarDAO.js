@@ -2,8 +2,6 @@
  * ==========================================
  * DAO de Lugares
  * ==========================================
- *
- * Patron tomado de: ProyectoEstudiantes/dao/estudianteDAO.js
  */
 
 const fs = require("fs");

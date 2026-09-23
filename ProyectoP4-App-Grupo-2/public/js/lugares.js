@@ -2,8 +2,6 @@
 ==========================================
 CRUD DE LUGARES
 ==========================================
-
-Patron tomado de: ProyectoEstudiantes/public/js/estudiantes.js
 */
 
 document.addEventListener("DOMContentLoaded", iniciar);
@@ -32,6 +30,10 @@ function iniciar() {
 
     document
         .getElementById("btnSalir")
+        .addEventListener("click", salir);
+
+    document
+        .getElementById("btnSalirMenu")
         .addEventListener("click", salir);
 
     listar();

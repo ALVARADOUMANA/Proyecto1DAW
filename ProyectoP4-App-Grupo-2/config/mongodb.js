@@ -2,11 +2,6 @@
  * ==========================================
  * Conexion a MongoDB
  * ==========================================
- *
- * Patron tomado de: Semana6/config/mongodb.js
- *
- * La conexion se guarda en la variable de modulo "db" para no
- * volver a abrirla en cada peticion.
  */
 
 const { MongoClient } = require("mongodb");

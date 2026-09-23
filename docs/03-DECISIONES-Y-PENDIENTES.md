@@ -66,8 +66,13 @@ Tres carpetas, cada una con el nombre exacto de su `.zip`:
 | Carpeta | Contenido |
 |---|---|
 | `ProyectoP4-App-Grupo-2/` | la aplicación completa |
-| `ProyectoP4-PostgreSQL-Grupo-2/` | los 2 `.sql` (Etapa D) |
-| `ProyectoP4-MongoDB-Grupo-2/` | los 2 `.JSON` (Etapa F) |
+| `ProyectoP4-PostgreSQL-Grupo-2/` | **solo** los 2 `.sql` |
+| `ProyectoP4-MongoDB-Grupo-2/` | **solo** los 2 `.JSON` |
+
+El enunciado dice *"**Únicamente** 2 conjuntos de scripts"* y *"**Únicamente** 2 archivos
+en formato `.JSON`"*. Por eso esas dos carpetas no llevan `README.md` ni ningún otro
+archivo: los comandos para cargarlas están en el `README.md` de la aplicación y en la
+cabecera del propio `ScriptCrearBaseDatos.sql`.
 
 Cada `.zip` sale de comprimir su carpeta y nada más, que es lo que pide el enunciado
 ("únicamente las carpetas y archivos respectivos"). Del zip de la app solo se excluye
@@ -220,6 +225,14 @@ para la semana de entrega — el enunciado lo pide explícitamente en la indicac
 | **P5** | El menú lateral con botón de deslogueo no tiene código en el material. ¿Se acepta hacerlo con HTML + CSS + JS de `public/`, con las mismas técnicas de semana 2? | — |
 | **P6** | Sin sesiones en el código de semana 2, ¿se acepta que el bloqueo de acceso sea la redirección del `login.js`, o hay que agregar un mecanismo de sesión? | A3 |
 | **P7** | La base de PostgreSQL se llamó `proyecto1grupo2` en vez de `BDPostgreSQL`. ¿Importa el nombre de la base, o basta con que el script la cree y la app se conecte? | S4 |
+
+### A11. Dos controles de salida, no uno
+El enunciado pide dos cosas distintas: que las vistas de la Parte 1 conserven los botones
+de la semana 2, entre ellos **Salir**, y que el menú tenga su propio **botón de deslogueo**.
+Por eso las vistas de lugares y tours llevan `btnSalir` en la fila de botones y todas las
+vistas llevan `btnSalirMenu` en el menú. Los dos van a `/logout`. Se llaman distinto
+porque conviven en la misma página: `btnSalir` es el de la interfaz de la semana 2 y
+`btnSalirMenu` el del menú que pide el enunciado.
 
 ---
 

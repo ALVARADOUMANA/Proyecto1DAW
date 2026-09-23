@@ -2,22 +2,6 @@
  * ==========================================
  * Controlador de Regiones
  * ==========================================
- *
- * Patron tomado de: S4-SW/controllers/productoController.js
- *
- * PARTE 2 - semana 4 - PostgreSQL con el driver "pg".
- * Segun la sesion 5, el controlador y las rutas representan la capa
- * de presentacion y "db/database.js" representa la capa de datos.
- *
- * IMAGEN SERIALIZADA
- * La columna "imagen" es BYTEA (binario) en PostgreSQL. Para que
- * viaje hacia y desde la vista se serializa a texto base64:
- *   - al leer:     encode(imagen, 'base64')
- *     encode() corta el texto en lineas de 76 caracteres
- *     (RFC 2045), asi que se le quitan los saltos con
- *     replace(..., chr(10), '') para que el data: URI de la
- *     vista quede en una sola linea.
- *   - al escribir: decode($n, 'base64')
  */
 
 const pool = require("../db/database");
@@ -108,7 +92,7 @@ const actualizarRegion = async (req, res) => {
         const { id } = req.params;
 
         const resultado = await pool.query(
-            "UPDATE regiones SET nombre = $1, pais = $2, clima = $3, idioma = $4, moneda = $5, huso_horario = $6, descripcion = $7, imagen = decode($8, 'base64') WHERE id_region = $9 RETURNING id_region, nombre, pais, clima, idioma, moneda, huso_horario, descripcion, replace(encode(imagen, 'base64'), chr(10), '') AS imagen",
+            "UPDATE regiones SET nombre = $1, pais = $2, clima = $3, idioma = $4, moneda = $5, huso_horario = $6, descripcion = $7, imagen = COALESCE(decode($8, 'base64'), imagen) WHERE id_region = $9 RETURNING id_region, nombre, pais, clima, idioma, moneda, huso_horario, descripcion, replace(encode(imagen, 'base64'), chr(10), '') AS imagen",
             [
                 req.body.nombre,
                 req.body.pais,

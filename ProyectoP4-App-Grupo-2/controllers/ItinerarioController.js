@@ -2,8 +2,6 @@
  * ==========================================
  * Controlador de Itinerarios
  * ==========================================
- *
- * Patron tomado de: Semana6/controllers/ProductoController.js
  */
 
 const ItinerarioService =

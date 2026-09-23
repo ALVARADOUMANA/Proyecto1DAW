@@ -2,8 +2,6 @@
  * ==========================================
  * Servicio de Sitios
  * ==========================================
- *
- * Patron tomado de: Semana6/services/ProductoService.js
  */
 
 const SitioDAO =

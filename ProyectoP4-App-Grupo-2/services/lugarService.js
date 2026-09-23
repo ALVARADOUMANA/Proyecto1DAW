@@ -2,8 +2,6 @@
  * ==========================================
  * Servicio de Lugares
  * ==========================================
- *
- * Patron tomado de: ProyectoEstudiantes/services/estudianteService.js
  */
 
 const LugarDAO = require("../dao/lugarDAO");
