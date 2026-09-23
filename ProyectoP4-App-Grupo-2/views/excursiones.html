@@ -48,18 +48,17 @@
 
     </div>
 
-    <div class="contenedor ancho">
+    <div class="contenedor ancho vista-postgres">
 
         <h1>CRUD DE EXCURSIONES</h1>
         <h2>Grupo 2 - Turismo y lugares por visitar</h2>
-        <p class="descripcion">
-            Parte 2 - PostgreSQL - 2 tablas relacionadas con llaves y joins - Carga Eager
-        </p>
         <hr>
 
-        <h2>Operadores</h2>
+        <section class="formulario">
 
-        <form id="form_ope">
+            <h2>Datos del operador</h2>
+
+            <form id="form_ope">
 
             <input
                 type="hidden"
@@ -118,26 +117,33 @@
 
         <img id="ope_logo_vista" class="miniatura">
 
-            <button type="submit">
+            <div class="botones">
 
-                Guardar
+                <button type="submit">
 
-            </button>
+                    Guardar
 
-            <button
-                type="button"
-                id="btnCancelar_ope">
+                </button>
 
-                Cancelar
+                <button
+                    type="button"
+                    id="btnCancelar_ope">
 
-            </button>
+                    Cancelar
 
-        </form>
+                </button>
 
-        <table
-            border="1"
-            width="100%"
-            id="tabla_ope">
+            </div>
+
+            </form>
+
+        </section>
+
+        <section>
+
+            <h2>Operadores registrados</h2>
+
+            <table>
 
             <thead>
 
@@ -158,17 +164,21 @@
 
             </thead>
 
-            <tbody>
+            <tbody id="tabla_ope">
 
             </tbody>
 
-        </table>
+            </table>
+
+        </section>
 
         <hr>
 
-        <h2>Excursiones</h2>
+        <section class="formulario">
 
-        <form id="form_exc">
+            <h2>Datos de la excursion</h2>
+
+            <form id="form_exc">
 
             <input
                 type="hidden"
@@ -232,26 +242,33 @@
 
         <img id="exc_afiche_vista" class="miniatura">
 
-            <button type="submit">
+            <div class="botones">
 
-                Guardar
+                <button type="submit">
 
-            </button>
+                    Guardar
 
-            <button
-                type="button"
-                id="btnCancelar_exc">
+                </button>
 
-                Cancelar
+                <button
+                    type="button"
+                    id="btnCancelar_exc">
 
-            </button>
+                    Cancelar
 
-        </form>
+                </button>
 
-        <table
-            border="1"
-            width="100%"
-            id="tabla_exc">
+            </div>
+
+            </form>
+
+        </section>
+
+        <section>
+
+            <h2>Excursiones registradas</h2>
+
+            <table>
 
             <thead>
 
@@ -274,11 +291,13 @@
 
             </thead>
 
-            <tbody>
+            <tbody id="tabla_exc">
 
             </tbody>
 
-        </table>
+            </table>
+
+        </section>
 
         <hr>
 

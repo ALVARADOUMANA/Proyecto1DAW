@@ -183,7 +183,7 @@ lleva JavaScript incrustado (requerimiento E) y la bitácora registra las tres p
 
 ## ETAPA D — Scripts de PostgreSQL (entregable 2)
 
-- [x] `ProyectoP4-PostgreSQL-Grupo-2/ScriptCrearBaseDatos.sql` — `proyecto1grupo2` + 4 tablas + FKs + `BYTEA`
+- [x] `ProyectoP4-PostgreSQL-Grupo-2/ScriptCrearBaseDatos.sql` — `BDPostgreSQL` + 4 tablas + FKs + `BYTEA`
 - [x] `ProyectoP4-PostgreSQL-Grupo-2/ScriptPopularBaseDatos.sql` — datos coherentes del tema 7
 - [x] Correr los dos scripts en pgAdmin 4 y verificar los `JOIN`
 

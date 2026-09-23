@@ -406,7 +406,7 @@ async function mostrarTodos() {
         }
 
         const tabla =
-            document.querySelector("#tablaSitios tbody");
+            document.getElementById("tablaSitios");
 
         tabla.innerHTML = "";
 
@@ -420,11 +420,7 @@ async function mostrarTodos() {
                 "<td>" + valorTexto(sitio.nombre) + "</td>" +
                 "<td>" + valorTexto(sitio.provincia) + "</td>" +
                 "<td>" + valorTexto(sitio.categoria) + "</td>" +
-                "<td>" + valorTexto(sitio.calificacion) + "</td>" +
-                "<td>" +
-                "<button class=\"btn-editar\" onclick=\"consultar('" + sitio._id + "')\">Consultar</button>" +
-                "<button class=\"btn-eliminar\" onclick=\"eliminar('" + sitio._id + "')\">Eliminar</button>" +
-                "</td>";
+                "<td>" + valorTexto(sitio.calificacion) + "</td>";
 
             tabla.appendChild(fila);
 

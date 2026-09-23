@@ -20,7 +20,7 @@ psql -U postgres -d BDPostgreSQL -f ScriptPopularBaseDatos.sql
 ```
 
 En pgAdmin es lo mismo: correr primero la línea del `CREATE DATABASE` conectado a
-`postgres`, reconectar el Query Tool a `proyecto1grupo2` y correr el resto.
+`postgres`, reconectar el Query Tool a `BDPostgreSQL` y correr el resto.
 
 **MongoDB** — desde `ProyectoP4-MongoDB-Grupo-2/`:
 

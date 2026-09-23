@@ -1,377 +1,403 @@
 /*=========================================
-    Estilo general
+    Reset y pagina - comun a toda la aplicacion
 =========================================*/
- 
-*{
+
+* {
     margin:0;
     padding:0;
     box-sizing:border-box;
     font-family:Arial, Helvetica, sans-serif;
 }
- 
-/*=========================================
-    Página
-=========================================*/
- 
-body{
- 
+
+body {
     background:#f2f2f2;
- 
     padding:30px;
- 
 }
- 
+
 /*=========================================
-    Contenedor principal
+    PARTE 1 - vistas de archivos .txt (semana 2)
 =========================================*/
- 
-.contenedor,
-.contenedor-login{
- 
+
+.contenedor-login {
     width:700px;
- 
     margin:auto;
- 
     background:white;
- 
     padding:30px;
- 
     border-radius:8px;
- 
     box-shadow:0px 0px 10px gray;
- 
 }
- 
-/*=========================================
-    Títulos
-=========================================*/
- 
-h1{
- 
+
+.vista-txt {
+    width:700px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:8px;
+    box-shadow:0px 0px 10px gray;
+}
+
+.vista-txt h1,
+.contenedor-login h1 {
     text-align:center;
- 
     margin-bottom:20px;
- 
     color:#1b4f72;
- 
 }
- 
-h2{
- 
+
+.vista-txt h2,
+.contenedor-login h2 {
     margin-top:15px;
- 
     margin-bottom:15px;
- 
 }
- 
-/*=========================================
-    Etiquetas
-=========================================*/
- 
-label{
- 
+
+.vista-txt label,
+.contenedor-login label {
     display:block;
- 
     margin-top:10px;
- 
     margin-bottom:5px;
- 
     font-weight:bold;
- 
 }
- 
-/*=========================================
-    Cajas de texto
-=========================================*/
- 
-input{
- 
+
+.vista-txt input,
+.contenedor-login input {
     width:100%;
- 
     padding:10px;
- 
     border:1px solid gray;
- 
     border-radius:5px;
- 
     font-size:16px;
- 
 }
- 
-/*=========================================
-    Botones
-=========================================*/
- 
-button{
- 
+
+.vista-txt button,
+.contenedor-login button {
     margin-top:10px;
- 
     margin-right:5px;
- 
     padding:10px 20px;
- 
     cursor:pointer;
- 
     border:none;
- 
     border-radius:5px;
- 
     background:#2874A6;
- 
     color:white;
- 
     font-size:15px;
- 
 }
- 
-button:hover{
- 
+
+.vista-txt button:hover,
+.contenedor-login button:hover {
     background:#1F618D;
- 
 }
- 
-/*=========================================
-    Tabla
-=========================================*/
- 
-table{
- 
+
+.vista-txt table,
+.contenedor-login table {
     width:100%;
- 
     border-collapse:collapse;
- 
     margin-top:20px;
- 
 }
- 
-table th{
- 
+
+.vista-txt table th,
+.contenedor-login table th {
     background:#2874A6;
- 
     color:white;
- 
     padding:10px;
- 
 }
- 
-table td{
- 
+
+.vista-txt table td,
+.contenedor-login table td {
     padding:8px;
- 
     text-align:center;
- 
     border:1px solid #cccccc;
- 
 }
- 
-table tr:nth-child(even){
- 
+
+.vista-txt table tr:nth-child(even),
+.contenedor-login table tr:nth-child(even) {
     background:#F4F6F7;
- 
 }
- 
-/*=========================================
-    Mensajes
-=========================================*/
- 
-#mensaje{
- 
+
+.vista-txt #mensaje,
+.contenedor-login #mensaje {
     margin-top:20px;
- 
     font-weight:bold;
- 
     color:#C0392B;
- 
 }
+
+/*=========================================
+    PARTE 2 - vistas de PostgreSQL (semana 4)
+=========================================*/
+
+.vista-postgres {
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.vista-postgres h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.vista-postgres h2 {
+    margin-top: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.vista-postgres label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.vista-postgres input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.vista-postgres button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.vista-postgres button[type="submit"] {
+    background-color: #0df689;
+    color: white;
+}
+
+.vista-postgres [id^="btnCancelar"] {
+    background-color: #6c757d;
+    color: white;
+}
+
+.vista-postgres .formulario {
+    margin-bottom: 30px;
+}
+
+.vista-postgres .botones {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.vista-postgres .btn-editar {
+    background-color: #079cff;
+    color: black;
+    margin-right: 5px;
+}
+
+.vista-postgres .btn-eliminar {
+    background-color: #f4a3ab;
+    color: white;
+}
+
+.vista-postgres table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.vista-postgres th {
+    background-color: #64696e;
+    color: white;
+}
+
+.vista-postgres td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+.vista-postgres tr:nth-child(even) {
+    background-color: #f8f8f8;
+}
+
+/*=========================================
+    PARTE 3 - vistas de MongoDB (semana 5)
+=========================================*/
+
+.vista-mongo {
+    max-width: 1200px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ccc;
+}
+
+.vista-mongo h1 {
+    text-align: center;
+}
+
+.vista-mongo .descripcion {
+    text-align: center;
+    color: #666;
+}
+
+.vista-mongo .formulario {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 10px;
+    margin: 30px 0;
+}
+
+.vista-mongo .formulario input {
+    padding: 10px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+}
+
+.vista-mongo .seccion {
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.vista-mongo .seccion h2 {
+    text-align: center;
+}
+
+.vista-mongo .mongo {
+    border-left: 6px solid #777;
+}
+
+.vista-mongo .botones {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.vista-mongo button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background: #333;
+    color: white;
+    cursor: pointer;
+}
+
+.vista-mongo button:hover {
+    background: #555;
+}
+
+.vista-mongo table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.vista-mongo th {
+    background: #eee;
+}
+
+.vista-mongo td {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
 /*=========================================
     Menu lateral
 =========================================*/
 
-.menu{
-
-    position:fixed;
-
-    left:0;
-
-    top:0;
-
-    width:200px;
-
-    height:100%;
-
-    background:#1b4f72;
-
-    padding:20px;
-
-    overflow-y:auto;
-
+body.con-menu {
+    padding-left: 260px;
 }
 
-.menu h3{
-
-    color:white;
-
-    margin-bottom:15px;
-
-    text-align:center;
-
+.menu {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    background: #1b4f72;
+    padding: 20px;
+    overflow-y: auto;
 }
 
-.menu-parte{
-
-    color:#aed6f1;
-
-    font-size:12px;
-
-    margin-top:15px;
-
-    margin-bottom:5px;
-
-    text-transform:uppercase;
-
-}
-
-.menu a{
-
-    display:block;
-
-    color:white;
-
-    text-decoration:none;
-
-    padding:8px 10px;
-
-    border-radius:5px;
-
-    margin-bottom:3px;
-
-}
-
-.menu a:hover{
-
-    background:#2874A6;
-
-}
-
-.menu a.activo{
-
-    background:#2874A6;
-
-    font-weight:bold;
-
-}
-
-.menu button{
-
-    width:100%;
-
-    margin-top:25px;
-
-    background:#C0392B;
-
-}
-
-.menu button:hover{
-
-    background:#922B21;
-
-}
-
-/*=========================================
-    Pagina con menu
-=========================================*/
-
-body.con-menu{
-
-    padding-left:260px;
-
-}
-
-/*=========================================
-    Listas, casillas e imagenes
-=========================================*/
-
-select{
-
-    width:100%;
-
-    padding:10px;
-
-    border:1px solid gray;
-
-    border-radius:5px;
-
-    font-size:16px;
-
-}
-
-input[type="checkbox"]{
-
-    width:auto;
-
-}
-
-.miniatura{
-
-    max-height:60px;
-
-    display:block;
-
-    margin-top:5px;
-
-}
-
-
-/*=========================================
-    Contenedor ancho
-=========================================*/
-
-.contenedor.ancho{
-
-    width:auto;
-
-    max-width:1500px;
-
-}
-
-.contenedor.ancho table{
-
-    display:block;
-
-    overflow-x:auto;
-
-}
-
-/*=========================================
-    Botones de las tablas
-=========================================*/
-
-.btn-editar {
- 
-    background-color: #079cff;
- 
-    color: black;
- 
-    margin-right: 5px;
-}
-
-.btn-eliminar {
- 
-    background-color: #f4a3ab;
- 
+.menu h3 {
     color: white;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.menu-parte {
+    color: #aed6f1;
+    font-size: 12px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.menu a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 8px 10px;
+    border-radius: 5px;
+    margin-bottom: 3px;
+}
+
+.menu a:hover,
+.menu a.activo {
+    background: #2874A6;
+}
+
+.menu button {
+    width: 100%;
+    margin-top: 25px;
+    background: #C0392B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.menu button:hover {
+    background: #922B21;
 }
 
 /*=========================================
-    Subtitulo de la vista
+    Controles que las vistas de clase no tenian
 =========================================*/
 
-.descripcion {
- 
-    text-align:
-        center;
- 
-    color:
-        #666;
- 
+.vista-postgres select,
+.vista-mongo select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.vista-txt input[type="checkbox"],
+.vista-postgres input[type="checkbox"],
+.vista-mongo .formulario input[type="checkbox"] {
+    width: auto;
+    padding: 0;
+    margin-top: 10px;
+    justify-self: start;
+}
+
+.miniatura {
+    max-height: 60px;
+    display: block;
+    margin-top: 5px;
+}
+
+/*=========================================
+    Ancho extra para las tablas de 8 y 12 columnas
+=========================================*/
+
+.ancho {
+    width: auto;
+    max-width: 1500px;
+    overflow-x: auto;
 }

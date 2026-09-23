@@ -131,7 +131,8 @@ MongoDB Compass — la herramienta que sí se instaló en clase (`knowledge/sesi
 → **Pregunta P4.**
 
 ### S4. Nombres de las bases de datos — divergencia del enunciado
-Las dos bases se llaman **`proyecto1grupo2`**, por decisión del grupo.
+La base de PostgreSQL usa el nombre del enunciado, `BDPostgreSQL`. La de MongoDB,
+que el enunciado no nombra, se llama `proyecto1grupo2`.
 
 | | Enunciado | Se usa |
 |---|---|---|

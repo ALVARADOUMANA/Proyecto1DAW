@@ -460,7 +460,7 @@ async function mostrarTodos() {
         }
 
         const tabla =
-            document.querySelector("#tablaItinerarios tbody");
+            document.getElementById("tablaItinerarios");
 
         tabla.innerHTML = "";
 
@@ -474,11 +474,7 @@ async function mostrarTodos() {
                 "<td>" + valorTexto(itinerario.nombre) + "</td>" +
                 "<td>" + valorTexto(itinerario.region) + "</td>" +
                 "<td>" + valorTexto(itinerario.duracion_dias) + "</td>" +
-                "<td>" + valorTexto(itinerario.precio_adulto) + "</td>" +
-                "<td>" +
-                "<button class=\"btn-editar\" onclick=\"consultar('" + itinerario._id + "')\">Consultar</button>" +
-                "<button class=\"btn-eliminar\" onclick=\"eliminar('" + itinerario._id + "')\">Eliminar</button>" +
-                "</td>";
+                "<td>" + valorTexto(itinerario.precio_adulto) + "</td>";
 
             tabla.appendChild(fila);
 

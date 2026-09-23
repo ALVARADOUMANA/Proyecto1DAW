@@ -48,18 +48,17 @@
 
     </div>
 
-    <div class="contenedor ancho">
+    <div class="contenedor ancho vista-postgres">
 
         <h1>CRUD DE DESTINOS</h1>
         <h2>Grupo 2 - Turismo y lugares por visitar</h2>
-        <p class="descripcion">
-            Parte 2 - PostgreSQL - 2 tablas relacionadas con llaves y joins - Carga Eager
-        </p>
         <hr>
 
-        <h2>Regiones</h2>
+        <section class="formulario">
 
-        <form id="form_reg">
+            <h2>Datos de la region</h2>
+
+            <form id="form_reg">
 
             <input
                 type="hidden"
@@ -116,26 +115,33 @@
 
         <img id="reg_imagen_vista" class="miniatura">
 
-            <button type="submit">
+            <div class="botones">
 
-                Guardar
+                <button type="submit">
 
-            </button>
+                    Guardar
 
-            <button
-                type="button"
-                id="btnCancelar_reg">
+                </button>
 
-                Cancelar
+                <button
+                    type="button"
+                    id="btnCancelar_reg">
 
-            </button>
+                    Cancelar
 
-        </form>
+                </button>
 
-        <table
-            border="1"
-            width="100%"
-            id="tabla_reg">
+            </div>
+
+            </form>
+
+        </section>
+
+        <section>
+
+            <h2>Regiones registradas</h2>
+
+            <table>
 
             <thead>
 
@@ -156,17 +162,21 @@
 
             </thead>
 
-            <tbody>
+            <tbody id="tabla_reg">
 
             </tbody>
 
-        </table>
+            </table>
+
+        </section>
 
         <hr>
 
-        <h2>Destinos</h2>
+        <section class="formulario">
 
-        <form id="form_des">
+            <h2>Datos del destino</h2>
+
+            <form id="form_des">
 
             <input
                 type="hidden"
@@ -229,26 +239,33 @@
 
         <img id="des_imagen_vista" class="miniatura">
 
-            <button type="submit">
+            <div class="botones">
 
-                Guardar
+                <button type="submit">
 
-            </button>
+                    Guardar
 
-            <button
-                type="button"
-                id="btnCancelar_des">
+                </button>
 
-                Cancelar
+                <button
+                    type="button"
+                    id="btnCancelar_des">
 
-            </button>
+                    Cancelar
 
-        </form>
+                </button>
 
-        <table
-            border="1"
-            width="100%"
-            id="tabla_des">
+            </div>
+
+            </form>
+
+        </section>
+
+        <section>
+
+            <h2>Destinos registrados</h2>
+
+            <table>
 
             <thead>
 
@@ -271,11 +288,13 @@
 
             </thead>
 
-            <tbody>
+            <tbody id="tabla_des">
 
             </tbody>
 
-        </table>
+            </table>
+
+        </section>
 
         <hr>
 

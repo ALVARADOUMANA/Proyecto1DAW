@@ -130,7 +130,7 @@ async function cargarRegiones() {
 
         listaPadre = await respuesta.json();
 
-        const tabla = document.querySelector("#tabla_reg tbody");
+        const tabla = document.getElementById("tabla_reg");
 
         tabla.innerHTML = "";
 
@@ -387,7 +387,7 @@ async function cargarDestinos() {
 
         listaHijo = await respuesta.json();
 
-        const tabla = document.querySelector("#tabla_des tbody");
+        const tabla = document.getElementById("tabla_des");
 
         tabla.innerHTML = "";
 

@@ -177,3 +177,117 @@
 22/09/2026 – 22:26:42 / "Error consultando destinos" / admin
 22/09/2026 – 22:26:48 / "Error consultando operadores" / admin
 22/09/2026 – 22:26:48 / "Error consultando excursiones" / admin
+22/09/2026 – 22:34:08 / "Autenticacion correcta" / admin
+22/09/2026 – 22:34:08 / "Consultar lugares" / admin
+22/09/2026 – 22:35:15 / "Error consultando operadores" / admin
+22/09/2026 – 22:35:15 / "Error consultando excursiones" / admin
+22/09/2026 – 22:35:18 / "Error consultando regiones" / admin
+22/09/2026 – 22:35:18 / "Error consultando destinos" / admin
+22/09/2026 – 22:35:22 / "Error consultando regiones" / admin
+22/09/2026 – 22:35:22 / "Error consultando destinos" / admin
+22/09/2026 – 22:35:25 / "Error consultando regiones" / admin
+22/09/2026 – 22:35:25 / "Error consultando destinos" / admin
+22/09/2026 – 22:35:29 / "Error al crear destino: database "proyecto1grupo2" does not exist" / admin
+22/09/2026 – 22:35:31 / "Error al crear region: database "proyecto1grupo2" does not exist" / admin
+22/09/2026 – 22:35:48 / "Autenticacion fallida" / admin
+22/09/2026 – 22:35:48 / "Error al guardar lugar: Todos los campos son obligatorios." / desconocido
+22/09/2026 – 22:35:48 / "Error al guardar lugar: La calificacion debe estar entre 0 y 100." / desconocido
+22/09/2026 – 22:35:49 / "Error al guardar tour: El lugar indicado no existe." / desconocido
+22/09/2026 – 22:35:49 / "Error al eliminar destino: database "proyecto1grupo2" does not exist" / desconocido
+22/09/2026 – 22:36:11 / "MongoDB: consultar sitios" / admin
+22/09/2026 – 22:36:17 / "Error al eliminar destino: database "proyecto1grupo2" does not exist" / admin
+22/09/2026 – 22:36:17 / "Error al eliminar destino: database "proyecto1grupo2" does not exist" / desconocido
+22/09/2026 – 22:36:27 / "MongoDB: consultar sitio 6ab338f314cb0dc87ed4b8e1" / admin
+22/09/2026 – 22:36:28 / "Error consultando destinos" / desconocido
+22/09/2026 – 22:36:28 / "Error consultando regiones" / desconocido
+22/09/2026 – 22:36:28 / "MongoDB: consultar sitios" / desconocido
+22/09/2026 – 22:36:28 / "Consultar lugares" / desconocido
+22/09/2026 – 22:36:35 / "MongoDB: consultar sitios" / admin
+22/09/2026 – 22:38:04 / "MongoDB: consultar sitios" / admin
+22/09/2026 – 22:38:17 / "MongoDB: consultar sitios" / admin
+22/09/2026 – 22:39:01 / "Consultar lugares" / admin
+22/09/2026 – 22:39:02 / "Error consultando regiones" / admin
+22/09/2026 – 22:39:03 / "Error consultando destinos" / admin
+22/09/2026 – 22:39:42 / "Error consultando regiones" / admin
+22/09/2026 – 22:39:42 / "Error consultando destinos" / admin
+22/09/2026 – 22:42:17 / "Error consultando operadores" / admin
+22/09/2026 – 22:42:17 / "Error consultando excursiones" / admin
+22/09/2026 – 22:42:17 / "Error consultando regiones" / admin
+22/09/2026 – 22:42:17 / "Error consultando destinos" / admin
+22/09/2026 – 22:42:19 / "Error consultando regiones" / admin
+22/09/2026 – 22:42:19 / "Error consultando destinos" / admin
+22/09/2026 – 22:43:42 / "Error consultando regiones" / admin
+22/09/2026 – 22:43:42 / "Error consultando destinos" / admin
+22/09/2026 – 22:43:43 / "Error consultando regiones" / admin
+22/09/2026 – 22:43:43 / "Error consultando destinos" / admin
+22/09/2026 – 22:43:46 / "Error consultando regiones" / admin
+22/09/2026 – 22:43:46 / "Error consultando destinos" / admin
+22/09/2026 – 22:43:46 / "Error consultando operadores" / admin
+22/09/2026 – 22:43:46 / "Error consultando excursiones" / admin
+22/09/2026 – 22:44:05 / "Consultar regiones" / admin
+22/09/2026 – 22:44:05 / "Consultar destinos" / admin
+22/09/2026 – 22:44:05 / "Consultar regiones" / admin
+22/09/2026 – 22:44:05 / "Consultar destinos" / admin
+22/09/2026 – 22:44:08 / "Consultar operadores" / admin
+22/09/2026 – 22:44:08 / "Consultar excursiones" / admin
+22/09/2026 – 22:57:20 / "Autenticacion correcta" / admin
+22/09/2026 – 22:57:21 / "Consultar lugares" / admin
+22/09/2026 – 22:57:45 / "MongoDB: consultar sitios" / admin
+22/09/2026 – 22:57:47 / "MongoDB: consultar itinerarios" / admin
+22/09/2026 – 22:58:00 / "MongoDB: consultar sitios" / admin
+22/09/2026 – 22:58:20 / "Consultar regiones" / admin
+22/09/2026 – 22:58:20 / "Consultar destinos" / admin
+22/09/2026 – 23:04:20 / "Consultar regiones" / admin
+22/09/2026 – 23:04:20 / "Consultar destinos" / admin
+22/09/2026 – 23:04:26 / "Consultar operadores" / admin
+22/09/2026 – 23:04:26 / "Consultar excursiones" / admin
+22/09/2026 – 23:04:27 / "Consultar regiones" / admin
+22/09/2026 – 23:04:27 / "Consultar destinos" / admin
+22/09/2026 – 23:04:28 / "Consultar operadores" / admin
+22/09/2026 – 23:04:28 / "Consultar excursiones" / admin
+22/09/2026 – 23:07:24 / "Consultar operadores" / admin
+22/09/2026 – 23:07:24 / "Consultar excursiones" / admin
+22/09/2026 – 23:07:29 / "Consultar regiones" / admin
+22/09/2026 – 23:07:29 / "Consultar destinos" / admin
+22/09/2026 – 23:07:31 / "Consultar regiones" / admin
+22/09/2026 – 23:07:31 / "Consultar destinos" / admin
+22/09/2026 – 23:07:32 / "Consultar regiones" / admin
+22/09/2026 – 23:07:32 / "Consultar destinos" / admin
+22/09/2026 – 23:07:32 / "Consultar regiones" / admin
+22/09/2026 – 23:07:32 / "Consultar destinos" / admin
+22/09/2026 – 23:07:35 / "MongoDB: consultar sitios" / admin
+22/09/2026 – 23:09:23 / "MongoDB: consultar itinerarios" / admin
+22/09/2026 – 23:14:51 / "MongoDB: consultar itinerarios" / admin
+22/09/2026 – 23:15:00 / "MongoDB: consultar sitios" / admin
+22/09/2026 – 23:15:03 / "Consultar operadores" / admin
+22/09/2026 – 23:15:03 / "Consultar excursiones" / admin
+22/09/2026 – 23:15:24 / "MongoDB: consultar sitios" / admin
+22/09/2026 – 23:15:33 / "MongoDB: consultar sitio 6ab338f314cb0dc87ed4b8e1" / admin
+22/09/2026 – 23:15:47 / "MongoDB: consultar sitios" / admin
+22/09/2026 – 23:15:58 / "MongoDB: consultar itinerarios" / admin
+22/09/2026 – 23:20:04 / "MongoDB: consultar itinerarios" / admin
+22/09/2026 – 23:20:09 / "MongoDB: consultar itinerarios" / admin
+22/09/2026 – 23:20:19 / "MongoDB: consultar itinerarios" / admin
+22/09/2026 – 23:20:27 / "MongoDB: consultar itinerarios" / admin
+22/09/2026 – 23:20:27 / "MongoDB: consultar itinerarios" / admin
+22/09/2026 – 23:20:27 / "MongoDB: consultar itinerarios" / admin
+22/09/2026 – 23:20:28 / "MongoDB: consultar itinerarios" / admin
+22/09/2026 – 23:20:28 / "MongoDB: consultar itinerarios" / admin
+22/09/2026 – 23:20:31 / "MongoDB: consultar sitios" / admin
+22/09/2026 – 23:20:33 / "Consultar operadores" / admin
+22/09/2026 – 23:20:33 / "Consultar excursiones" / admin
+22/09/2026 – 23:22:03 / "Consultar regiones" / admin
+22/09/2026 – 23:22:03 / "Consultar destinos" / admin
+22/09/2026 – 23:22:37 / "MongoDB: consultar sitios" / admin
+22/09/2026 – 23:22:49 / "MongoDB: consultar itinerarios" / admin
+22/09/2026 – 23:22:50 / "MongoDB: consultar sitios" / admin
+22/09/2026 – 23:22:51 / "MongoDB: consultar itinerarios" / admin
+22/09/2026 – 23:23:22 / "MongoDB: consultar itinerarios" / admin
+22/09/2026 – 23:23:24 / "Consultar lugares" / admin
+22/09/2026 – 23:23:25 / "Consultar tours" / admin
+22/09/2026 – 23:23:27 / "Consultar regiones" / admin
+22/09/2026 – 23:23:27 / "Consultar destinos" / admin
+22/09/2026 – 23:24:00 / "MongoDB: consultar itinerarios" / admin
+22/09/2026 – 23:24:02 / "MongoDB: consultar sitios" / admin
+22/09/2026 – 23:24:03 / "Consultar regiones" / admin
+22/09/2026 – 23:24:03 / "Consultar destinos" / admin

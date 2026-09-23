@@ -48,172 +48,177 @@
 
     </div>
 
-    <div class="contenedor ancho">
+    <div class="contenedor ancho vista-mongo">
 
         <h1>CRUD DE SITIOS</h1>
         <h2>Grupo 2 - Turismo y lugares por visitar</h2>
-        <p class="descripcion">
-            Parte 3 - MongoDB - coleccion CollMongoDB - 60 documentos de 15 campos - Carga Lazy
-        </p>
         <hr>
 
-        <label>ID (ObjectId de MongoDB)</label>
+        <div class="formulario">
 
-        <input
-            type="text"
-            id="id"
-            placeholder="Se llena al dar Consultar en la tabla">
+            <label>ID (ObjectId de MongoDB)</label>
 
-        <label>Codigo</label>
+            <input
+                type="text"
+                id="id"
+                placeholder="Se llena al dar Consultar en la tabla">
 
-        <input
-            type="text"
-            id="codigo">
+            <label>Codigo</label>
 
-        <label>Nombre</label>
+            <input
+                type="text"
+                id="codigo">
 
-        <input
-            type="text"
-            id="nombre">
+            <label>Nombre</label>
 
-        <label>Pais</label>
+            <input
+                type="text"
+                id="nombre">
 
-        <input
-            type="text"
-            id="pais">
+            <label>Pais</label>
 
-        <label>Provincia</label>
+            <input
+                type="text"
+                id="pais">
 
-        <input
-            type="text"
-            id="provincia">
+            <label>Provincia</label>
 
-        <label>Canton</label>
+            <input
+                type="text"
+                id="provincia">
 
-        <input
-            type="text"
-            id="canton">
+            <label>Canton</label>
 
-        <label>Categoria</label>
+            <input
+                type="text"
+                id="canton">
 
-        <input
-            type="text"
-            id="categoria">
+            <label>Categoria</label>
 
-        <label>Descripcion</label>
+            <input
+                type="text"
+                id="categoria">
 
-        <input
-            type="text"
-            id="descripcion">
+            <label>Descripcion</label>
 
-        <label>Latitud</label>
+            <input
+                type="text"
+                id="descripcion">
 
-        <input
-            type="number"
-            step="any"
-            id="latitud">
+            <label>Latitud</label>
 
-        <label>Longitud</label>
+            <input
+                type="number"
+                step="any"
+                id="latitud">
 
-        <input
-            type="number"
-            step="any"
-            id="longitud">
+            <label>Longitud</label>
 
-        <label>Altitud (msnm)</label>
+            <input
+                type="number"
+                step="any"
+                id="longitud">
 
-        <input
-            type="number"
-            step="any"
-            id="altitud_msnm">
+            <label>Altitud (msnm)</label>
 
-        <label>Costo de entrada</label>
+            <input
+                type="number"
+                step="any"
+                id="altitud_msnm">
 
-        <input
-            type="number"
-            step="any"
-            id="costo_entrada">
+            <label>Costo de entrada</label>
 
-        <label>Moneda</label>
+            <input
+                type="number"
+                step="any"
+                id="costo_entrada">
 
-        <input
-            type="text"
-            id="moneda">
+            <label>Moneda</label>
 
-        <label>Horario</label>
+            <input
+                type="text"
+                id="moneda">
 
-        <input
-            type="text"
-            id="horario">
+            <label>Horario</label>
 
-        <label>Calificacion</label>
+            <input
+                type="text"
+                id="horario">
 
-        <input
-            type="number"
-            step="any"
-            id="calificacion">
+            <label>Calificacion</label>
 
-        <label>Imagen</label>
+            <input
+                type="number"
+                step="any"
+                id="calificacion">
 
-        <input
-            type="file"
-            accept="image/*"
-            id="imagen">
+            <label>Imagen</label>
 
-        <img id="imagen_vista" class="miniatura">
+            <div>
 
-        <br>
+                <input
+                    type="file"
+                    accept="image/*"
+                    id="imagen">
 
-        <button id="btnCrear">CREAR</button>
+                <img id="imagen_vista" class="miniatura">
 
-        <button id="btnConsultar">CONSULTAR</button>
+            </div>
 
-        <button id="btnActualizar">ACTUALIZAR</button>
+        </div>
 
-        <button id="btnEliminar">ELIMINAR</button>
+        <section class="seccion mongo">
 
-        <button id="btnMostrar">MOSTRAR TODOS</button>
+            <h2>Sitios registrados</h2>
 
-        <button id="btnLimpiar">LIMPIAR</button>
+            <div class="botones">
 
-        <hr>
+            <button id="btnCrear">CREAR</button>
 
-        <h2>Sitios registrados</h2>
+            <button id="btnConsultar">CONSULTAR</button>
 
-        <table
-            border="1"
-            width="100%"
-            id="tablaSitios">
+            <button id="btnActualizar">ACTUALIZAR</button>
 
-            <thead>
+            <button id="btnEliminar">ELIMINAR</button>
 
-                <tr>
+            <button id="btnMostrar">MOSTRAR TODOS</button>
 
-                    <th>ID</th>
+            <button id="btnLimpiar">LIMPIAR</button>
 
-                    <th>Codigo</th>
+            </div>
 
-                    <th>Nombre</th>
 
-                    <th>Provincia</th>
+            <table>
 
-                    <th>Categoria</th>
+                <thead>
 
-                    <th>Calificacion</th>
+                    <tr>
 
-                    <th>Acciones</th>
+                        <th>ID</th>
 
-                </tr>
+                        <th>Codigo</th>
 
-            </thead>
+                        <th>Nombre</th>
 
-            <tbody>
+                        <th>Provincia</th>
 
-            </tbody>
+                        <th>Categoria</th>
 
-        </table>
+                        <th>Calificacion</th>
 
-        <br>
+                    </tr>
+
+                </thead>
+
+                <tbody id="tablaSitios">
+
+                </tbody>
+
+            </table>
+
+            <br>
+
+        </section>
 
         <div id="mensaje"></div>
 

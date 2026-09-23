@@ -130,7 +130,7 @@ async function cargarOperadores() {
 
         listaPadre = await respuesta.json();
 
-        const tabla = document.querySelector("#tabla_ope tbody");
+        const tabla = document.getElementById("tabla_ope");
 
         tabla.innerHTML = "";
 
@@ -387,7 +387,7 @@ async function cargarExcursiones() {
 
         listaHijo = await respuesta.json();
 
-        const tabla = document.querySelector("#tabla_exc tbody");
+        const tabla = document.getElementById("tabla_exc");
 
         tabla.innerHTML = "";
 
