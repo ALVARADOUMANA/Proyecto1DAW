@@ -3,35 +3,25 @@
 **Entrega: jueves 24 de septiembre de 2026, antes de las 11am.**
 Sube todo **el primer miembro del grupo** (`knowledge/sesion9.md`).
 
-El código está terminado y probado contra PostgreSQL y MongoDB. Lo que queda son 5 pasos,
-en este orden.
+El código está terminado y la aplicación ya se probó en el navegador. Quedan 4 pasos.
 
----
-
-## 1. Probar la aplicación en el navegador
-
-Es lo primero, porque si algo falla hay que arreglarlo antes de empaquetar.
+## Para trabajar
 
 ```
 cd ProyectoP4-App-Grupo-2
-npm install
 npm start
 ```
 
-Entrar a **http://localhost:3000** con `admin` / `12345`.
+**http://localhost:3000** con `admin` / `12345`. PostgreSQL y MongoDB tienen que estar
+corriendo; los comandos para crear las bases están en `ProyectoP4-App-Grupo-2/README.md`.
 
-PostgreSQL y MongoDB tienen que estar corriendo. Si las bases no existen todavía, los
-comandos para crearlas están en `ProyectoP4-App-Grupo-2/README.md`.
+---
 
-Recorrer las 6 vistas desde el menú y hacer clic en **todos** los botones de cada una.
-Lo que más conviene revisar, porque es lo único que no se ha probado:
+## ~~1. Probar la aplicación en el navegador~~ — hecho
 
-- que suba una imagen de verdad y se vea la miniatura
-- que el `Región` / `Operador` del segundo formulario traiga opciones
-- que los botones Editar y Eliminar de las tablas funcionen
-- que Salir devuelva al login
+---
 
-## 2. Screenshots
+## 1. Screenshots
 
 El enunciado pide capturas de **cada opción**, no de cada pantalla. Es decir, una por cada
 botón que se presiona y su resultado.
@@ -42,7 +32,7 @@ Conviene incluir también:
 - pgAdmin mostrando la base con sus 4 tablas
 - Compass mostrando `CollMongoDB` con los 180 documentos
 
-## 3. `Grupo-2-Explicacion.pdf`
+## 2. `Grupo-2-Explicacion.pdf`
 
 Lo que pide el enunciado:
 
@@ -54,7 +44,7 @@ Lo que pide el enunciado:
 Para escribirlo, el material está en `02-MODELO-DE-DATOS.md` (qué datos maneja) y en
 `00-PLAN.md` (arquitectura, rutas, manejo de errores).
 
-## 4. Los 3 `.zip`
+## 3. Los 3 `.zip`
 
 | Archivo | Qué lleva |
 |---|---|
@@ -64,7 +54,7 @@ Para escribirlo, el material está en `02-MODELO-DE-DATOS.md` (qué datos maneja
 
 El enunciado dice *"Únicamente"*: no meter ningún archivo extra en los dos últimos.
 
-## 5. Ensayar la presentación
+## 4. Ensayar la presentación
 
 10 minutos, y el tiempo cuenta para la nota. El profesor puede preguntar sobre el código.
 

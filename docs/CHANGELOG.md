@@ -232,7 +232,7 @@ lleva JavaScript incrustado (requerimiento E) y la bitácora registra las tres p
 
 Lo que falta está detallado en **`PENDIENTE.md`**, en orden:
 
-- [ ] 1. Probar la aplicación en el navegador
+- [x] 1. Probar la aplicación en el navegador
 - [ ] 2. Screenshots de cada opción
 - [ ] 3. `Grupo-2-Explicacion.pdf`
 - [ ] 4. Los 3 `.zip`
