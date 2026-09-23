@@ -5,3 +5,70 @@
 22/09/2026 – 21:07:06 / "Consultar operadores" / admin
 22/09/2026 – 21:07:06 / "Consultar excursiones" / admin
 22/09/2026 – 21:07:07 / "MongoDB: consultar sitios" / admin
+22/09/2026 – 21:08:43 / "MongoDB: consultar sitio 6ab338f314cb0dc87ed4b8e9" / admin
+22/09/2026 – 21:08:51 / "MongoDB: eliminar sitio 6ab338f314cb0dc87ed4b8e8" / admin
+22/09/2026 – 21:08:51 / "MongoDB: consultar sitios" / admin
+22/09/2026 – 21:08:52 / "MongoDB: consultar sitio 6ab338f314cb0dc87ed4b8e9" / admin
+22/09/2026 – 21:08:53 / "MongoDB: consultar sitio 6ab338f314cb0dc87ed4b8e9" / admin
+22/09/2026 – 21:08:53 / "MongoDB: consultar sitio 6ab338f314cb0dc87ed4b8e9" / admin
+22/09/2026 – 21:09:00 / "MongoDB: consultar sitio 6ab338f314cb0dc87ed4b8e9" / admin
+22/09/2026 – 21:09:01 / "MongoDB: crear sitio SIT009" / admin
+22/09/2026 – 21:09:01 / "MongoDB: consultar sitios" / admin
+22/09/2026 – 21:09:03 / "MongoDB: consultar sitio 6ab338f314cb0dc87ed4b8e9" / admin
+22/09/2026 – 21:09:04 / "MongoDB: consultar sitio 6ab338f314cb0dc87ed4b8e1" / admin
+22/09/2026 – 21:09:06 / "MongoDB: consultar sitio 6ab338f314cb0dc87ed4b8e1" / admin
+22/09/2026 – 21:09:06 / "MongoDB: consultar sitio 6ab338f314cb0dc87ed4b8e1" / admin
+22/09/2026 – 21:09:13 / "MongoDB: consultar itinerarios" / admin
+22/09/2026 – 21:09:14 / "Consultar regiones" / admin
+22/09/2026 – 21:09:14 / "Consultar destinos" / admin
+22/09/2026 – 21:09:15 / "Consultar operadores" / admin
+22/09/2026 – 21:09:15 / "Consultar excursiones" / admin
+22/09/2026 – 21:09:15 / "Consultar regiones" / admin
+22/09/2026 – 21:09:15 / "Consultar destinos" / admin
+22/09/2026 – 21:09:16 / "Consultar tours" / admin
+22/09/2026 – 21:09:17 / "Consultar lugares" / admin
+22/09/2026 – 21:09:19 / "Consultar tours" / admin
+22/09/2026 – 21:09:20 / "Consultar lugares" / admin
+22/09/2026 – 21:09:21 / "Consultar tours" / admin
+22/09/2026 – 21:09:21 / "Consultar lugares" / admin
+22/09/2026 – 21:10:37 / "Consultar lugares" / admin
+22/09/2026 – 21:10:38 / "Consultar lugares" / admin
+22/09/2026 – 21:10:40 / "Consultar tours" / admin
+22/09/2026 – 21:10:40 / "Consultar regiones" / admin
+22/09/2026 – 21:10:40 / "Consultar destinos" / admin
+22/09/2026 – 21:10:43 / "Consultar operadores" / admin
+22/09/2026 – 21:10:43 / "Consultar excursiones" / admin
+22/09/2026 – 21:10:44 / "MongoDB: consultar sitios" / admin
+22/09/2026 – 21:10:45 / "MongoDB: consultar itinerarios" / admin
+22/09/2026 – 21:11:00 / "MongoDB: consultar itinerario 6ab338f314cb0dc87ed4b922" / admin
+22/09/2026 – 21:11:01 / "MongoDB: consultar itinerario 6ab338f314cb0dc87ed4b922" / admin
+22/09/2026 – 21:11:01 / "MongoDB: consultar itinerario 6ab338f314cb0dc87ed4b922" / admin
+22/09/2026 – 21:11:02 / "MongoDB: consultar itinerario 6ab338f314cb0dc87ed4b922" / admin
+22/09/2026 – 21:11:02 / "MongoDB: consultar itinerario 6ab338f314cb0dc87ed4b922" / admin
+22/09/2026 – 21:11:07 / "MongoDB: consultar itinerario 6ab338f314cb0dc87ed4b924" / admin
+22/09/2026 – 21:11:07 / "MongoDB: consultar itinerario 6ab338f314cb0dc87ed4b924" / admin
+22/09/2026 – 21:11:07 / "MongoDB: consultar itinerario 6ab338f314cb0dc87ed4b924" / admin
+22/09/2026 – 21:12:24 / "MongoDB: consultar itinerario 6ab338f314cb0dc87ed4b91e" / admin
+22/09/2026 – 21:12:24 / "MongoDB: consultar itinerario 6ab338f314cb0dc87ed4b91e" / admin
+22/09/2026 – 21:12:31 / "MongoDB: consultar itinerario 6ab338f314cb0dc87ed4b91d" / admin
+22/09/2026 – 21:12:33 / "MongoDB: consultar itinerario 6ab338f314cb0dc87ed4b91d" / admin
+22/09/2026 – 21:12:33 / "MongoDB: consultar itinerario 6ab338f314cb0dc87ed4b91e" / admin
+22/09/2026 – 21:12:35 / "MongoDB: consultar itinerario 6ab338f314cb0dc87ed4b91f" / admin
+22/09/2026 – 21:12:44 / "MongoDB: consultar itinerario 6ab338f314cb0dc87ed4b91e" / admin
+22/09/2026 – 21:12:48 / "MongoDB: consultar itinerario 6ab338f314cb0dc87ed4b91f" / admin
+22/09/2026 – 21:15:30 / "Consultar operadores" / admin
+22/09/2026 – 21:15:30 / "Consultar excursiones" / admin
+22/09/2026 – 21:15:39 / "MongoDB: consultar sitios" / admin
+22/09/2026 – 21:15:56 / "MongoDB: consultar itinerarios" / admin
+22/09/2026 – 21:15:57 / "MongoDB: consultar sitios" / admin
+22/09/2026 – 21:15:58 / "MongoDB: consultar itinerarios" / admin
+22/09/2026 – 21:16:00 / "Consultar operadores" / admin
+22/09/2026 – 21:16:00 / "Consultar excursiones" / admin
+22/09/2026 – 21:16:08 / "Consultar regiones" / admin
+22/09/2026 – 21:16:08 / "Consultar destinos" / admin
+22/09/2026 – 21:16:09 / "Consultar operadores" / admin
+22/09/2026 – 21:16:09 / "Consultar excursiones" / admin
+22/09/2026 – 21:16:13 / "Consultar regiones" / admin
+22/09/2026 – 21:16:13 / "Consultar destinos" / admin
+22/09/2026 – 21:16:22 / "Consultar operadores" / admin
+22/09/2026 – 21:16:22 / "Consultar excursiones" / admin
