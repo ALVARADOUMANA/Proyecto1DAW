@@ -57,19 +57,10 @@ class SitioDAO {
         });
 
 
-        // ==========================
-        // base64 de la vista -> binario
-        // ==========================
+        // La imagen no viene en el JSON: se sube aparte
+        // como bytes crudos.
 
-        if (typeof documento.imagen === "string" &&
-            documento.imagen !== "") {
-
-            documento.imagen = Buffer.from(
-                documento.imagen,
-                "base64"
-            );
-
-        }
+        documento.imagen = null;
 
 
         return documento;
@@ -77,30 +68,78 @@ class SitioDAO {
 
 
     // ==========================
-    // SERIALIZAR
+    // GUARDAR LA IMAGEN
     // ==========================
 
-    serializar(documento) {
+    async guardarImagen(id, bytes) {
 
-        if (!documento || !documento.imagen) {
+        const db =
+            await conectarMongoDB();
 
-            return documento;
 
+        const resultado =
+            await db
+                .collection(COLECCION)
+                .updateOne(
+
+                    {
+                        _id:
+                            new ObjectId(id)
+                    },
+
+                    {
+                        $set: { imagen: bytes }
+                    }
+
+                );
+
+
+        if (resultado.matchedCount === 0) {
+
+            return null;
         }
 
 
-        // ==========================
-        // binario -> base64 para la vista
-        // ==========================
-
-        const binario = documento.imagen;
-
-        documento.imagen = Buffer.isBuffer(binario)
-            ? binario.toString("base64")
-            : Buffer.from(binario.buffer).toString("base64");
+        return { bytes: bytes.length };
+    }
 
 
-        return documento;
+    // ==========================
+    // OBTENER LA IMAGEN
+    // ==========================
+
+    async obtenerImagen(id) {
+
+        const db =
+            await conectarMongoDB();
+
+
+        const documento =
+            await db
+                .collection(COLECCION)
+                .findOne(
+
+                    {
+                        _id:
+                            new ObjectId(id)
+                    },
+
+                    {
+                        projection: { imagen: 1 }
+                    }
+
+                );
+
+
+        if (!documento || !documento.imagen) {
+
+            return null;
+        }
+
+
+        return documento.imagen.buffer
+            ? Buffer.from(documento.imagen.buffer)
+            : documento.imagen;
     }
 
 
@@ -121,13 +160,13 @@ class SitioDAO {
                 .collection(COLECCION)
                 .insertOne(documento);
 
-        return this.serializar({
+        return {
 
             _id: resultado.insertedId,
 
             ...documento
 
-        });
+        };
     }
 
 
@@ -176,7 +215,7 @@ class SitioDAO {
             });
 
 
-        return this.serializar(documento);
+        return documento;
     }
 
 

@@ -49,57 +49,93 @@ function valorTexto(dato) {
 }
 
 /*=========================================
-    Imagen
+    Imagen en binario
+
+    El archivo se manda tal cual con
+    express.raw del otro lado. No se
+    convierte a texto en ningun momento.
 =========================================*/
 
-function leerImagen(idInput) {
+function archivoEscogido(idInput) {
 
-    return new Promise((resolve) => {
+    const input = document.getElementById(idInput);
 
-        const input = document.getElementById(idInput);
+    if (!input.files || input.files.length === 0) {
 
-        if (!input.files || input.files.length === 0) {
-
-            resolve(null);
-
-            return;
-
-        }
-
-        const lector = new FileReader();
-
-        lector.onload = function () {
-
-            resolve(lector.result.split(",")[1]);
-
-        };
-
-        lector.readAsDataURL(input.files[0]);
-
-    });
-
-}
-
-function celdaImagen(base64) {
-
-    if (!base64) {
-
-        return "<td>-</td>";
+        return null;
 
     }
 
-    return "<td><img class=\"miniatura\" src=\"data:image/*;base64," +
-        base64 + "\"></td>";
+    return input.files[0];
 
 }
 
-function verMiniatura(idImg, base64) {
+async function subirImagen(api, id, idInput) {
+
+    const archivo = archivoEscogido(idInput);
+
+    if (!archivo) {
+
+        return;
+
+    }
+
+    const respuesta = await fetch(
+
+        api + "/" + id + "/imagen?usuario=" + obtenerUsuario(),
+
+        {
+
+            method: "PUT",
+
+            headers: {
+                "Content-Type": archivo.type
+            },
+
+            body: archivo
+
+        }
+
+    );
+
+    const datos = await respuesta.json();
+
+    if (!respuesta.ok) {
+
+        throw new Error(datos.mensaje);
+
+    }
+
+    return datos.bytes;
+
+}
+
+function celdaImagen(api, id) {
+
+    // Si el registro no tiene imagen el endpoint responde 404
+    // y el onerror esconde la miniatura.
+
+    return "<td><img class=\"miniatura\"" +
+        " src=\"" + api + "/" + id + "/imagen\"" +
+        " onerror=\"this.style.display='none'\"></td>";
+
+}
+
+function verMiniatura(idImg, api, id) {
 
     const img = document.getElementById(idImg);
 
-    if (base64) {
+    if (id) {
 
-        img.src = "data:image/*;base64," + base64;
+        img.style.display = "";
+
+        img.onerror = function () {
+
+            img.style.display = "none";
+
+        };
+
+        img.src = api + "/" + id + "/imagen?t=" + Date.now();
 
     } else {
 
@@ -108,7 +144,6 @@ function verMiniatura(idImg, base64) {
     }
 
 }
-
 
 /* ==================================================
    Regiones
@@ -147,7 +182,7 @@ async function cargarRegiones() {
                 "<td>" + valorTexto(fila.moneda) + "</td>" +
                 "<td>" + valorTexto(fila.huso_horario) + "</td>" +
                 "<td>" + valorTexto(fila.descripcion) + "</td>" +
-                celdaImagen(fila.imagen) +
+                celdaImagen("/api/regiones", fila.id_region) +
                 "<td>" +
                 "<button class=\"btn-editar\" onclick=\"editarRegion(" + fila.id_region + ")\">Editar</button>" +
                 "<button class=\"btn-eliminar\" onclick=\"eliminarRegion(" + fila.id_region + ")\">Eliminar</button>" +
@@ -202,7 +237,6 @@ document.getElementById("form_reg")
             moneda: document.getElementById("reg_moneda").value,
             huso_horario: document.getElementById("reg_huso_horario").value,
             descripcion: document.getElementById("reg_descripcion").value,
-            imagen: await leerImagen("reg_imagen"),
             usuario: obtenerUsuario()
         };
 
@@ -248,7 +282,14 @@ document.getElementById("form_reg")
 
             }
 
-            mostrarMensaje("Región guardada correctamente");
+            const nuevo = id === "" ? (await respuesta.json())["id_region"] : id;
+
+            const bytes = await subirImagen("/api/regiones", nuevo, "reg_imagen");
+
+            mostrarMensaje(
+                "Guardado correctamente" +
+                (bytes ? " - imagen de " + bytes + " bytes" : "")
+            );
 
             limpiarRegion();
 
@@ -292,7 +333,7 @@ function editarRegion(id) {
 
     document.getElementById("reg_descripcion").value = valorTexto(fila.descripcion);
 
-    verMiniatura("reg_imagen_vista", fila.imagen);
+    verMiniatura("reg_imagen_vista", "/api/regiones", fila.id_region);
 
     mostrarMensaje("Editando región " + id);
 
@@ -359,7 +400,7 @@ function limpiarRegion() {
 
     document.getElementById("reg_imagen").value = "";
 
-    verMiniatura("reg_imagen_vista", null);
+    verMiniatura("reg_imagen_vista", "/api/regiones", null);
 
 }
 
@@ -406,7 +447,7 @@ async function cargarDestinos() {
                 "<td>" + valorTexto(fila.costo_entrada) + "</td>" +
                 "<td>" + valorTexto(fila.horario) + "</td>" +
                 "<td>" + (fila.requiere_guia ? "Si" : "No") + "</td>" +
-                celdaImagen(fila.imagen) +
+                celdaImagen("/api/regiones", fila.id_region) +
                 "<td>" +
                 "<button class=\"btn-editar\" onclick=\"editarDestino(" + fila.id_destino + ")\">Editar</button>" +
                 "<button class=\"btn-eliminar\" onclick=\"eliminarDestino(" + fila.id_destino + ")\">Eliminar</button>" +
@@ -447,7 +488,6 @@ document.getElementById("form_des")
             costo_entrada: document.getElementById("des_costo_entrada").value,
             horario: document.getElementById("des_horario").value,
             requiere_guia: document.getElementById("des_requiere_guia").checked,
-            imagen: await leerImagen("des_imagen"),
             usuario: obtenerUsuario()
         };
 
@@ -493,7 +533,14 @@ document.getElementById("form_des")
 
             }
 
-            mostrarMensaje("Destino guardado correctamente");
+            const nuevo = id === "" ? (await respuesta.json())["id_destino"] : id;
+
+            const bytes = await subirImagen("/api/destinos", nuevo, "des_imagen");
+
+            mostrarMensaje(
+                "Guardado correctamente" +
+                (bytes ? " - imagen de " + bytes + " bytes" : "")
+            );
 
             limpiarDestino();
 
@@ -537,7 +584,7 @@ function editarDestino(id) {
 
     document.getElementById("des_requiere_guia").checked = fila.requiere_guia;
 
-    verMiniatura("des_imagen_vista", fila.imagen);
+    verMiniatura("des_imagen_vista", "/api/destinos", fila.id_destino);
 
     mostrarMensaje("Editando destino " + id);
 
@@ -604,7 +651,7 @@ function limpiarDestino() {
 
     document.getElementById("des_imagen").value = "";
 
-    verMiniatura("des_imagen_vista", null);
+    verMiniatura("des_imagen_vista", "/api/destinos", null);
 
 }
 

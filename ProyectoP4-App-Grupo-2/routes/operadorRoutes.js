@@ -12,7 +12,9 @@ const {
   obtenerOperadores,
   crearOperador,
   actualizarOperador,
-  eliminarOperador
+  eliminarOperador,
+  guardarImagenOperador,
+  obtenerImagenOperador
 } = require("../controllers/operadorController");
 
 // GET - Obtener todos
@@ -20,6 +22,22 @@ router.get("/", obtenerOperadores);
 
 // POST - Crear
 router.post("/", crearOperador);
+
+// ==========================================
+// IMAGEN EN BINARIO
+// Van ANTES de "/:id" para que no las tape
+// ==========================================
+
+router.put(
+  "/:id/imagen",
+  express.raw({
+    type: "image/*",
+    limit: "10mb"
+  }),
+  guardarImagenOperador
+);
+
+router.get("/:id/imagen", obtenerImagenOperador);
 
 // PUT - Actualizar
 router.put("/:id", actualizarOperador);

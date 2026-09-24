@@ -27,6 +27,31 @@ router.get(
 
 
 // ======================================================
+// IMAGEN EN BINARIO
+//
+// Van ANTES de "/:id" porque Express usa la primera ruta
+// que coincide. express.raw entrega el cuerpo tal cual,
+// sin convertirlo: req.body llega como Buffer.
+// ======================================================
+
+
+router.put(
+    "/:id/imagen",
+    express.raw({
+        type: "image/*",
+        limit: "10mb"
+    }),
+    ItinerarioController.guardarImagen
+);
+
+
+router.get(
+    "/:id/imagen",
+    ItinerarioController.obtenerImagen
+);
+
+
+// ======================================================
 // RUTAS QUE UTILIZAN :id - van de ultimas
 // ======================================================
 

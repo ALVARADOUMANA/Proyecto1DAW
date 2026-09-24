@@ -64,7 +64,7 @@ Los tres puntos que el enunciado exige *"señalar puntualmente"*:
 |---|---|
 | Carga **Eager** | `controllers/destinoController.js` y `excursionController.js` — el `INNER JOIN` |
 | Carga **Lazy** | `dao/SitioDAO.js` y `ItinerarioDAO.js` — la proyección que excluye el binario |
-| **Serialización** de imágenes | `decode`/`encode` en los controladores de la Parte 2; `FileReader` en `public/js` |
+| **Serialización** de imágenes | Parte 2: `decode`/`encode` en los controladores. Parte 3: `Buffer.from` y `serializar()` en los DAO |
 
 **Orden para demostrar el Lazy en MongoDB.** Los 180 documentos sembrados vienen con la
 imagen vacía, así que el contraste solo se ve si primero hay una imagen guardada:

@@ -49,57 +49,93 @@ function valorTexto(dato) {
 }
 
 /*=========================================
-    Imagen
+    Imagen en binario
+
+    El archivo se manda tal cual con
+    express.raw del otro lado. No se
+    convierte a texto en ningun momento.
 =========================================*/
 
-function leerImagen(idInput) {
+function archivoEscogido(idInput) {
 
-    return new Promise((resolve) => {
+    const input = document.getElementById(idInput);
 
-        const input = document.getElementById(idInput);
+    if (!input.files || input.files.length === 0) {
 
-        if (!input.files || input.files.length === 0) {
-
-            resolve(null);
-
-            return;
-
-        }
-
-        const lector = new FileReader();
-
-        lector.onload = function () {
-
-            resolve(lector.result.split(",")[1]);
-
-        };
-
-        lector.readAsDataURL(input.files[0]);
-
-    });
-
-}
-
-function celdaImagen(base64) {
-
-    if (!base64) {
-
-        return "<td>-</td>";
+        return null;
 
     }
 
-    return "<td><img class=\"miniatura\" src=\"data:image/*;base64," +
-        base64 + "\"></td>";
+    return input.files[0];
 
 }
 
-function verMiniatura(idImg, base64) {
+async function subirImagen(api, id, idInput) {
+
+    const archivo = archivoEscogido(idInput);
+
+    if (!archivo) {
+
+        return;
+
+    }
+
+    const respuesta = await fetch(
+
+        api + "/" + id + "/imagen?usuario=" + obtenerUsuario(),
+
+        {
+
+            method: "PUT",
+
+            headers: {
+                "Content-Type": archivo.type
+            },
+
+            body: archivo
+
+        }
+
+    );
+
+    const datos = await respuesta.json();
+
+    if (!respuesta.ok) {
+
+        throw new Error(datos.mensaje);
+
+    }
+
+    return datos.bytes;
+
+}
+
+function celdaImagen(api, id) {
+
+    // Si el registro no tiene imagen el endpoint responde 404
+    // y el onerror esconde la miniatura.
+
+    return "<td><img class=\"miniatura\"" +
+        " src=\"" + api + "/" + id + "/imagen\"" +
+        " onerror=\"this.style.display='none'\"></td>";
+
+}
+
+function verMiniatura(idImg, api, id) {
 
     const img = document.getElementById(idImg);
 
-    if (base64) {
+    if (id) {
 
-        img.src = "data:image/*;base64," + base64;
+        img.style.display = "";
+
+        img.onerror = function () {
+
+            img.style.display = "none";
+
+        };
+
+        img.src = api + "/" + id + "/imagen?t=" + Date.now();
 
     } else {
 
@@ -108,7 +144,6 @@ function verMiniatura(idImg, base64) {
     }
 
 }
-
 
 /* ==================================================
    Operadores
@@ -147,7 +182,7 @@ async function cargarOperadores() {
                 "<td>" + valorTexto(fila.sitio_web) + "</td>" +
                 "<td>" + valorTexto(fila.anios_experiencia) + "</td>" +
                 "<td>" + valorTexto(fila.calificacion_promedio) + "</td>" +
-                celdaImagen(fila.logo) +
+                celdaImagen("/api/operadores", fila.id_operador) +
                 "<td>" +
                 "<button class=\"btn-editar\" onclick=\"editarOperador(" + fila.id_operador + ")\">Editar</button>" +
                 "<button class=\"btn-eliminar\" onclick=\"eliminarOperador(" + fila.id_operador + ")\">Eliminar</button>" +
@@ -202,7 +237,6 @@ document.getElementById("form_ope")
             sitio_web: document.getElementById("ope_sitio_web").value,
             anios_experiencia: document.getElementById("ope_anios_experiencia").value,
             calificacion_promedio: document.getElementById("ope_calificacion_promedio").value,
-            logo: await leerImagen("ope_logo"),
             usuario: obtenerUsuario()
         };
 
@@ -248,7 +282,14 @@ document.getElementById("form_ope")
 
             }
 
-            mostrarMensaje("Operador guardado correctamente");
+            const nuevo = id === "" ? (await respuesta.json())["id_operador"] : id;
+
+            const bytes = await subirImagen("/api/operadores", nuevo, "ope_logo");
+
+            mostrarMensaje(
+                "Guardado correctamente" +
+                (bytes ? " - imagen de " + bytes + " bytes" : "")
+            );
 
             limpiarOperador();
 
@@ -292,7 +333,7 @@ function editarOperador(id) {
 
     document.getElementById("ope_calificacion_promedio").value = valorTexto(fila.calificacion_promedio);
 
-    verMiniatura("ope_logo_vista", fila.logo);
+    verMiniatura("ope_logo_vista", "/api/operadores", fila.id_operador);
 
     mostrarMensaje("Editando operador " + id);
 
@@ -359,7 +400,7 @@ function limpiarOperador() {
 
     document.getElementById("ope_logo").value = "";
 
-    verMiniatura("ope_logo_vista", null);
+    verMiniatura("ope_logo_vista", "/api/operadores", null);
 
 }
 
@@ -406,7 +447,7 @@ async function cargarExcursiones() {
                 "<td>" + valorTexto(fila.precio_persona) + "</td>" +
                 "<td>" + (fila.incluye_transporte ? "Si" : "No") + "</td>" +
                 "<td>" + (fila.fecha_salida ? String(fila.fecha_salida).substring(0, 10) : "-") + "</td>" +
-                celdaImagen(fila.afiche) +
+                celdaImagen("/api/excursiones", fila.id_excursion) +
                 "<td>" +
                 "<button class=\"btn-editar\" onclick=\"editarExcursion(" + fila.id_excursion + ")\">Editar</button>" +
                 "<button class=\"btn-eliminar\" onclick=\"eliminarExcursion(" + fila.id_excursion + ")\">Eliminar</button>" +
@@ -447,7 +488,6 @@ document.getElementById("form_exc")
             precio_persona: document.getElementById("exc_precio_persona").value,
             incluye_transporte: document.getElementById("exc_incluye_transporte").checked,
             fecha_salida: document.getElementById("exc_fecha_salida").value,
-            afiche: await leerImagen("exc_afiche"),
             usuario: obtenerUsuario()
         };
 
@@ -493,7 +533,14 @@ document.getElementById("form_exc")
 
             }
 
-            mostrarMensaje("Excursión guardada correctamente");
+            const nuevo = id === "" ? (await respuesta.json())["id_excursion"] : id;
+
+            const bytes = await subirImagen("/api/excursiones", nuevo, "exc_afiche");
+
+            mostrarMensaje(
+                "Guardado correctamente" +
+                (bytes ? " - imagen de " + bytes + " bytes" : "")
+            );
 
             limpiarExcursion();
 
@@ -538,7 +585,7 @@ function editarExcursion(id) {
     document.getElementById("exc_fecha_salida").value =
         fila.fecha_salida ? String(fila.fecha_salida).substring(0, 10) : "";
 
-    verMiniatura("exc_afiche_vista", fila.afiche);
+    verMiniatura("exc_afiche_vista", "/api/excursiones", fila.id_excursion);
 
     mostrarMensaje("Editando excursión " + id);
 
@@ -605,7 +652,7 @@ function limpiarExcursion() {
 
     document.getElementById("exc_afiche").value = "";
 
-    verMiniatura("exc_afiche_vista", null);
+    verMiniatura("exc_afiche_vista", "/api/excursiones", null);
 
 }
 

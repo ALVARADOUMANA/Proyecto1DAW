@@ -103,26 +103,32 @@ dentro de la misma consulta.
 | `operadores` | 107 |
 | `excursiones` | 132 |
 
-**¿Dónde se guarda la imagen en binario?**
+**¿Dónde se guarda la imagen?**
 
-Son dos cosas distintas y hay que separarlas al responder: **binaria** es cómo se almacena,
-**serializada** es cómo viaja entre la vista y el servidor.
+La imagen no viaja dentro del JSON: tiene su propio endpoint y va como **bytes crudos**.
 
 | Paso | Archivo | Línea |
 |---|---|---|
-| La vista serializa a base64 | `public/js/destinos.js` | 77 `readAsDataURL`, 73 toma el base64 |
-| El servidor lo convierte a bytes | `controllers/regionController.js` | 50 — `decode($8, 'base64')` |
-| Vuelve serializado a la vista | `controllers/regionController.js` | 17 — `replace(encode(imagen,'base64'), chr(10), '')` |
+| El navegador manda el archivo tal cual | `public/js/destinos.js` | `subirImagen()` — `body: archivo` |
+| Express lo recibe como `Buffer` | `routes/regionRoutes.js` | **33** — `express.raw({ type: "image/*" })` |
+| Se escribe directo en la columna | `controllers/regionController.js` | **192** la función, **207** el `UPDATE ... SET imagen = $1` |
+| Se devuelve con su tipo | `controllers/regionController.js` | **262** el `Content-Type`, **281** cómo se deduce |
 | El tipo de la columna | `ScriptCrearBaseDatos.sql` | 61 `imagen BYTEA`, 118 `logo BYTEA` |
-
-En la base **nunca hay base64**: `decode()` escribe los bytes y `encode()` los serializa solo
-al salir.
 
 **¿Por qué `BYTEA`?** Es el tipo binario de PostgreSQL, el equivalente al `BLOB` de MySQL.
 
-**¿Por qué el `replace(..., chr(10), '')`?** Porque `encode()` corta el base64 en líneas de
-76 caracteres siguiendo el RFC 2045, y ese salto rompe el `data:image/...;base64,...` de la
-vista.
+**¿Cómo saben el tipo de imagen si no lo guardan en un campo?**
+Se deduce de los primeros bytes del archivo: `89 50` es PNG, `FF D8` es JPEG, `47 49` es GIF.
+Así no hizo falta un campo extra que rompiera el conteo de 8 campos por tabla.
+
+**Verificación en vivo, en pgAdmin:**
+
+```sql
+SELECT pg_typeof(imagen), octet_length(imagen), substring(imagen from 1 for 4)
+FROM regiones WHERE imagen IS NOT NULL;
+```
+
+Devuelve `bytea | 70 | \x89504e47`. Esos cuatro bytes son la firma de un PNG.
 
 **¿Dónde está la capa de datos?** `db/database.js` — el `Pool` de `pg`. Según la sesión 5 es
 *"el responsable exclusivo de establecer la conexión"*. El controlador y las rutas
@@ -132,7 +138,7 @@ representan la capa de presentación.
 Es la pregunta de la sesión 5: *"¿es mediante paréntesis cuadrados? R/ sí"*.
 
 **¿Qué pasa si el `DELETE` no encuentra el registro?**
-`controllers/destinoController.js:116` y `160` — `resultado.rows.length === 0` → 404. Es la
+`controllers/destinoController.js:114` y `158` — `resultado.rows.length === 0` → 404. Es la
 validación que el profesor recalcó: la instrucción no da error pero tampoco hace el CRUD.
 
 ---
@@ -143,12 +149,12 @@ validación que el profesor recalcó: la instrucción no da error pero tampoco h
 
 | Archivo | Línea |
 |---|---|
-| `dao/SitioDAO.js` | **145** el comentario, **155** `projection: { imagen: 0 }` |
-| `dao/SitioDAO.js` | **174** `findOne` — aquí sí trae la imagen |
-| `dao/ItinerarioDAO.js` | igual, con `afiche` |
+| `dao/SitioDAO.js` | **184** el comentario, **194** `projection: { imagen: 0 }` |
+| `dao/SitioDAO.js` | **213** `findOne` — aquí sí trae el documento completo |
+| `dao/ItinerarioDAO.js` | **194**, **204** y **223**, con `afiche` |
 
 Respuesta corta: *"El listado de 60 documentos no carga el campo binario: la proyección lo
-excluye. Solo se trae cuando se consulta un documento concreto, que es cuando de verdad se
+excluye. Solo se trae al consultar un documento concreto, que es cuando de verdad se
 necesita."*
 
 **¿Cómo conviven los 60 y los 120 documentos en la misma colección?**
@@ -161,18 +167,27 @@ distinguen con `$exists`, **sin agregar un campo extra**, para que el conteo que
 `dao/SitioDAO.js:23` — el arreglo `CAMPOS` con los 15.
 `dao/ItinerarioDAO.js:23` — el arreglo con los 25.
 
-**¿Y la imagen? ¿No es un texto base64 dentro del documento?**
-No. Se guarda en binario, igual que en PostgreSQL. El base64 solo existe entre la vista y el
-servidor.
+**¿Y la imagen?**
+Igual que en PostgreSQL: endpoint aparte y bytes crudos.
 
 | Paso | Archivo | Línea |
 |---|---|---|
-| base64 → bytes, antes de insertar | `dao/SitioDAO.js` | **61** el banner, **67** `Buffer.from(..., "base64")` |
-| bytes → base64, al devolver a la vista | `dao/SitioDAO.js` | **83** el método `serializar()`, **93** el banner |
-| Se aplica al crear y al consultar uno | `dao/SitioDAO.js` | **124** y **179** |
+| Recibe el `Buffer` y lo escribe | `dao/SitioDAO.js` | **74** — `guardarImagen(id, bytes)` |
+| Lo devuelve para el `<img>` | `dao/SitioDAO.js` | **111** — `obtenerImagen(id)` |
+| La ruta con `express.raw` | `routes/sitioRoutes.js` | **40** |
+| El navegador manda el archivo | `public/js/sitios.js` | **65** `subirImagen()`, **105** `verMiniatura()` |
 
-El `Buffer` que recibe el driver se almacena como **`binData`**, el tipo binario de BSON,
-subtipo 0. En Compass el campo aparece como `Binary`, no como una cadena de texto.
+**Verificación en vivo, en `mongosh`:**
+
+```js
+db.CollMongoDB.aggregate([
+  { $match: { codigo: "SIT001" } },
+  { $project: { tipo: { $type: "$imagen" }, bytes: { $binarySize: "$imagen" } } }
+])
+```
+
+Devuelve `tipo: "binData"`. Y `$binarySize` **solo funciona sobre datos binarios**: si el campo
+fuera texto, esa consulta daría error. Es la prueba más corta que existe.
 
 **¿Y si edito sin escoger una imagen nueva?** No se borra: si el campo no viene, se quita del
 `$set` y el documento conserva la que tenía. La Parte 2 hace lo mismo con un `COALESCE`.
@@ -190,8 +205,8 @@ cada semana.
 
 ## 5. Las imágenes: lo único que hubo que investigar
 
-Esta es la pregunta más probable sobre una decisión propia, porque **no se copió de ningún
-ejemplo de clase**. Conviene tener la respuesta ordenada.
+Es la pregunta más probable sobre una decisión propia, porque **no se copió de ningún ejemplo
+de clase**.
 
 **¿De dónde sacaron esto si no se vio en clase?**
 El profesor lo mandó a investigar, dos veces:
@@ -202,38 +217,78 @@ El profesor lo mandó a investigar, dos veces:
 
 > **`sesion8.md`, punto 2:** *"Serializar imágenes - **investigar**"*
 
-Ninguno de los cuatro proyectos del curso tiene un `<input type="file">`, ni `FileReader`,
-ni `Buffer`, ni `BYTEA`. Es el único punto del proyecto donde el enunciado autoriza salirse
-del material.
+Ninguno de los cuatro proyectos del curso tiene un `<input type="file">`, ni `Buffer`, ni
+`BYTEA`. Es el único punto donde el enunciado autoriza salirse del material.
 
 **¿Y en qué se apoyaron?**
 En la tabla de tipos de campo de la materia, `MySQL vs PostgreSQL`, que da el equivalente del
-binario: **`BLOB` en MySQL ↔ `BYTEA` en PostgreSQL**. De ahí salió el tipo de la columna.
+binario: **`BLOB` en MySQL ↔ `BYTEA` en PostgreSQL**.
 
-**¿Cómo funciona, en una frase?**
-La imagen se guarda **binaria** en la base y viaja **serializada** en base64 entre la vista y
-el servidor. Son las dos palabras del enunciado, y son dos cosas distintas.
+**¿Cómo funciona?**
 
 ```
-  navegador                    servidor                       base de datos
-  ---------                    --------                       -------------
-  FileReader                   decode($n,'base64')            BYTEA        (PostgreSQL)
-  readAsDataURL   --base64-->  Buffer.from(...,'base64')      binData      (MongoDB)
-                               ---------------------------------------------------
-  <img src=                    encode(col,'base64')           bytes reales
-  "data:...">     <--base64--  serializar()
+  navegador                      servidor                      base de datos
+  ---------                      --------                      -------------
+  <input type="file">            express.raw()                 BYTEA     (PostgreSQL)
+  fetch(..., body: archivo)  -->  req.body es un Buffer   -->   binData   (MongoDB)
+       los bytes del archivo      se escribe sin convertir
+
+  <img src=                      SELECT imagen             <--  los mismos bytes
+  "/api/sitios/1/imagen">   <--  Content-Type: image/png
 ```
+
+Los bytes del archivo no se convierten en ningún punto del recorrido. Se leen del disco, se
+mandan, se guardan y se devuelven **iguales**.
+
+**¿Por qué un endpoint aparte para la imagen?**
+Porque el JSON del formulario no puede llevar bytes. Separando la imagen en su propio
+endpoint, el registro se guarda con `fetch` + JSON como en las tres semanas, y la imagen viaja
+por su propio camino sin transformarse.
+
+**¿No se podía meter la imagen en el mismo JSON?**
+Sí, convirtiéndola a base64, y así estaba antes. Se cambió para que en ninguna parte del
+código haya una conversión: lo que sale del disco es lo que entra a la base.
 
 **¿Por qué no guardar la ruta del archivo o una URL?**
-Porque el enunciado pide *"serialización de imágenes **dentro de las bases de datos**"* y
-*"de forma **binaria**"*. Una URL sería un `VARCHAR`: ni es binario, ni la imagen queda
-dentro de la base.
+Porque el enunciado pide *"serialización de imágenes **dentro de las bases de datos**"* y *"de
+forma **binaria**"*. Una URL sería un `VARCHAR`: ni es binario, ni la imagen queda dentro de la
+base.
 
-**Si pregunta por un detalle fino:** `encode()` de PostgreSQL corta el base64 en líneas de 76
-caracteres por el RFC 2045, y eso rompe el `data:` URI de la vista. Por eso va envuelto en un
-`replace(..., chr(10), '')`. Fue el punto que costó encontrar.
+**El punto que conviene tener pensado.** El enunciado pide dos cosas: *"binaria"* y
+*"manejadas de forma serializada desde la vista"*. La primera es incuestionable: `bytea` en
+PostgreSQL y `binData` en MongoDB, verificable en vivo. La segunda, con bytes crudos, se
+sostiene en que **un archivo PNG ya es de por sí una representación serializada de una
+imagen**: no es un mapa de píxeles en crudo, es un formato con una estructura fija —
 
----
+```
+89 50 4E 47 0D 0A 1A 0A   firma del archivo (siempre estos 8 bytes)
+00 00 00 0D 49 48 44 52   chunk IHDR: ancho, alto, profundidad de color...
+...                        chunk IDAT: los píxeles, comprimidos
+00 00 00 00 49 45 4E 44   chunk IEND: fin del archivo
+```
+
+Esa cabecera, `89 50 4E 47`, es la que se ve en `octet_length`/`substring` de PostgreSQL y en
+el byte de tipo del BSON de Mongo. Serializar es convertir una estructura (aquí, una matriz de
+píxeles con su color por canal) en una secuencia lineal de bytes que se pueda guardar o
+transmitir — y eso es exactamente lo que hace el formato PNG antes de que el archivo llegue
+al servidor. El servidor no lo deserializa ni lo vuelve a serializar: lo mueve tal cual. Es
+correcto, pero es la parte más discutible del enfoque, así que vale tener la respuesta lista
+en vez de improvisarla.
+
+**¿Por qué en Compass se ve `Binary.createFromBase64(...)` y en pgAdmin `[binary data]`?**
+Son dos maneras de mostrar el mismo tipo, no dos comportamientos distintos. Ningún visor puede
+imprimir bytes crudos en una pantalla de texto, así que cada herramienta elige un formato:
+
+| | Compass | pgAdmin |
+|---|---|---|
+| Qué hace | Muestra el valor completo, como literal de shell (`Binary.createFromBase64(...)`), truncado con `…` | Muestra un aviso (`[binary data]`) y pide un clic para abrir el visor |
+| Por qué | El visor de documentos de Compass siempre muestra el valor en línea | pgAdmin evita cargar blobs grandes en la grilla por rendimiento |
+
+La prueba está en que **las dos herramientas se toman la molestia de marcar el campo como
+especial**. Si el dato fuera un texto común, Compass lo imprimiría entre comillas sin el
+`Binary.createFromBase64(...)`, y pgAdmin mostraría el texto directamente en la celda, sin el
+aviso `[binary data]`. Que ambas reaccionen distinto frente a este campo es la confirmación de
+que las dos lo reconocen como binario — cada una a su manera.
 
 ## 6. Preguntas transversales
 

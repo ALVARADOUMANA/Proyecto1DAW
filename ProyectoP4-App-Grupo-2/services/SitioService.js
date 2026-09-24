@@ -51,6 +51,25 @@ class SitioService {
         return await dao.eliminar(id);
     }
 
+
+    async guardarImagen(id, bytes) {
+
+        if (!bytes || bytes.length === 0) {
+
+            throw new Error(
+                "No se recibio ninguna imagen."
+            );
+        }
+
+        return await dao.guardarImagen(id, bytes);
+    }
+
+
+    async obtenerImagen(id) {
+
+        return await dao.obtenerImagen(id);
+    }
+
 }
 
 

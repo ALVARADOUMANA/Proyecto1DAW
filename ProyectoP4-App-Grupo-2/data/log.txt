@@ -1,4 +1,33 @@
-23/09/2026 – 22:03:36 / "Autenticacion fallida" / admin
-23/09/2026 – 22:03:36 / "Autenticacion correcta" / admin
-23/09/2026 – 22:03:36 / "Consultar lugares" / admin
-23/09/2026 – 22:03:36 / "Cierre de sesion" / admin
+24/09/2026 – 00:11:47 / "MongoDB: consultar itinerarios" / admin
+24/09/2026 – 00:11:51 / "MongoDB: consultar itinerarios" / admin
+24/09/2026 – 00:11:59 / "MongoDB: consultar itinerario 6ab4a590012882757ee4e3d1" / admin
+24/09/2026 – 00:12:04 / "MongoDB: actualizar itinerario 6ab4a590012882757ee4e3d1" / admin
+24/09/2026 – 00:12:04 / "MongoDB: guardar imagen del itinerario 6ab4a590012882757ee4e3d1" / admin
+24/09/2026 – 00:12:04 / "MongoDB: consultar itinerarios" / admin
+24/09/2026 – 00:13:09 / "MongoDB: consultar itinerario 6ab4a590012882757ee4e3d2" / admin
+24/09/2026 – 00:13:13 / "MongoDB: actualizar itinerario 6ab4a590012882757ee4e3d2" / admin
+24/09/2026 – 00:13:13 / "MongoDB: guardar imagen del itinerario 6ab4a590012882757ee4e3d2" / admin
+24/09/2026 – 00:13:13 / "MongoDB: consultar itinerarios" / admin
+24/09/2026 – 00:13:17 / "MongoDB: consultar itinerario 6ab4a590012882757ee4e3d2" / admin
+24/09/2026 – 00:14:08 / "MongoDB: consultar itinerario 6ab4a590012882757ee4e3d2" / admin
+24/09/2026 – 00:18:19 / "MongoDB: consultar itinerarios" / admin
+24/09/2026 – 00:18:29 / "MongoDB: consultar itinerario 6ab4a590012882757ee4e3d1" / admin
+24/09/2026 – 00:18:35 / "MongoDB: actualizar itinerario 6ab4a590012882757ee4e3d1" / admin
+24/09/2026 – 00:18:35 / "MongoDB: guardar imagen del itinerario 6ab4a590012882757ee4e3d1" / admin
+24/09/2026 – 00:18:35 / "MongoDB: consultar itinerarios" / admin
+24/09/2026 – 00:18:38 / "MongoDB: actualizar itinerario 6ab4a590012882757ee4e3d1" / admin
+24/09/2026 – 00:18:38 / "MongoDB: guardar imagen del itinerario 6ab4a590012882757ee4e3d1" / admin
+24/09/2026 – 00:18:38 / "MongoDB: consultar itinerarios" / admin
+24/09/2026 – 00:18:43 / "MongoDB: consultar itinerarios" / admin
+24/09/2026 – 00:18:51 / "MongoDB: consultar itinerario 6ab4a590012882757ee4e3d1" / admin
+24/09/2026 – 00:19:02 / "MongoDB: consultar itinerario 6ab4a590012882757ee4e3d2" / admin
+24/09/2026 – 00:19:09 / "MongoDB: actualizar itinerario 6ab4a590012882757ee4e3d2" / admin
+24/09/2026 – 00:19:09 / "MongoDB: guardar imagen del itinerario 6ab4a590012882757ee4e3d2" / admin
+24/09/2026 – 00:19:09 / "MongoDB: consultar itinerarios" / admin
+24/09/2026 – 00:19:17 / "MongoDB: consultar itinerario 6ab4a590012882757ee4e3d3" / admin
+24/09/2026 – 00:19:27 / "MongoDB: actualizar itinerario 6ab4a590012882757ee4e3d3" / admin
+24/09/2026 – 00:19:27 / "MongoDB: guardar imagen del itinerario 6ab4a590012882757ee4e3d3" / admin
+24/09/2026 – 00:19:27 / "MongoDB: consultar itinerarios" / admin
+24/09/2026 – 00:19:29 / "MongoDB: consultar itinerario 6ab4a590012882757ee4e3d3" / admin
+24/09/2026 – 00:20:36 / "Consultar operadores" / admin
+24/09/2026 – 00:20:36 / "Consultar excursiones" / admin

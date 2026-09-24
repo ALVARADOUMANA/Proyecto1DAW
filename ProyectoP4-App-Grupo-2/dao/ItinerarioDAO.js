@@ -67,19 +67,10 @@ class ItinerarioDAO {
         });
 
 
-        // ==========================
-        // base64 de la vista -> binario
-        // ==========================
+        // El afiche no viene en el JSON: se sube aparte
+        // como bytes crudos.
 
-        if (typeof documento.afiche === "string" &&
-            documento.afiche !== "") {
-
-            documento.afiche = Buffer.from(
-                documento.afiche,
-                "base64"
-            );
-
-        }
+        documento.afiche = null;
 
 
         return documento;
@@ -87,30 +78,78 @@ class ItinerarioDAO {
 
 
     // ==========================
-    // SERIALIZAR
+    // GUARDAR LA IMAGEN
     // ==========================
 
-    serializar(documento) {
+    async guardarImagen(id, bytes) {
 
-        if (!documento || !documento.afiche) {
+        const db =
+            await conectarMongoDB();
 
-            return documento;
 
+        const resultado =
+            await db
+                .collection(COLECCION)
+                .updateOne(
+
+                    {
+                        _id:
+                            new ObjectId(id)
+                    },
+
+                    {
+                        $set: { afiche: bytes }
+                    }
+
+                );
+
+
+        if (resultado.matchedCount === 0) {
+
+            return null;
         }
 
 
-        // ==========================
-        // binario -> base64 para la vista
-        // ==========================
-
-        const binario = documento.afiche;
-
-        documento.afiche = Buffer.isBuffer(binario)
-            ? binario.toString("base64")
-            : Buffer.from(binario.buffer).toString("base64");
+        return { bytes: bytes.length };
+    }
 
 
-        return documento;
+    // ==========================
+    // OBTENER LA IMAGEN
+    // ==========================
+
+    async obtenerImagen(id) {
+
+        const db =
+            await conectarMongoDB();
+
+
+        const documento =
+            await db
+                .collection(COLECCION)
+                .findOne(
+
+                    {
+                        _id:
+                            new ObjectId(id)
+                    },
+
+                    {
+                        projection: { afiche: 1 }
+                    }
+
+                );
+
+
+        if (!documento || !documento.afiche) {
+
+            return null;
+        }
+
+
+        return documento.afiche.buffer
+            ? Buffer.from(documento.afiche.buffer)
+            : documento.afiche;
     }
 
 
@@ -131,13 +170,13 @@ class ItinerarioDAO {
                 .collection(COLECCION)
                 .insertOne(documento);
 
-        return this.serializar({
+        return {
 
             _id: resultado.insertedId,
 
             ...documento
 
-        });
+        };
     }
 
 
@@ -186,7 +225,7 @@ class ItinerarioDAO {
             });
 
 
-        return this.serializar(documento);
+        return documento;
     }
 
 

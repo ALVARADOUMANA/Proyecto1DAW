@@ -40,41 +40,75 @@ function valorTexto(dato) {
 
 }
 
-function leerImagen(idInput) {
+/*=========================================
+    Imagen en binario
 
-    return new Promise((resolve) => {
+    El archivo se manda tal cual con
+    express.raw del otro lado. No se
+    convierte a texto en ningun momento.
+=========================================*/
 
-        const input = document.getElementById(idInput);
+function archivoEscogido() {
 
-        if (!input.files || input.files.length === 0) {
+    const input = document.getElementById("imagen");
 
-            resolve(null);
+    if (!input.files || input.files.length === 0) {
 
-            return;
+        return null;
 
-        }
+    }
 
-        const lector = new FileReader();
-
-        lector.onload = function () {
-
-            resolve(lector.result.split(",")[1]);
-
-        };
-
-        lector.readAsDataURL(input.files[0]);
-
-    });
+    return input.files[0];
 
 }
 
-function verMiniatura(base64) {
+async function subirImagen(id) {
+
+    const archivo = archivoEscogido();
+
+    if (!archivo) {
+
+        return;
+
+    }
+
+    const respuesta = await fetch(
+
+        API + "/" + id + "/imagen?usuario=" + obtenerUsuario(),
+
+        {
+
+            method: "PUT",
+
+            headers: {
+                "Content-Type": archivo.type
+            },
+
+            body: archivo
+
+        }
+
+    );
+
+    const datos = await respuesta.json();
+
+    if (!respuesta.ok) {
+
+        throw new Error(datos.mensaje);
+
+    }
+
+    return datos.bytes;
+
+}
+
+function verMiniatura(id) {
 
     const img = document.getElementById("imagen_vista");
 
-    if (base64) {
+    if (id) {
 
-        img.src = "data:image/*;base64," + base64;
+        img.src = API + "/" + id + "/imagen?t=" + Date.now();
 
     } else {
 
@@ -88,7 +122,7 @@ function verMiniatura(base64) {
     Formulario
 =========================================*/
 
-async function obtenerDatos() {
+function obtenerDatos() {
 
     return {
         codigo: document.getElementById("codigo").value,
@@ -105,7 +139,6 @@ async function obtenerDatos() {
         moneda: document.getElementById("moneda").value,
         horario: document.getElementById("horario").value,
         calificacion: Number(document.getElementById("calificacion").value),
-        imagen: await leerImagen("imagen"),
         usuario: obtenerUsuario()
     };
 
@@ -141,7 +174,7 @@ function llenarFormulario(sitio) {
 
     document.getElementById("calificacion").value = valorTexto(sitio.calificacion);
 
-    verMiniatura(sitio.imagen);
+    verMiniatura(obtenerId());
 
 }
 
@@ -193,7 +226,7 @@ async function crear() {
 
     try {
 
-        const sitio = await obtenerDatos();
+        const sitio = obtenerDatos();
 
         const respuesta = await fetch(API, {
 
@@ -215,7 +248,12 @@ async function crear() {
 
         }
 
-        mostrarMensaje(datos.mensaje);
+        const bytes = await subirImagen(datos.sitio._id);
+
+        mostrarMensaje(
+            datos.mensaje +
+            (bytes ? " - imagen de " + bytes + " bytes" : "")
+        );
 
         await mostrarTodos();
 
@@ -293,7 +331,7 @@ async function actualizar() {
 
     try {
 
-        const sitio = await obtenerDatos();
+        const sitio = obtenerDatos();
 
         const respuesta = await fetch(API + "/" + id, {
 
@@ -314,6 +352,8 @@ async function actualizar() {
             throw new Error(datos.mensaje);
 
         }
+
+        await subirImagen(id);
 
         mostrarMensaje(datos.mensaje);
 
