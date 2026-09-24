@@ -36,7 +36,7 @@ Con Compass es **ADD DATA → Import JSON** con cada archivo.
 ```
 cd ProyectoP4-App-Grupo-2
 npm install
-npm start
+npm run dev
 ```
 
 Abrir **http://localhost:3000**
