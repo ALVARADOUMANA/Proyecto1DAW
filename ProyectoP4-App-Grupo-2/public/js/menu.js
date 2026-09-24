@@ -99,12 +99,10 @@ function salirDelMenu() {
 =========================================*/
 
 if (!localStorage.getItem("usuario")) {
-
     window.location.href = "/";
+} else {
+    dibujarMenu();
 
+    document.getElementById("btnSalirMenu")
+        .addEventListener("click", salirDelMenu);
 }
-
-dibujarMenu();
-
-document.getElementById("btnSalirMenu")
-    .addEventListener("click", salirDelMenu);

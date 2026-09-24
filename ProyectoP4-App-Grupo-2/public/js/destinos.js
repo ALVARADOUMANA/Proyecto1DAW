@@ -447,7 +447,7 @@ async function cargarDestinos() {
                 "<td>" + valorTexto(fila.costo_entrada) + "</td>" +
                 "<td>" + valorTexto(fila.horario) + "</td>" +
                 "<td>" + (fila.requiere_guia ? "Si" : "No") + "</td>" +
-                celdaImagen("/api/regiones", fila.id_region) +
+                celdaImagen("/api/destinos", fila.id_destino) +
                 "<td>" +
                 "<button class=\"btn-editar\" onclick=\"editarDestino(" + fila.id_destino + ")\">Editar</button>" +
                 "<button class=\"btn-eliminar\" onclick=\"eliminarDestino(" + fila.id_destino + ")\">Eliminar</button>" +

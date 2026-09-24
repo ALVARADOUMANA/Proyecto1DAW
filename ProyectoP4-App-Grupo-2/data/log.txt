@@ -31,3 +31,56 @@
 24/09/2026 – 00:19:29 / "MongoDB: consultar itinerario 6ab4a590012882757ee4e3d3" / admin
 24/09/2026 – 00:20:36 / "Consultar operadores" / admin
 24/09/2026 – 00:20:36 / "Consultar excursiones" / admin
+24/09/2026 – 09:21:12 / "Autenticacion fallida" / admin
+24/09/2026 – 09:21:14 / "Autenticacion fallida" / admin
+24/09/2026 – 09:21:59 / "Consultar lugar destinos - no encontrado" / desconocido
+24/09/2026 – 09:22:07 / "Consultar lugares" / desconocido
+24/09/2026 – 09:54:05 / "Autenticacion correcta" / admin
+24/09/2026 – 09:54:05 / "Consultar lugares" / admin
+24/09/2026 – 09:54:17 / "MongoDB: consultar sitios" / admin
+24/09/2026 – 09:54:45 / "MongoDB: consultar sitios" / admin
+24/09/2026 – 09:54:46 / "MongoDB: consultar sitios" / admin
+24/09/2026 – 09:54:46 / "MongoDB: consultar sitios" / admin
+24/09/2026 – 10:02:33 / "MongoDB: consultar sitio 6ab5472e299f213b94d19469" / admin
+24/09/2026 – 10:03:30 / "MongoDB: consultar sitio 6ab5472e299f213b94d1948c" / admin
+24/09/2026 – 10:03:31 / "MongoDB: consultar sitio 6ab5472e299f213b94d1948c" / admin
+24/09/2026 – 10:04:42 / "MongoDB: actualizar sitio 6ab5472e299f213b94d1948c" / admin
+24/09/2026 – 10:04:46 / "MongoDB: actualizar sitio 6ab5472e299f213b94d1948c" / admin
+24/09/2026 – 10:04:47 / "MongoDB: actualizar sitio 6ab5472e299f213b94d1948c" / admin
+24/09/2026 – 10:04:52 / "MongoDB: consultar sitio 6ab5472e299f213b94d1948c" / admin
+24/09/2026 – 10:05:08 / "MongoDB: consultar sitio 6ab5472e299f213b94d1948c" / admin
+24/09/2026 – 10:05:20 / "MongoDB: actualizar sitio 6ab5472e299f213b94d1948c" / admin
+24/09/2026 – 10:09:45 / "MongoDB: consultar sitios" / admin
+24/09/2026 – 10:09:50 / "MongoDB: consultar sitios" / admin
+24/09/2026 – 10:10:07 / "MongoDB: consultar sitio 6ab5472e299f213b94d1948c" / admin
+24/09/2026 – 10:10:17 / "MongoDB: actualizar sitio 6ab5472e299f213b94d1948c" / admin
+24/09/2026 – 10:10:17 / "MongoDB: guardar imagen del sitio 6ab5472e299f213b94d1948c" / admin
+24/09/2026 – 10:10:17 / "MongoDB: consultar sitios" / admin
+24/09/2026 – 10:10:25 / "MongoDB: actualizar sitio 6ab5472e299f213b94d1948c" / admin
+24/09/2026 – 10:10:25 / "MongoDB: guardar imagen del sitio 6ab5472e299f213b94d1948c" / admin
+24/09/2026 – 10:10:25 / "MongoDB: consultar sitios" / admin
+24/09/2026 – 10:10:37 / "MongoDB: consultar sitio 6ab5472e299f213b94d1948c" / admin
+24/09/2026 – 10:10:54 / "MongoDB: consultar sitio 6ab5472e299f213b94d19469" / admin
+24/09/2026 – 12:10:28 / "MongoDB: consultar itinerarios" / admin
+24/09/2026 – 12:11:10 / "MongoDB: consultar itinerario 6ab54742299f213b94d194a5" / admin
+24/09/2026 – 12:13:03 / "MongoDB: actualizar itinerario 6ab54742299f213b94d194a5" / admin
+24/09/2026 – 12:13:03 / "MongoDB: guardar imagen del itinerario 6ab54742299f213b94d194a5" / admin
+24/09/2026 – 12:13:03 / "MongoDB: consultar itinerarios" / admin
+24/09/2026 – 12:13:19 / "MongoDB: consultar itinerario 6ab54742299f213b94d194a5" / admin
+24/09/2026 – 12:14:31 / "MongoDB: consultar itinerarios" / admin
+24/09/2026 – 12:14:40 / "MongoDB: consultar sitios" / admin
+24/09/2026 – 12:14:43 / "Consultar operadores" / admin
+24/09/2026 – 12:14:43 / "Consultar excursiones" / admin
+24/09/2026 – 12:16:11 / "Actualizar excursion 1" / admin
+24/09/2026 – 12:16:11 / "Guardar imagen en excursiones 1" / admin
+24/09/2026 – 12:16:11 / "Consultar excursiones" / admin
+24/09/2026 – 12:16:54 / "Actualizar excursion 2" / admin
+24/09/2026 – 12:16:54 / "Guardar imagen en excursiones 2" / admin
+24/09/2026 – 12:16:54 / "Consultar excursiones" / admin
+24/09/2026 – 12:17:16 / "Consultar regiones" / admin
+24/09/2026 – 12:17:16 / "Consultar destinos" / admin
+24/09/2026 – 12:17:34 / "Consultar tours" / admin
+24/09/2026 – 12:17:51 / "Consultar lugares" / admin
+24/09/2026 – 13:17:48 / "Consultar lugares" / admin
+24/09/2026 – 13:17:50 / "Cierre de sesion" / admin
+24/09/2026 – 14:42:32 / "Consultar lugares" / desconocido
