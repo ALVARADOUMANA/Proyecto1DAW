@@ -84,3 +84,80 @@
 24/09/2026 – 13:17:48 / "Consultar lugares" / admin
 24/09/2026 – 13:17:50 / "Cierre de sesion" / admin
 24/09/2026 – 14:42:32 / "Consultar lugares" / desconocido
+24/09/2026 – 15:53:32 / "Autenticacion correcta" / guia
+24/09/2026 – 15:53:32 / "Consultar lugares" / guia
+24/09/2026 – 15:53:36 / "Consultar tours" / guia
+24/09/2026 – 15:53:37 / "Consultar regiones" / guia
+24/09/2026 – 15:53:37 / "Consultar destinos" / guia
+24/09/2026 – 15:53:38 / "Consultar operadores" / guia
+24/09/2026 – 15:53:38 / "Consultar excursiones" / guia
+24/09/2026 – 15:53:39 / "MongoDB: consultar sitios" / guia
+24/09/2026 – 15:53:40 / "MongoDB: consultar itinerarios" / guia
+24/09/2026 – 15:58:52 / "MongoDB: consultar sitios" / guia
+24/09/2026 – 15:58:56 / "MongoDB: consultar itinerarios" / guia
+24/09/2026 – 15:59:08 / "MongoDB: consultar itinerario 6ab54742299f213b94d194a5" / guia
+24/09/2026 – 15:59:16 / "MongoDB: consultar sitios" / guia
+24/09/2026 – 15:59:24 / "MongoDB: consultar sitio 6ab5472e299f213b94d19469" / guia
+24/09/2026 – 16:04:49 / "Consultar lugares" / guia
+24/09/2026 – 16:04:51 / "Consultar lugares" / guia
+24/09/2026 – 16:04:51 / "Consultar tours" / guia
+24/09/2026 – 16:05:11 / "Consultar lugares" / guia
+24/09/2026 – 16:05:16 / "Consultar tours" / guia
+24/09/2026 – 16:05:18 / "Consultar regiones" / guia
+24/09/2026 – 16:05:18 / "Consultar destinos" / guia
+24/09/2026 – 16:05:19 / "Consultar operadores" / guia
+24/09/2026 – 16:05:19 / "Consultar excursiones" / guia
+24/09/2026 – 16:05:20 / "MongoDB: consultar sitios" / guia
+24/09/2026 – 16:05:24 / "MongoDB: consultar itinerarios" / guia
+24/09/2026 – 16:05:58 / "MongoDB: consultar itinerario 6ab54742299f213b94d194a5" / guia
+24/09/2026 – 16:06:00 / "MongoDB: consultar sitios" / guia
+24/09/2026 – 16:06:07 / "MongoDB: consultar sitio 6ab5472e299f213b94d19469" / guia
+24/09/2026 – 16:06:25 / "MongoDB: actualizar sitio 6ab5472e299f213b94d19469" / guia
+24/09/2026 – 16:06:25 / "MongoDB: guardar imagen del sitio 6ab5472e299f213b94d19469" / guia
+24/09/2026 – 16:06:25 / "MongoDB: consultar sitios" / guia
+24/09/2026 – 16:06:34 / "MongoDB: consultar sitio 6ab5472e299f213b94d19469" / guia
+24/09/2026 – 16:06:36 / "Consultar operadores" / guia
+24/09/2026 – 16:06:37 / "Consultar excursiones" / guia
+24/09/2026 – 16:08:48 / "Actualizar operador 1" / guia
+24/09/2026 – 16:08:48 / "Guardar imagen en operadores 1" / guia
+24/09/2026 – 16:08:48 / "Consultar operadores" / guia
+24/09/2026 – 16:08:48 / "Consultar excursiones" / guia
+24/09/2026 – 16:09:39 / "Actualizar operador 2" / guia
+24/09/2026 – 16:09:39 / "Guardar imagen en operadores 2" / guia
+24/09/2026 – 16:09:39 / "Consultar operadores" / guia
+24/09/2026 – 16:09:39 / "Consultar excursiones" / guia
+24/09/2026 – 16:10:15 / "Actualizar operador 3" / guia
+24/09/2026 – 16:10:15 / "Guardar imagen en operadores 3" / guia
+24/09/2026 – 16:10:15 / "Consultar operadores" / guia
+24/09/2026 – 16:10:15 / "Consultar excursiones" / guia
+24/09/2026 – 16:10:46 / "Consultar regiones" / guia
+24/09/2026 – 16:10:46 / "Consultar destinos" / guia
+24/09/2026 – 16:10:55 / "Consultar tours" / guia
+24/09/2026 – 16:10:56 / "Consultar lugares" / guia
+24/09/2026 – 16:10:59 / "Consultar regiones" / guia
+24/09/2026 – 16:10:59 / "Consultar destinos" / guia
+24/09/2026 – 16:10:59 / "Consultar operadores" / guia
+24/09/2026 – 16:10:59 / "Consultar excursiones" / guia
+24/09/2026 – 16:10:59 / "MongoDB: consultar sitios" / guia
+24/09/2026 – 16:11:00 / "MongoDB: consultar itinerarios" / guia
+24/09/2026 – 16:11:01 / "Consultar lugares" / guia
+24/09/2026 – 16:11:43 / "MongoDB: consultar itinerarios" / guia
+24/09/2026 – 16:11:49 / "Consultar lugares" / guia
+24/09/2026 – 16:16:29 / "Consultar tours" / guia
+24/09/2026 – 16:16:38 / "Consultar lugares" / guia
+24/09/2026 – 16:20:54 / "Consultar regiones" / guia
+24/09/2026 – 16:20:54 / "Consultar destinos" / guia
+24/09/2026 – 16:22:48 / "Consultar regiones" / guia
+24/09/2026 – 16:22:48 / "Consultar destinos" / guia
+24/09/2026 – 16:23:38 / "Consultar regiones" / guia
+24/09/2026 – 16:23:38 / "Consultar destinos" / guia
+24/09/2026 – 16:23:38 / "Consultar operadores" / guia
+24/09/2026 – 16:23:38 / "Consultar excursiones" / guia
+24/09/2026 – 16:23:39 / "Consultar regiones" / guia
+24/09/2026 – 16:23:39 / "Consultar destinos" / guia
+24/09/2026 – 16:23:40 / "MongoDB: consultar sitios" / guia
+24/09/2026 – 16:23:41 / "MongoDB: consultar itinerarios" / guia
+24/09/2026 – 16:23:44 / "Consultar regiones" / guia
+24/09/2026 – 16:23:44 / "Consultar destinos" / guia
+24/09/2026 – 16:24:40 / "Consultar regiones" / guia
+24/09/2026 – 16:24:40 / "Consultar destinos" / guia
