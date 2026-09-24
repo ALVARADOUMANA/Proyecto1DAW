@@ -19,7 +19,7 @@ function listar() {
 }
 
 /*=========================================
-  Buscar por codigo
+  Buscar por código
 =========================================*/
 
 function buscarPorCodigo(codigo) {

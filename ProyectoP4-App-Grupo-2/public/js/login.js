@@ -88,7 +88,7 @@ async function autenticar(evento) {
             mensaje.style.color = "green";
 
             mensaje.innerHTML =
-                "Autenticacion correcta...";
+                "Autenticación correcta...";
 
             setTimeout(() => {
 

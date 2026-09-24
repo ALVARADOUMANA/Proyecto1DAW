@@ -14,9 +14,8 @@ const obtenerExcursiones = async (req, res) => {
     try {
 
         /*=========================================
-          CARGA EAGER
-          El INNER JOIN trae el excursione junto con su
-          operador en una sola consulta.
+          CARGA EAGER: INNER JOIN con operadores
+          en una sola consulta.
         =========================================*/
 
         const resultado = await pool.query(
@@ -84,7 +83,7 @@ const crearExcursion = async (req, res) => {
         );
 
         res.status(500).json({
-            mensaje: "Error al crear el excursion"
+            mensaje: "Error al crear la excursión"
         });
 
     }
@@ -117,7 +116,7 @@ const actualizarExcursion = async (req, res) => {
         if (resultado.rows.length === 0) {
 
             return res.status(404).json({
-                mensaje: "Excursion no encontrado"
+                mensaje: "Excursión no encontrada"
             });
 
         }
@@ -139,7 +138,7 @@ const actualizarExcursion = async (req, res) => {
         );
 
         res.status(500).json({
-            mensaje: "Error al actualizar el excursion"
+            mensaje: "Error al actualizar la excursión"
         });
 
     }
@@ -161,7 +160,7 @@ const eliminarExcursion = async (req, res) => {
         if (resultado.rows.length === 0) {
 
             return res.status(404).json({
-                mensaje: "Excursion no encontrado"
+                mensaje: "Excursión no encontrada"
             });
 
         }
@@ -172,7 +171,7 @@ const eliminarExcursion = async (req, res) => {
         );
 
         res.json({
-            mensaje: "Excursion eliminado correctamente"
+            mensaje: "Excursión eliminada correctamente"
         });
 
     } catch (error) {
@@ -185,7 +184,7 @@ const eliminarExcursion = async (req, res) => {
         );
 
         res.status(500).json({
-            mensaje: "Error al eliminar el excursion"
+            mensaje: "Error al eliminar la excursión"
         });
 
     }

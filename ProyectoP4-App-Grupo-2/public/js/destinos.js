@@ -248,7 +248,7 @@ document.getElementById("form_reg")
 
             }
 
-            mostrarMensaje("Region guardado correctamente");
+            mostrarMensaje("Región guardada correctamente");
 
             limpiarRegion();
 
@@ -294,13 +294,13 @@ function editarRegion(id) {
 
     verMiniatura("reg_imagen_vista", fila.imagen);
 
-    mostrarMensaje("Editando region " + id);
+    mostrarMensaje("Editando región " + id);
 
 }
 
 async function eliminarRegion(id) {
 
-    if (!confirm("Desea eliminar este registro?")) {
+    if (!confirm("¿Desea eliminar este registro?")) {
 
         return;
 
@@ -545,7 +545,7 @@ function editarDestino(id) {
 
 async function eliminarDestino(id) {
 
-    if (!confirm("Desea eliminar este registro?")) {
+    if (!confirm("¿Desea eliminar este registro?")) {
 
         return;
 

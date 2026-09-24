@@ -30,7 +30,7 @@ app.use(express.urlencoded({
 
 /*
 =================================
-Archivos publicos
+Archivos públicos
 =================================
 */
 
@@ -139,7 +139,7 @@ app.get("/itinerarios/pagina", (req, res) => {
 
 /*
 =================================
-Pagina inexistente
+Página inexistente
 =================================
 */
 

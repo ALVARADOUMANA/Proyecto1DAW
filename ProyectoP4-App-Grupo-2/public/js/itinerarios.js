@@ -399,7 +399,7 @@ async function eliminar(idExterno) {
 
     }
 
-    if (!confirm("Desea eliminar este documento?")) {
+    if (!confirm("¿Desea eliminar este documento?")) {
 
         return;
 

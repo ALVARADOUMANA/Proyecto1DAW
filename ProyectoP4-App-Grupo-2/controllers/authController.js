@@ -1,6 +1,6 @@
 /**
  * ==========================================
- * Controlador de Autenticacion
+ * Controlador de Autenticación
  * ==========================================
  */
 
@@ -71,7 +71,7 @@ function iniciarSesion(req, res) {
 }
 
 /*=========================================
-  Cerrar sesion
+  Cerrar sesión
 =========================================*/
 
 function cerrarSesion(req, res) {

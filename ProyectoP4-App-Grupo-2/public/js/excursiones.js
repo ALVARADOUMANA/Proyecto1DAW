@@ -300,7 +300,7 @@ function editarOperador(id) {
 
 async function eliminarOperador(id) {
 
-    if (!confirm("Desea eliminar este registro?")) {
+    if (!confirm("¿Desea eliminar este registro?")) {
 
         return;
 
@@ -493,7 +493,7 @@ document.getElementById("form_exc")
 
             }
 
-            mostrarMensaje("Excursion guardado correctamente");
+            mostrarMensaje("Excursión guardada correctamente");
 
             limpiarExcursion();
 
@@ -540,13 +540,13 @@ function editarExcursion(id) {
 
     verMiniatura("exc_afiche_vista", fila.afiche);
 
-    mostrarMensaje("Editando excursion " + id);
+    mostrarMensaje("Editando excursión " + id);
 
 }
 
 async function eliminarExcursion(id) {
 
-    if (!confirm("Desea eliminar este registro?")) {
+    if (!confirm("¿Desea eliminar este registro?")) {
 
         return;
 

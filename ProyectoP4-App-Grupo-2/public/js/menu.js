@@ -1,6 +1,6 @@
 /*
 ==========================================
-Menu lateral
+Menú lateral
 ==========================================
 */
 
@@ -33,7 +33,7 @@ const OPCIONES = [
 ];
 
 /*=========================================
-    Dibujar el menu
+    Dibujar el menú
 =========================================*/
 
 function dibujarMenu() {
@@ -78,7 +78,7 @@ function dibujarMenu() {
 }
 
 /*=========================================
-    Cerrar sesion
+    Cerrar sesión
 =========================================*/
 
 function salirDelMenu() {
@@ -94,7 +94,7 @@ function salirDelMenu() {
 }
 
 /*=========================================
-    Sin autenticacion no se muestra el menu:
+    Sin autenticación no se muestra el menú:
     se regresa a la pantalla de login
 =========================================*/
 

@@ -14,7 +14,7 @@ const TourController =
 const path = require("path");
 
 /*=========================================
-  Mostrar pagina CRUD
+  Mostrar página CRUD
 =========================================*/
 
 router.get(

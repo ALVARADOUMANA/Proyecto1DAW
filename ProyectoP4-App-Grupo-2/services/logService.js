@@ -1,6 +1,6 @@
 /**
  * ==========================================
- * Servicio de la Bitacora
+ * Servicio de la Bitácora
  * ==========================================
  */
 
@@ -39,7 +39,7 @@ function obtenerFechaHora() {
 }
 
 /*=========================================
-  Registrar una accion
+  Registrar una acción
 =========================================*/
 
 function registrar(accion, usuario) {
@@ -57,7 +57,7 @@ function registrar(accion, usuario) {
 }
 
 /*=========================================
-  Listar la bitacora
+  Listar la bitácora
 =========================================*/
 
 function listar() {

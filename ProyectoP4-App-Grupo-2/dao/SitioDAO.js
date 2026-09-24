@@ -10,8 +10,7 @@ const conectarMongoDB =
 const { ObjectId } =
     require("mongodb");
 
-// Los dos tipos de documento viven en la misma coleccion.
-// Solo este tipo tiene el campo "latitud".
+// Ambos tipos comparten la coleccion. Solo este tiene "latitud".
 
 const COLECCION = "CollMongoDB";
 
@@ -57,6 +56,50 @@ class SitioDAO {
 
         });
 
+
+        // ==========================
+        // base64 de la vista -> binario
+        // ==========================
+
+        if (typeof documento.imagen === "string" &&
+            documento.imagen !== "") {
+
+            documento.imagen = Buffer.from(
+                documento.imagen,
+                "base64"
+            );
+
+        }
+
+
+        return documento;
+    }
+
+
+    // ==========================
+    // SERIALIZAR
+    // ==========================
+
+    serializar(documento) {
+
+        if (!documento || !documento.imagen) {
+
+            return documento;
+
+        }
+
+
+        // ==========================
+        // binario -> base64 para la vista
+        // ==========================
+
+        const binario = documento.imagen;
+
+        documento.imagen = Buffer.isBuffer(binario)
+            ? binario.toString("base64")
+            : Buffer.from(binario.buffer).toString("base64");
+
+
         return documento;
     }
 
@@ -78,13 +121,13 @@ class SitioDAO {
                 .collection(COLECCION)
                 .insertOne(documento);
 
-        return {
+        return this.serializar({
 
             _id: resultado.insertedId,
 
             ...documento
 
-        };
+        });
     }
 
 
@@ -99,9 +142,8 @@ class SitioDAO {
 
 
         /*=========================================
-          CARGA LAZY
-          El listado NO trae el campo "imagen".
-          Se carga solo en "obtenerPorId".
+          CARGA LAZY: el listado excluye "imagen".
+          Se carga en "obtenerPorId".
         =========================================*/
 
 
@@ -127,11 +169,14 @@ class SitioDAO {
             await conectarMongoDB();
 
 
-        return await db
+        const documento = await db
             .collection(COLECCION)
             .findOne({
                 _id: new ObjectId(id)
             });
+
+
+        return this.serializar(documento);
     }
 
 
@@ -148,7 +193,7 @@ class SitioDAO {
             this.construirDocumento(sitio);
 
 
-        // Si no viene una imagen nueva se conserva la que ya tiene.
+        // sin imagen nueva se conserva la actual
 
         if (datos.imagen === null ||
             datos.imagen === undefined) {

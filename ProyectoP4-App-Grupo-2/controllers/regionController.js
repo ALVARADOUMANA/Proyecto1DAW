@@ -77,7 +77,7 @@ const crearRegion = async (req, res) => {
         );
 
         res.status(500).json({
-            mensaje: "Error al crear el region"
+            mensaje: "Error al crear la región"
         });
 
     }
@@ -109,7 +109,7 @@ const actualizarRegion = async (req, res) => {
         if (resultado.rows.length === 0) {
 
             return res.status(404).json({
-                mensaje: "Region no encontrado"
+                mensaje: "Región no encontrada"
             });
 
         }
@@ -131,7 +131,7 @@ const actualizarRegion = async (req, res) => {
         );
 
         res.status(500).json({
-            mensaje: "Error al actualizar el region"
+            mensaje: "Error al actualizar la región"
         });
 
     }
@@ -153,7 +153,7 @@ const eliminarRegion = async (req, res) => {
         if (resultado.rows.length === 0) {
 
             return res.status(404).json({
-                mensaje: "Region no encontrado"
+                mensaje: "Región no encontrada"
             });
 
         }
@@ -164,7 +164,7 @@ const eliminarRegion = async (req, res) => {
         );
 
         res.json({
-            mensaje: "Region eliminado correctamente"
+            mensaje: "Región eliminada correctamente"
         });
 
     } catch (error) {
@@ -177,7 +177,7 @@ const eliminarRegion = async (req, res) => {
         );
 
         res.status(500).json({
-            mensaje: "Error al eliminar el region"
+            mensaje: "Error al eliminar la región"
         });
 
     }

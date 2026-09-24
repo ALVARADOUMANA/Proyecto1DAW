@@ -8,7 +8,7 @@ const fs = require("fs");
 const path = require("path");
 
 /*=========================================
-  Ubicacion del archivo usuarios.txt
+  Ubicación del archivo usuarios.txt
 =========================================*/
 
 const archivo = path.join(

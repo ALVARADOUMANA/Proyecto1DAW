@@ -17,7 +17,7 @@ function listar() {
 }
 
 /*=========================================
-  Buscar por codigo
+  Buscar por código
 =========================================*/
 
 function buscarPorCodigo(codigo) {
@@ -43,7 +43,7 @@ function guardar(lugar) {
 
     if (isNaN(lugar.calificacion)) {
 
-        throw new Error("La calificacion debe ser numerico.");
+        throw new Error("La calificacion debe ser numerica.");
 
     }
 
@@ -91,7 +91,7 @@ function modificar(lugar) {
     if (isNaN(lugar.calificacion)) {
 
         throw new Error(
-            "La calificacion debe ser numerico."
+            "La calificacion debe ser numerica."
         );
 
     }

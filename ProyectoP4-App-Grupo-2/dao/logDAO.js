@@ -1,13 +1,13 @@
 /**
  * ==========================================
- * DAO de la Bitacora
+ * DAO de la Bitácora
  * ==========================================
  */
 
 const fs = require("fs");
 const path = require("path");
 
-// Ruta del archivo de la bitacora
+// Ruta del archivo de la bitácora
 // Se abre en modo "a" para que acumule y no se sobreescriba.
 
 const ARCHIVO = path.join(
@@ -37,7 +37,7 @@ function inicializarArchivo() {
 }
 
 /*=========================================
-  Agregar una linea a la bitacora
+  Agregar una línea a la bitácora
 =========================================*/
 
 function escribirLinea(linea) {
@@ -57,7 +57,7 @@ function escribirLinea(linea) {
 }
 
 /*=========================================
-  Leer la bitacora completa
+  Leer la bitácora completa
 =========================================*/
 
 function leerArchivo() {

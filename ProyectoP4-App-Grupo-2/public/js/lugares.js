@@ -147,7 +147,7 @@ async function eliminar() {
 
     if (codigo === "") {
 
-        mostrarMensaje("Digite el codigo.");
+        mostrarMensaje("Digite el código.");
 
         return;
 

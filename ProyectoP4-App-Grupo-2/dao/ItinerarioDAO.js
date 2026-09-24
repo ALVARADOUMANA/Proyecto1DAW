@@ -10,8 +10,7 @@ const conectarMongoDB =
 const { ObjectId } =
     require("mongodb");
 
-// Los dos tipos de documento viven en la misma coleccion.
-// Solo este tipo tiene el campo "duracion_dias".
+// Ambos tipos comparten la coleccion. Solo este tiene "duracion_dias".
 
 const COLECCION = "CollMongoDB";
 
@@ -67,6 +66,50 @@ class ItinerarioDAO {
 
         });
 
+
+        // ==========================
+        // base64 de la vista -> binario
+        // ==========================
+
+        if (typeof documento.afiche === "string" &&
+            documento.afiche !== "") {
+
+            documento.afiche = Buffer.from(
+                documento.afiche,
+                "base64"
+            );
+
+        }
+
+
+        return documento;
+    }
+
+
+    // ==========================
+    // SERIALIZAR
+    // ==========================
+
+    serializar(documento) {
+
+        if (!documento || !documento.afiche) {
+
+            return documento;
+
+        }
+
+
+        // ==========================
+        // binario -> base64 para la vista
+        // ==========================
+
+        const binario = documento.afiche;
+
+        documento.afiche = Buffer.isBuffer(binario)
+            ? binario.toString("base64")
+            : Buffer.from(binario.buffer).toString("base64");
+
+
         return documento;
     }
 
@@ -88,13 +131,13 @@ class ItinerarioDAO {
                 .collection(COLECCION)
                 .insertOne(documento);
 
-        return {
+        return this.serializar({
 
             _id: resultado.insertedId,
 
             ...documento
 
-        };
+        });
     }
 
 
@@ -109,9 +152,8 @@ class ItinerarioDAO {
 
 
         /*=========================================
-          CARGA LAZY
-          El listado NO trae el campo "afiche".
-          Se carga solo en "obtenerPorId".
+          CARGA LAZY: el listado excluye "afiche".
+          Se carga en "obtenerPorId".
         =========================================*/
 
 
@@ -137,11 +179,14 @@ class ItinerarioDAO {
             await conectarMongoDB();
 
 
-        return await db
+        const documento = await db
             .collection(COLECCION)
             .findOne({
                 _id: new ObjectId(id)
             });
+
+
+        return this.serializar(documento);
     }
 
 
@@ -158,7 +203,7 @@ class ItinerarioDAO {
             this.construirDocumento(itinerario);
 
 
-        // Si no viene una imagen nueva se conserva la que ya tiene.
+        // sin imagen nueva se conserva la actual
 
         if (datos.afiche === null ||
             datos.afiche === undefined) {
