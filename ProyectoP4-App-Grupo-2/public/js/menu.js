@@ -86,8 +86,21 @@ function salirDelMenu() {
     const usuario =
         localStorage.getItem("usuario") || "";
 
+    localStorage.removeItem("usuario");
+
     window.location.href =
         "/logout?usuario=" + usuario;
+
+}
+
+/*=========================================
+    Sin autenticacion no se muestra el menu:
+    se regresa a la pantalla de login
+=========================================*/
+
+if (!localStorage.getItem("usuario")) {
+
+    window.location.href = "/";
 
 }
 

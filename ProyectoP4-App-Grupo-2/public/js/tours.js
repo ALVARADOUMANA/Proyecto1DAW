@@ -241,8 +241,12 @@ function limpiar() {
 
 function salir() {
 
+    const usuario = obtenerUsuario();
+
+    localStorage.removeItem("usuario");
+
     window.location.href =
-        "/logout?usuario=" + obtenerUsuario();
+        "/logout?usuario=" + usuario;
 
 }
 

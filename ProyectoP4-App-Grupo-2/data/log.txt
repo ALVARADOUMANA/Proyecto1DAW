@@ -303,3 +303,179 @@
 23/09/2026 – 07:13:20 / "Consultar destinos" / admin
 23/09/2026 – 07:13:26 / "Consultar operadores" / admin
 23/09/2026 – 07:13:26 / "Consultar excursiones" / admin
+23/09/2026 – 20:16:15 / "Autenticacion fallida" / admin
+23/09/2026 – 20:16:16 / "Autenticacion correcta" / admin
+23/09/2026 – 20:16:16 / "Consultar lugares" / admin
+23/09/2026 – 20:16:17 / "Consultar lugares" / admin
+23/09/2026 – 20:16:19 / "Guardar lugar LUG099" / admin
+23/09/2026 – 20:16:19 / "Consultar lugares" / admin
+23/09/2026 – 20:16:20 / "Consultar lugares" / admin
+23/09/2026 – 20:16:21 / "Modificar lugar LUG099" / admin
+23/09/2026 – 20:16:21 / "Consultar lugares" / admin
+23/09/2026 – 20:16:22 / "Eliminar lugar LUG099" / admin
+23/09/2026 – 20:16:22 / "Consultar lugares" / admin
+23/09/2026 – 20:16:25 / "Error al guardar lugar: La calificacion debe estar entre 0 y 100." / admin
+23/09/2026 – 20:16:25 / "Consultar lugares" / admin
+23/09/2026 – 20:16:27 / "Cierre de sesion" / admin
+23/09/2026 – 20:17:12 / "Autenticacion fallida" / admin
+23/09/2026 – 20:17:13 / "Autenticacion correcta" / admin
+23/09/2026 – 20:17:13 / "Consultar lugares" / admin
+23/09/2026 – 20:17:14 / "Consultar lugares" / admin
+23/09/2026 – 20:17:16 / "Guardar lugar LUG099" / admin
+23/09/2026 – 20:17:16 / "Consultar lugares" / admin
+23/09/2026 – 20:17:17 / "Consultar lugares" / admin
+23/09/2026 – 20:17:18 / "Modificar lugar LUG099" / admin
+23/09/2026 – 20:17:18 / "Consultar lugares" / admin
+23/09/2026 – 20:17:19 / "Eliminar lugar LUG099" / admin
+23/09/2026 – 20:17:19 / "Consultar lugares" / admin
+23/09/2026 – 20:17:22 / "Error al guardar lugar: La calificacion debe estar entre 0 y 100." / admin
+23/09/2026 – 20:17:22 / "Consultar lugares" / admin
+23/09/2026 – 20:17:24 / "Cierre de sesion" / admin
+23/09/2026 – 20:17:25 / "Autenticacion correcta" / admin
+23/09/2026 – 20:17:26 / "Consultar lugares" / admin
+23/09/2026 – 20:17:27 / "Consultar tours" / admin
+23/09/2026 – 20:17:29 / "Guardar tour TUR099" / admin
+23/09/2026 – 20:17:29 / "Consultar tours" / admin
+23/09/2026 – 20:17:30 / "Consultar tours" / admin
+23/09/2026 – 20:17:31 / "Modificar tour TUR099" / admin
+23/09/2026 – 20:17:31 / "Consultar tours" / admin
+23/09/2026 – 20:17:33 / "Eliminar tour TUR099" / admin
+23/09/2026 – 20:17:33 / "Consultar tours" / admin
+23/09/2026 – 20:17:35 / "Error al guardar tour: El lugar indicado no existe." / admin
+23/09/2026 – 20:17:35 / "Consultar tours" / admin
+23/09/2026 – 20:17:37 / "Cierre de sesion" / admin
+23/09/2026 – 20:17:39 / "Autenticacion correcta" / admin
+23/09/2026 – 20:17:39 / "Consultar lugares" / admin
+23/09/2026 – 20:17:41 / "Consultar regiones" / admin
+23/09/2026 – 20:17:41 / "Consultar destinos" / admin
+23/09/2026 – 20:17:42 / "Crear region 6" / admin
+23/09/2026 – 20:17:42 / "Consultar regiones" / admin
+23/09/2026 – 20:17:42 / "Consultar destinos" / admin
+23/09/2026 – 20:17:45 / "Actualizar region 6" / admin
+23/09/2026 – 20:17:45 / "Consultar regiones" / admin
+23/09/2026 – 20:17:45 / "Consultar destinos" / admin
+23/09/2026 – 20:17:47 / "Crear destino 15" / admin
+23/09/2026 – 20:17:47 / "Consultar destinos" / admin
+23/09/2026 – 20:17:49 / "Actualizar destino 15" / admin
+23/09/2026 – 20:17:49 / "Consultar destinos" / admin
+23/09/2026 – 20:17:53 / "Eliminar destino 15" / admin
+23/09/2026 – 20:17:53 / "Consultar destinos" / admin
+23/09/2026 – 20:17:54 / "Eliminar region 6" / admin
+23/09/2026 – 20:17:54 / "Consultar regiones" / admin
+23/09/2026 – 20:17:54 / "Consultar destinos" / admin
+23/09/2026 – 20:17:56 / "Consultar operadores" / admin
+23/09/2026 – 20:17:56 / "Consultar excursiones" / admin
+23/09/2026 – 20:17:58 / "Crear operador 6" / admin
+23/09/2026 – 20:17:58 / "Consultar operadores" / admin
+23/09/2026 – 20:17:58 / "Consultar excursiones" / admin
+23/09/2026 – 20:18:00 / "Actualizar operador 6" / admin
+23/09/2026 – 20:18:00 / "Consultar operadores" / admin
+23/09/2026 – 20:18:00 / "Consultar excursiones" / admin
+23/09/2026 – 20:18:02 / "Crear excursion 13" / admin
+23/09/2026 – 20:18:02 / "Consultar excursiones" / admin
+23/09/2026 – 20:18:05 / "Actualizar excursion 13" / admin
+23/09/2026 – 20:18:05 / "Consultar excursiones" / admin
+23/09/2026 – 20:18:08 / "Eliminar excursion 13" / admin
+23/09/2026 – 20:18:08 / "Consultar excursiones" / admin
+23/09/2026 – 20:18:09 / "Eliminar operador 6" / admin
+23/09/2026 – 20:18:09 / "Consultar operadores" / admin
+23/09/2026 – 20:18:09 / "Consultar excursiones" / admin
+23/09/2026 – 20:18:11 / "MongoDB: consultar sitios" / admin
+23/09/2026 – 20:18:12 / "MongoDB: crear sitio SIT099" / admin
+23/09/2026 – 20:18:12 / "MongoDB: consultar sitios" / admin
+23/09/2026 – 20:18:14 / "MongoDB: consultar sitios" / admin
+23/09/2026 – 20:18:16 / "MongoDB: consultar sitio 6ab48864d6e5fe13bf9dd555" / admin
+23/09/2026 – 20:18:17 / "MongoDB: actualizar sitio 6ab48864d6e5fe13bf9dd555" / admin
+23/09/2026 – 20:18:17 / "MongoDB: consultar sitios" / admin
+23/09/2026 – 20:18:19 / "MongoDB: eliminar sitio 6ab48864d6e5fe13bf9dd555" / admin
+23/09/2026 – 20:18:19 / "MongoDB: consultar sitios" / admin
+23/09/2026 – 20:18:21 / "MongoDB: consultar itinerarios" / admin
+23/09/2026 – 20:18:23 / "MongoDB: crear itinerario ITI999" / admin
+23/09/2026 – 20:18:23 / "MongoDB: consultar itinerarios" / admin
+23/09/2026 – 20:18:25 / "MongoDB: consultar itinerarios" / admin
+23/09/2026 – 20:18:26 / "MongoDB: consultar itinerario 6ab4886fd6e5fe13bf9dd556" / admin
+23/09/2026 – 20:18:28 / "MongoDB: actualizar itinerario 6ab4886fd6e5fe13bf9dd556" / admin
+23/09/2026 – 20:18:28 / "MongoDB: consultar itinerarios" / admin
+23/09/2026 – 20:18:30 / "MongoDB: eliminar itinerario 6ab4886fd6e5fe13bf9dd556" / admin
+23/09/2026 – 20:18:30 / "MongoDB: consultar itinerarios" / admin
+23/09/2026 – 20:20:23 / "Autenticacion fallida" / admin
+23/09/2026 – 20:20:24 / "Autenticacion correcta" / admin
+23/09/2026 – 20:20:25 / "Consultar lugares" / admin
+23/09/2026 – 20:20:27 / "Consultar lugares" / admin
+23/09/2026 – 20:20:28 / "Guardar lugar LUG099" / admin
+23/09/2026 – 20:20:28 / "Consultar lugares" / admin
+23/09/2026 – 20:20:29 / "Consultar lugares" / admin
+23/09/2026 – 20:20:31 / "Modificar lugar LUG099" / admin
+23/09/2026 – 20:20:31 / "Consultar lugares" / admin
+23/09/2026 – 20:20:32 / "Eliminar lugar LUG099" / admin
+23/09/2026 – 20:20:32 / "Consultar lugares" / admin
+23/09/2026 – 20:20:34 / "Error al guardar lugar: La calificacion debe estar entre 0 y 100." / admin
+23/09/2026 – 20:20:34 / "Consultar lugares" / admin
+23/09/2026 – 20:20:37 / "Cierre de sesion" / admin
+23/09/2026 – 20:20:40 / "Autenticacion correcta" / admin
+23/09/2026 – 20:20:41 / "Consultar lugares" / admin
+23/09/2026 – 20:20:42 / "Consultar tours" / admin
+23/09/2026 – 20:20:43 / "Guardar tour TUR099" / admin
+23/09/2026 – 20:20:43 / "Consultar tours" / admin
+23/09/2026 – 20:20:44 / "Consultar tours" / admin
+23/09/2026 – 20:20:46 / "Modificar tour TUR099" / admin
+23/09/2026 – 20:20:46 / "Consultar tours" / admin
+23/09/2026 – 20:20:47 / "Eliminar tour TUR099" / admin
+23/09/2026 – 20:20:47 / "Consultar tours" / admin
+23/09/2026 – 20:20:49 / "Error al guardar tour: El lugar indicado no existe." / admin
+23/09/2026 – 20:20:49 / "Consultar tours" / admin
+23/09/2026 – 20:20:51 / "Cierre de sesion" / admin
+23/09/2026 – 20:20:52 / "Autenticacion correcta" / admin
+23/09/2026 – 20:20:53 / "Consultar lugares" / admin
+23/09/2026 – 20:20:55 / "Consultar regiones" / admin
+23/09/2026 – 20:20:55 / "Consultar destinos" / admin
+23/09/2026 – 20:20:57 / "Crear region 7" / admin
+23/09/2026 – 20:20:57 / "Consultar regiones" / admin
+23/09/2026 – 20:20:58 / "Consultar destinos" / admin
+23/09/2026 – 20:21:00 / "Actualizar region 7" / admin
+23/09/2026 – 20:21:00 / "Consultar regiones" / admin
+23/09/2026 – 20:21:00 / "Consultar destinos" / admin
+23/09/2026 – 20:21:02 / "Crear destino 16" / admin
+23/09/2026 – 20:21:02 / "Consultar destinos" / admin
+23/09/2026 – 20:21:05 / "Actualizar destino 16" / admin
+23/09/2026 – 20:21:05 / "Consultar destinos" / admin
+23/09/2026 – 20:21:08 / "Eliminar destino 16" / admin
+23/09/2026 – 20:21:08 / "Consultar destinos" / admin
+23/09/2026 – 20:21:09 / "Eliminar region 7" / admin
+23/09/2026 – 20:21:09 / "Consultar regiones" / admin
+23/09/2026 – 20:21:09 / "Consultar destinos" / admin
+23/09/2026 – 20:21:11 / "Consultar operadores" / admin
+23/09/2026 – 20:21:11 / "Consultar excursiones" / admin
+23/09/2026 – 20:21:12 / "Crear operador 7" / admin
+23/09/2026 – 20:21:12 / "Consultar operadores" / admin
+23/09/2026 – 20:21:12 / "Consultar excursiones" / admin
+23/09/2026 – 20:21:15 / "Actualizar operador 7" / admin
+23/09/2026 – 20:21:15 / "Consultar operadores" / admin
+23/09/2026 – 20:21:15 / "Consultar excursiones" / admin
+23/09/2026 – 20:21:17 / "Crear excursion 14" / admin
+23/09/2026 – 20:21:17 / "Consultar excursiones" / admin
+23/09/2026 – 20:21:20 / "Actualizar excursion 14" / admin
+23/09/2026 – 20:21:20 / "Consultar excursiones" / admin
+23/09/2026 – 20:21:23 / "Eliminar excursion 14" / admin
+23/09/2026 – 20:21:23 / "Consultar excursiones" / admin
+23/09/2026 – 20:21:25 / "Eliminar operador 7" / admin
+23/09/2026 – 20:21:25 / "Consultar operadores" / admin
+23/09/2026 – 20:21:25 / "Consultar excursiones" / admin
+23/09/2026 – 20:21:26 / "MongoDB: consultar sitios" / admin
+23/09/2026 – 20:21:28 / "MongoDB: crear sitio SIT099" / admin
+23/09/2026 – 20:21:28 / "MongoDB: consultar sitios" / admin
+23/09/2026 – 20:21:30 / "MongoDB: consultar sitios" / admin
+23/09/2026 – 20:21:32 / "MongoDB: consultar sitio 6ab48928d6e5fe13bf9dd557" / admin
+23/09/2026 – 20:21:33 / "MongoDB: actualizar sitio 6ab48928d6e5fe13bf9dd557" / admin
+23/09/2026 – 20:21:33 / "MongoDB: consultar sitios" / admin
+23/09/2026 – 20:21:36 / "MongoDB: eliminar sitio 6ab48928d6e5fe13bf9dd557" / admin
+23/09/2026 – 20:21:37 / "MongoDB: consultar sitios" / admin
+23/09/2026 – 20:21:39 / "MongoDB: consultar itinerarios" / admin
+23/09/2026 – 20:21:41 / "MongoDB: crear itinerario ITI999" / admin
+23/09/2026 – 20:21:41 / "MongoDB: consultar itinerarios" / admin
+23/09/2026 – 20:21:43 / "MongoDB: consultar itinerarios" / admin
+23/09/2026 – 20:21:44 / "MongoDB: consultar itinerario 6ab48935d6e5fe13bf9dd558" / admin
+23/09/2026 – 20:21:46 / "MongoDB: actualizar itinerario 6ab48935d6e5fe13bf9dd558" / admin
+23/09/2026 – 20:21:46 / "MongoDB: consultar itinerarios" / admin
+23/09/2026 – 20:21:49 / "MongoDB: eliminar itinerario 6ab48935d6e5fe13bf9dd558" / admin
+23/09/2026 – 20:21:49 / "MongoDB: consultar itinerarios" / admin

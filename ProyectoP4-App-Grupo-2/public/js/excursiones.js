@@ -405,7 +405,7 @@ async function cargarExcursiones() {
                 "<td>" + valorTexto(fila.cupo_maximo) + "</td>" +
                 "<td>" + valorTexto(fila.precio_persona) + "</td>" +
                 "<td>" + (fila.incluye_transporte ? "Si" : "No") + "</td>" +
-                "<td>" + valorTexto(fila.fecha_salida) + "</td>" +
+                "<td>" + (fila.fecha_salida ? String(fila.fecha_salida).substring(0, 10) : "-") + "</td>" +
                 celdaImagen(fila.afiche) +
                 "<td>" +
                 "<button class=\"btn-editar\" onclick=\"editarExcursion(" + fila.id_excursion + ")\">Editar</button>" +
